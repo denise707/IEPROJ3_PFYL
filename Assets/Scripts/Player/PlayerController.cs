@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 5.0f;
-
+    public InventoryObject inventory;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,11 +32,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Interactable"))
+        var item = other.GetComponent<Item>();
+        if (item)
         {
-            Debug.Log($"{collision.gameObject.name} is Hit");
+            inventory.AddItem(item.item, 1);
+            Destroy(other.gameObject);
         }
+    }
+    //Clearing inventory after quitting play
+    private void OnApplicationQuit()
+    {
+        inventory.Container.Clear();
     }
 }
