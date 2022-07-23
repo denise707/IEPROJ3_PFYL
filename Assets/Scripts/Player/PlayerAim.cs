@@ -27,7 +27,7 @@ public class PlayerAim : MonoBehaviour
     {
         Vector3 difference = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
 
-        Debug.Log("Diff:" + difference + " Mouse: " + Input.mousePosition);
+       // Debug.Log("Diff:" + difference + " Mouse: " + Input.mousePosition);
         difference.Normalize();
 
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
@@ -41,11 +41,11 @@ public class PlayerAim : MonoBehaviour
             {
                 transform.localRotation = Quaternion.Euler(180, 0, -rotationZ);
             }
-            else if (Player.transform.eulerAngles.y == 180)
-            {
-                transform.localRotation = Quaternion.Euler(180, 180, -rotationZ);
-            }
         }
-        
+        else
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
+        }
+
     }
 }
