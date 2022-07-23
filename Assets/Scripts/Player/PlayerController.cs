@@ -31,4 +31,12 @@ public class PlayerController : MonoBehaviour
             transform.position += direction * speed * Time.deltaTime;
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Interactable"))
+        {
+            Debug.Log($"{collision.gameObject.name} is Hit");
+        }
+    }
 }
