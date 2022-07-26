@@ -47,4 +47,14 @@ public class Utils : MonoBehaviour
         return (mouseWorldPosition - fromPosition).normalized;
     }
 
+    public static bool InRange(float val, float min, float max)
+    {
+        if (val >= min && val <= max)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
 }
