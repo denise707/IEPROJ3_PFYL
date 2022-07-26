@@ -25,9 +25,9 @@ public class PlayerAim : MonoBehaviour
 
     private void Aim()
     {
+        /*
+        // Tool Aim
         Vector3 difference = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-
-       // Debug.Log("Diff:" + difference + " Mouse: " + Input.mousePosition);
         difference.Normalize();
 
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
@@ -45,6 +45,17 @@ public class PlayerAim : MonoBehaviour
         else
         {
             transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
+        }
+
+        */
+
+        // Gun aim
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            transform.LookAt(hit.point); // Look at the point
+            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0)); // Clamp the x and z rotation
         }
 
     }

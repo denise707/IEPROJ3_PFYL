@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
 {
-    private float ticks = 0.0f;
+    [SerializeField] private float ticks = 0.0f;
     private Vector3 firepoint;
     [SerializeField]private float speed = 10;
     private void FixedUpdate()

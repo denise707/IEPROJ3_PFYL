@@ -33,8 +33,8 @@ public class PlayerUseTool : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Ground")))
         {
-            GameObject bulletSphere = (GameObject)Instantiate(bulletPrefab, new Vector3(firePoint.position.x, 1.0f, firePoint.position.z ), firePoint.rotation);
-            bulletSphere.transform.LookAt(new Vector3(hit.point.x, 1.0f, hit.point.z));
+            GameObject bulletSphere = (GameObject)Instantiate(bulletPrefab, new Vector3(firePoint.position.x, firePoint.position.y, firePoint.position.z ), firePoint.rotation);
+            bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
             Debug.Log("Spawn Bullet");
 
         }
