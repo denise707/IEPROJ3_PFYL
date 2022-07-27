@@ -6,7 +6,7 @@ using UnityEngine.PlayerLoop;
 public class EnemyBehaviour : MonoBehaviour
 {
     [Header("STATUS")]
-    [SerializeField] private string type = "";
+    [SerializeField] public string enemyType = "";
     private float speed = 0f;
     [SerializeField] private float currHealth = 0f;
     private float maxHealth = 0f;
@@ -111,6 +111,8 @@ public class EnemyBehaviour : MonoBehaviour
 
         PlayVFX(deathVFX, transform.position, transform.rotation, 1.0f); 
 
+        EnemySpawningManager.instance.IncrementTotalEnemyKilledInWave();
+
         DestroyEnemy();
     }
 
@@ -121,8 +123,8 @@ public class EnemyBehaviour : MonoBehaviour
         currPosition.y = -20f;
         this.transform.position = currPosition;
 
-        // Destroy game object
-        Destroy(this.gameObject);
+        // Return gameobject to enemy pool
+        EnemyPoolManager.instance.ReturnEnemy(this.gameObject);
     }
 
     private void Attack()
