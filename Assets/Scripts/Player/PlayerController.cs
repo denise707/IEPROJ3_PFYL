@@ -26,6 +26,15 @@ public class PlayerController : MonoBehaviour
         // Debug.Log(aim.rotation.eulerAngles);
         rotationY = aim.rotation.eulerAngles.y;
         UpdateAnimation2();
+        //temp placeholder for saving inventory
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            inventory.Save();
+        }
+        if (Input.GetKeyDown(KeyCode.Minus))
+        {
+            inventory.Load();
+        }
     }
 
     private void UpdatePlayerMovement()
