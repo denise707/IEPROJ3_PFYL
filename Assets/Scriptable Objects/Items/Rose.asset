@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09a1c2572de802439590d5b840fbd87, type: 3}
   m_Name: Rose
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  uiDisplay: {fileID: 21300000, guid: 121d3b17b31e6b045bf055e14a9595a6, type: 3}
+  Id: 0
   type: 0
   description: 
   growthSpeed: 1

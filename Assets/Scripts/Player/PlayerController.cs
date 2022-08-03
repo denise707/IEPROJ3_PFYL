@@ -26,15 +26,6 @@ public class PlayerController : MonoBehaviour
         // Debug.Log(aim.rotation.eulerAngles);
         rotationY = aim.rotation.eulerAngles.y;
         UpdateAnimation2();
-        //temp placeholder for saving inventory
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            inventory.Save();
-        }
-        if (Input.GetKeyDown(KeyCode.Minus))
-        {
-            inventory.Load();
-        }
     }
 
     private void UpdatePlayerMovement()
@@ -147,17 +138,18 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var item = other.GetComponent<Item>();
+        var item = other.GetComponent<GroundItem>();
         if (item)
         {
-            inventory.AddItem(item.item, 1);
+            inventory.AddItem(new Item(item.item), 1);
             Destroy(other.gameObject);
         }
     }
+
     //Clearing inventory after quitting play
     private void OnApplicationQuit()
     {
-        inventory.Container.Clear();
+        inventory.Container.Items.Clear();
     }
 
     private void ResetInputState()
