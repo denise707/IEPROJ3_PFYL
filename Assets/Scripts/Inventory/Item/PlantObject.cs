@@ -9,5 +9,6 @@ public class PlantObject : ItemObject
     public void Awake()
     {
         type = ItemType.Plant;
+        isStackable = true;
     }
 }

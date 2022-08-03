@@ -12,6 +12,7 @@ public enum ItemType
 public abstract class ItemObject : ScriptableObject
 {
     public Sprite uiDisplay;
+    public bool isStackable = false;
     public int Id;
     public ItemType type;
     [TextArea(15,20)]
@@ -24,10 +25,11 @@ public class Item
 {
     public string name;
     public int id;
+    public bool stackable;
     public Item(ItemObject item)
     {
         name = item.name;
         id = item.Id;
-
+        stackable = item.isStackable;
     }
 }

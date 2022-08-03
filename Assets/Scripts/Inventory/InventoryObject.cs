@@ -15,27 +15,21 @@ public class InventoryObject : ScriptableObject
 
     public void AddItem(Item _item, int _amount)
     {
-        for(int i =0; i < Container.Items.Count; i++)
+        for(int i = 0; i < Container.Items.Count; i++)
         {
-            if(Container.Items[i].item.id == _item.id)
+            InventorySlot slot = Container.Items[i];
+            if(slot.item.id == _item.id && slot.item.stackable)
             {
                 Container.Items[i].AddAmount(_amount);
                 return;
             }
         }
         Container.Items.Add(new InventorySlot(_item.id,_item, _amount));
-
     }
 
     [ContextMenu("Save")]
     public void Save()
     {
-        /*string saveData = JsonUtility.ToJson(this, true);
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(string.Concat(Application.persistentDataPath, savePath));
-        bf.Serialize(file, saveData);
-        file.Close();*/
-
         IFormatter formatter = new BinaryFormatter();
         Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Create, FileAccess.Write);
         formatter.Serialize(stream, Container);
@@ -46,11 +40,6 @@ public class InventoryObject : ScriptableObject
     {
         if(File.Exists(string.Concat(Application.persistentDataPath, savePath)))
         {
-            /*BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(string.Concat(Application.persistentDataPath, savePath), FileMode.Open);
-            JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
-            file.Close();*/
-
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Open, FileAccess.Read);
             Container = (Inventory)formatter.Deserialize(stream);
@@ -84,7 +73,6 @@ public class InventorySlot
 }
 
 [System.Serializable]
-
 public class Inventory
 {
     public List<InventorySlot> Items = new List<InventorySlot>();
