@@ -8,8 +8,8 @@ public class EnemyBehaviour : MonoBehaviour
     [Header("STATUS")]
     [SerializeField] public string enemyType = "";
     private float speed = 0f;
-    [SerializeField] private float currHealth = 0f;
-    private float maxHealth = 0f;
+    private float currHealth = 0f;
+    [SerializeField] private float maxHealth = 50f;
     [SerializeField] private float atkDamage = 0f;
     
     //For attack function
@@ -27,20 +27,41 @@ public class EnemyBehaviour : MonoBehaviour
     private GameObject player;
     private Animator anim;
 
+    //For sprite color 
+    private Color baseColor;
+
     private void Start()
     {
-        // Initialize values
-        speed = Random.Range(0.5f, 3.0f); 
-        maxHealth = currHealth;
+        // For different difficulty 
+        maxHealth += EnemySpawningManager.instance.IncreaseEnemyStats(currHealth);
+        InitializeEnemy();
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
-
         PlayVFX(spawnVFX, transform.position, transform.rotation, 2.0f); 
     }
 
     private void Update()
     {
         Action();
+    }
+
+    void OnEnable()
+    {
+        InitializeEnemy();
+    }
+
+    void OnDisable()
+    {
+        ChangeColor(baseColor);
+    }
+
+    private void InitializeEnemy()
+    {
+        speed = Random.Range(0.5f, 3.0f);
+        currHealth = maxHealth;
+        GetComponentInChildren<EnemyHPBar>().UpdateHPBar(currHealth, maxHealth);
+        currState = State.Chase;
+        baseColor = GetComponent<SpriteRenderer>().color;
     }
 
     private void Action()
@@ -150,7 +171,7 @@ public class EnemyBehaviour : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
 
         currState = State.Chase;
-        ChangeColor(Color.white);
+        ChangeColor(baseColor);
     }
 
     private void OnCollisionStay(Collision collider)

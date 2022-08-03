@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -24,13 +25,35 @@ public class EnemyPoolManager : MonoBehaviour
     [SerializeField] private GameObject zombiePrefab;
     [SerializeField] private GameObject golemPrefab;
 
+    [SerializeField] private GameObject weakerBossSlimePrefab;
+    [SerializeField] private GameObject weakerBossZombiePrefab;
+    [SerializeField] private GameObject weakerBossGolemPrefab;
+
+    [SerializeField] private GameObject bossSlimePrefab;
+    [SerializeField] private GameObject bossZombiePrefab;
+    [SerializeField] private GameObject bossGolemPrefab;
+
+    //Prefab List
+    private GameObject[] prefabList;
+
     //ENEMY POOL QUEUES
     private Queue<GameObject> slimePool = new Queue<GameObject>();
     private Queue<GameObject> zombiePool = new Queue<GameObject>();
     private Queue<GameObject> golemPool = new Queue<GameObject>();
 
+    private Queue<GameObject> weakerBossSlimePool = new Queue<GameObject>();
+    private Queue<GameObject> weakerBossZombiePool = new Queue<GameObject>();
+    private Queue<GameObject> weakerBossGolemPool = new Queue<GameObject>();
+
+    private Queue<GameObject> bossSlimePool = new Queue<GameObject>();
+    private Queue<GameObject> bossZombiePool = new Queue<GameObject>();
+    private Queue<GameObject> bossGolemPool = new Queue<GameObject>();
+
+    //Pool List
+    private Queue<GameObject>[] poolList;
+
     //INITIAL VALUES
-    private int poolStartSize = 5;
+    private int poolStartSize = 1;
 
     private void Awake()
     {
@@ -46,31 +69,34 @@ public class EnemyPoolManager : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < poolStartSize; i++)
+        GameObject[] prefabList =
         {
-            GameObject slime = Instantiate(slimePrefab);
-            slimePool.Enqueue(slime);
-            slime.SetActive(false);
-        }
+            slimePrefab, zombiePrefab, golemPrefab,
+            weakerBossSlimePrefab, weakerBossZombiePrefab, weakerBossGolemPrefab,
+            bossSlimePrefab, bossZombiePrefab, bossGolemPrefab
+        };
 
-        for (int i = 0; i < poolStartSize; i++)
+        Queue<GameObject>[] poolList =
         {
-            GameObject zombie = Instantiate(zombiePrefab);
-            zombiePool.Enqueue(zombie);
-            zombie.SetActive(false);
-        }
+            slimePool, zombiePool, golemPool,
+            weakerBossSlimePool, weakerBossZombiePool, weakerBossGolemPool,
+            bossSlimePool, bossZombiePool, bossGolemPool
+        };
 
-        for (int i = 0; i < poolStartSize; i++)
+        for (int i = 0; i < 9; i++)
         {
-            GameObject golem = Instantiate(golemPrefab);
-            golemPool.Enqueue(golem);
-            golem.SetActive(false);
+            for (int j = 0; j < poolStartSize; j++)
+            {
+                GameObject enemy = Instantiate(prefabList[i]);
+                poolList[i].Enqueue(enemy);
+                enemy.SetActive(false);
+            }
         }
     }
 
     void Update()
     {
-        //Debug.Log("Slime Pool: " + slimePool.Count);
+
     }
 
     public GameObject GetEnemy(string enemyName)
@@ -113,6 +139,20 @@ public class EnemyPoolManager : MonoBehaviour
                 enemyPoolInfo = new EnemyPoolInfo(zombiePool, zombiePrefab); break;
             case "Golem":
                 enemyPoolInfo = new EnemyPoolInfo(golemPool, golemPrefab); break;
+
+            case "Weaker Boss Slime":
+                enemyPoolInfo = new EnemyPoolInfo(weakerBossSlimePool, weakerBossSlimePrefab); break;
+            case "Weaker Boss Zombie":
+                enemyPoolInfo = new EnemyPoolInfo(weakerBossZombiePool, weakerBossZombiePrefab); break;
+            case "Weaker Boss Golem":
+                enemyPoolInfo = new EnemyPoolInfo(weakerBossGolemPool, weakerBossGolemPrefab); break;
+
+            case "Boss Slime":
+                enemyPoolInfo = new EnemyPoolInfo(bossSlimePool, bossSlimePrefab); break;
+            case "Boss Zombie":
+                enemyPoolInfo = new EnemyPoolInfo(bossZombiePool, bossZombiePrefab); break;
+            case "Boss Golem":
+                enemyPoolInfo = new EnemyPoolInfo(bossGolemPool, bossGolemPrefab); break;
         }
 
         return enemyPoolInfo;
