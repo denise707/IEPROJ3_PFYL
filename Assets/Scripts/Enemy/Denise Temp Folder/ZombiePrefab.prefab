@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 5579977063640292534}
   - component: {fileID: 5579977063640292529}
   m_Layer: 0
-  m_Name: ZombieCopy
+  m_Name: ZombiePrefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

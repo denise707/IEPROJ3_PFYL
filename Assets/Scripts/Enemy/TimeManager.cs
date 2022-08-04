@@ -8,8 +8,8 @@ public class TimeManager : MonoBehaviour
     public enum TimeState {DayTime, NightTime};
     private TimeState currTime = TimeState.DayTime;
 
-    public static int day = 1;
-    public static float hour = 0; // set to 5 for debugging
+    public int day = 1;
+    public float hour = 0; // set to 5 for debugging
     private float minute = 0.0f;
 
     private const int maxDay = 8; // one full week cycle
