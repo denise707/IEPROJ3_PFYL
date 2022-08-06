@@ -24,8 +24,15 @@ public class PlayerController : MonoBehaviour
     {
         UpdatePlayerMovement();
         // Debug.Log(aim.rotation.eulerAngles);
-        rotationY = aim.rotation.eulerAngles.y;
-        UpdateAnimation2();
+        if (aim)
+        {
+            rotationY = aim.rotation.eulerAngles.y;
+
+        }
+        if (animator)
+        {
+            UpdateAnimation2();
+        }
     }
 
     private void UpdatePlayerMovement()
