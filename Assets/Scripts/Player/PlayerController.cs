@@ -192,6 +192,10 @@ public class PlayerController : MonoBehaviour
             {
                 playerSprite.LookAt(hit.point); // Look at the point
                 transform.rotation = Quaternion.Euler(new Vector3(0, playerSprite.rotation.eulerAngles.y, 0)); // Clamp the x and z rotation
+
+                //Vector3 dir = playerSprite.position - hit.point;
+                //Quaternion rotation = Quaternion.LookRotation(dir);
+                //playerSprite.rotation = Quaternion.Lerp(transform.rotation, rotation, speed * Time.deltaTime);
             }
             else
             {
