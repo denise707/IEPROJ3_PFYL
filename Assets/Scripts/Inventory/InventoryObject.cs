@@ -91,6 +91,7 @@ public class InventoryObject : ScriptableObject
 [System.Serializable]
 public class InventorySlot
 {
+    public UserInterface parent;
     public int id;
     public Item item;
     public int amount;

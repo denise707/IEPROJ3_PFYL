@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415d9126a05d2574dbc6cf989ea2bcba, type: 3}
+  m_Name: HotbarInventory
+  m_EditorClassIdentifier: 
+  savePath: 
+  database: {fileID: 11400000, guid: 6e9b49bca15113b47a079a8d86dc20a0, type: 2}
+  Container:
+    Items:
+    - parent: {fileID: 0}
+      id: 0
+      item:
+        name: Gun
+        id: 0
+        stackable: 0
+      amount: 1
+    - parent: {fileID: 0}
+      id: 1
+      item:
+        name: Hoe
+        id: 1
+        stackable: 0
+      amount: 1
+    - parent: {fileID: 0}
+      id: -1
+      item:
+        name: 
+        id: 0
+        stackable: 0
+      amount: 0
+    - parent: {fileID: 0}
+      id: -1
+      item:
+        name: 
+        id: 0
+        stackable: 0
+      amount: 0
+    - parent: {fileID: 0}
+      id: -1
+      item:
+        name: 
+        id: 0
+        stackable: 0
+      amount: 0
+    - parent: {fileID: 0}
+      id: -1
+      item:
+        name: 
+        id: 0
+        stackable: 0
+      amount: 0

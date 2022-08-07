@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform weaponAim;
     [SerializeField] private Transform toolAim;
     [SerializeField] private Transform playerSprite;
+    //temp for inv
+    public MouseItem mouseItem = new MouseItem();
 
     private float rotationY;
     bool[] inputs;
