@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAim : MonoBehaviour
+public class PlayerToolAim : MonoBehaviour
 {
     [SerializeField] private GameObject Player;
     //[SerializeField] private Transform aimTransform;
@@ -49,7 +49,7 @@ public class PlayerAim : MonoBehaviour
 
         */
 
-        // Gun aim
+        // Tool aim
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
