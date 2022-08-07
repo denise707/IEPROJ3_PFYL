@@ -1206,7 +1206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &787108821
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1240,8 +1240,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 4dde8cd1de1fcf1428e6ee50958404a3, type: 2}
   inventoryPrefab: {fileID: 4566725879918234306, guid: 50bafaf43e8b1fa488617331e8f15ce3, type: 3}
-  X_START: -400
-  Y_START: 215
+  X_START: -375
+  Y_START: 140
   X_SPACE_BETWEEN_ITEM: 150
   NUMBER_OF_COLUMN: 6
   Y_SPACE_BETWEEN_ITEM: 150

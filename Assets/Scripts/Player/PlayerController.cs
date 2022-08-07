@@ -156,7 +156,7 @@ public class PlayerController : MonoBehaviour
     //Clearing inventory after quitting play
     private void OnApplicationQuit()
     {
-        inventory.Container.Items.Clear();
+        inventory.Container.Items = new InventorySlot[18];
     }
 
     private void ResetInputState()
