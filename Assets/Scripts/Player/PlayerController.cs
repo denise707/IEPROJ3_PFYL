@@ -160,6 +160,8 @@ public class PlayerController : MonoBehaviour
         var item = other.GetComponent<GroundItem>();
         if (item)
         {
+            //update to handle setting items in hotbar first before inv system
+            //find a way to check if hotbar is full
             inventory.AddItem(new Item(item.item), 1);
             Destroy(other.gameObject);
         }

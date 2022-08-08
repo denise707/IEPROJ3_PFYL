@@ -23,6 +23,7 @@ public class InventoryObject : ScriptableObject
                 Container.Items[i].AddAmount(_amount);
                 return;
             }
+            
         }
         SetEmptySlot(_item, _amount);
     }
@@ -83,7 +84,7 @@ public class InventoryObject : ScriptableObject
     [ContextMenu("Clear")]
     public void Clear()
     {
-        Container = new Inventory();
+        Container.Clear();
     }
 }
 
@@ -91,6 +92,7 @@ public class InventoryObject : ScriptableObject
 [System.Serializable]
 public class InventorySlot
 {
+    [System.NonSerialized]
     public UserInterface parent;
     public int id;
     public Item item;
@@ -122,5 +124,12 @@ public class InventorySlot
 [System.Serializable]
 public class Inventory
 {
+    public void Clear()
+    {
+        for (int i = 0; i < Items.Length; i++)
+        {
+            Items[i].UpdateSlot(-1, new Item(), 0);
+        }
+    }
     public InventorySlot[] Items = new InventorySlot[18];
 }

@@ -32,4 +32,10 @@ public class Item
         id = item.Id;
         stackable = item.isStackable;
     }
+    public Item()
+    {
+        name = "";
+        id = -1;
+        stackable = false;
+    }
 }

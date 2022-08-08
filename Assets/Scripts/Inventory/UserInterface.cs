@@ -20,7 +20,8 @@ public abstract class UserInterface : MonoBehaviour
             inventory.Container.Items[i].parent = this;
         }
         CreateSlots();
-
+        AddEvent(gameObject, EventTriggerType.PointerEnter, delegate { OnEnterInterface(gameObject); });
+        AddEvent(gameObject, EventTriggerType.PointerExit, delegate { OnExitInterface(gameObject); });
     }
 
     // Update is called once per frame
@@ -72,6 +73,14 @@ public abstract class UserInterface : MonoBehaviour
         player.mouseItem.hoverObj = null;
         player.mouseItem.hoverItem = null;
     }
+    public void OnEnterInterface(GameObject obj)
+    {
+        player.mouseItem.ui = obj.GetComponent<UserInterface>();
+    }
+    public void OnExitInterface(GameObject obj)
+    {
+        player.mouseItem.ui = null;
+    }
     public void OnDrag(GameObject obj)
     {
         if (player.mouseItem.obj != null)
@@ -96,22 +105,32 @@ public abstract class UserInterface : MonoBehaviour
     }
     public void OnDragEnd(GameObject obj)
     {
-        if (player.mouseItem.hoverObj)
+        var itemOnMouse = player.mouseItem;
+        var mouseHoverItem = itemOnMouse.hoverItem;
+        var mouseHoverObj = itemOnMouse.hoverObj;
+        var getItemObj = inventory.database.GetItem;
+
+        if(itemOnMouse.ui != null)
         {
-            inventory.MoveItem(itemsDisplayed[obj], player.mouseItem.hoverItem.parent.itemsDisplayed[player.mouseItem.hoverObj]);
+            if (mouseHoverObj)
+            {
+                inventory.MoveItem(itemsDisplayed[obj], mouseHoverItem.parent.itemsDisplayed[mouseHoverObj]);
+            }
         }
         else
         {
+            //deletes item when not in inv system
+            //will fix soon
             inventory.RemoveItem(itemsDisplayed[obj].item);
         }
-        Destroy(player.mouseItem.obj);
-        player.mouseItem.item = null;
+        //deletes the copy that was hovering
+        Destroy(itemOnMouse.obj);
+        itemOnMouse.item = null;
     }
-
-
 }
 public class MouseItem
 {
+    public UserInterface ui;
     public GameObject obj;
     public InventorySlot item;
     public InventorySlot hoverItem;
