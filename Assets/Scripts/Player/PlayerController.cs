@@ -5,14 +5,32 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Player")]
     [SerializeField] private float speed = 5.0f;
+    [SerializeField] private Transform playerSprite;
     [SerializeField] Animator animator;
+
+    [Header("Pivots")]
     [SerializeField] private Transform weaponAim;
     [SerializeField] private Transform toolAim;
-    [SerializeField] private Transform playerSprite;
+
+    [Header("Spawn Points")]
+    [SerializeField] private Transform weaponSP;
+    [SerializeField] private Transform toolSP;
+
+    // temp can be accessed from inv?
+    [Header("Weapon")]
+    [SerializeField] private GameObject pistol;
+    public bool hasGun = false;
+
+    // temp can be accessed from inv?
+    [Header("Tool")]
+    [SerializeField] private GameObject tool;
+    public bool hasTool = false;
+
+
     //temp for inv
     public MouseItem mouseItem = new MouseItem();
-
     private float rotationY;
     bool[] inputs;
     public InventoryObject inventory;
@@ -27,6 +45,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         UpdatePlayerMovement();
+        UpdatePlayerTool();
         // Debug.Log(aim.rotation.eulerAngles);
         if (weaponAim)
         {
@@ -36,6 +55,42 @@ public class PlayerController : MonoBehaviour
         if (animator)
         {
             UpdateAnimation2();
+        }
+    }
+
+    private void UpdatePlayerTool()
+    {
+        if (Input.GetKeyDown(KeyCode.U) && !hasGun)
+        {
+            // when [tool/wep] is active in inventory -> instantiate or spawn [tool/wep] in corresponding spawn point
+            GameObject bulletSphere = (GameObject)Instantiate(pistol ,weaponSP);
+            //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
+            Debug.Log("Spawn Gun");
+            hasGun = true;
+        }else if (Input.GetKeyDown(KeyCode.U) && hasGun)
+        {
+            // when [tool/wep] is active in inventory -> instantiate or spawn [tool/wep] in corresponding spawn point
+            Transform obj = weaponSP.GetChild(0);
+            Destroy(obj.gameObject);
+            Debug.Log("destroyed gun");
+            hasGun = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.I) && !hasTool)
+        {
+            // when [tool/wep] is active in inventory -> instantiate or spawn [tool/wep] in corresponding spawn point
+            GameObject bulletSphere = (GameObject)Instantiate(tool, toolSP);
+            //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
+            Debug.Log("Spawn Tool");
+            hasTool = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.I) && hasTool)
+        {
+            // when [tool/wep] is active in inventory -> instantiate or spawn [tool/wep] in corresponding spawn point
+            Transform obj = toolSP.GetChild(0);
+            Destroy(obj.gameObject);
+            Debug.Log("destroyed Tool");
+            hasTool = false;
         }
     }
 
