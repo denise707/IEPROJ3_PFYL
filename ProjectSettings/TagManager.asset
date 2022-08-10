@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Interactable
   - Ground
+  - Gun
+  - Tool
   layers:
   - Default
   - TransparentFX
