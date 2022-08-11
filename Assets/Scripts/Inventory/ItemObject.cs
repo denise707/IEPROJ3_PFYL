@@ -13,10 +13,10 @@ public abstract class ItemObject : ScriptableObject
 {
     public Sprite uiDisplay;
     public bool isStackable = false;
-    public int Id;
     public ItemType type;
     [TextArea(15,20)]
     public string description;
+    public Item data = new Item();
 }
 
 [System.Serializable]
@@ -24,13 +24,13 @@ public abstract class ItemObject : ScriptableObject
 public class Item
 {
     public string name;
-    public int id;
+    public int id = -1;
     public bool stackable;
     public Item(ItemObject item)
     {
         name = item.name;
-        id = item.Id;
-        stackable = item.isStackable;
+        id = item.data.id;
+        stackable = item.data.stackable;
     }
     public Item()
     {

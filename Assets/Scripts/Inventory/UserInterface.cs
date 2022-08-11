@@ -8,10 +8,10 @@ using TMPro;
 public abstract class UserInterface : MonoBehaviour
 {
     //temp
-    public PlayerController player;
+   /* public PlayerController player;*/
     public InventoryObject inventory;
     //Game Object is the key
-    public Dictionary<GameObject, InventorySlot> itemsDisplayed = new Dictionary<GameObject, InventorySlot>();
+    public Dictionary<GameObject, InventorySlot> slotsOnInterface = new Dictionary<GameObject, InventorySlot>();
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +32,13 @@ public abstract class UserInterface : MonoBehaviour
     }
     public void UpdateSlots()
     {
-        foreach (KeyValuePair<GameObject, InventorySlot> slot in itemsDisplayed)
+        foreach (KeyValuePair<GameObject, InventorySlot> slot in slotsOnInterface)
         {
             //checks if inv slot has an item
-            if (slot.Value.id >= 0)
+            if (slot.Value.item.id >= 0)
             {
                 //designed this way to make saving the inventory system lighter
-                slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventory.database.GetItem[slot.Value.item.id].uiDisplay;
+                slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = slot.Value.ItemObject.uiDisplay;
                 slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
                 slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = slot.Value.amount == 1 ? "" : slot.Value.amount.ToString("n0");
             }
@@ -62,30 +62,25 @@ public abstract class UserInterface : MonoBehaviour
     }
     public void OnEnter(GameObject obj)
     {
-        player.mouseItem.hoverObj = obj;
-        if (itemsDisplayed.ContainsKey(obj))
-        {
-            player.mouseItem.hoverItem = itemsDisplayed[obj];
-        }
+        MouseData.slotHoveredOver = obj;
     }
     public void OnExit(GameObject obj)
     {
-        player.mouseItem.hoverObj = null;
-        player.mouseItem.hoverItem = null;
+        MouseData.slotHoveredOver = null;
     }
     public void OnEnterInterface(GameObject obj)
     {
-        player.mouseItem.ui = obj.GetComponent<UserInterface>();
+        MouseData.interfaceMouseOver = obj.GetComponent<UserInterface>();
     }
     public void OnExitInterface(GameObject obj)
     {
-        player.mouseItem.ui = null;
+        MouseData.interfaceMouseOver = null;
     }
     public void OnDrag(GameObject obj)
     {
-        if (player.mouseItem.obj != null)
+        if (MouseData.tempItem != null)
         {
-            player.mouseItem.obj.GetComponent<RectTransform>().position = Input.mousePosition;
+            MouseData.tempItem.GetComponent<RectTransform>().position = Input.mousePosition;
         }
     }
     public void OnDragStart(GameObject obj)
@@ -94,45 +89,35 @@ public abstract class UserInterface : MonoBehaviour
         var rt = mouseObject.AddComponent<RectTransform>();
         rt.sizeDelta = new Vector2(75, 75);
         mouseObject.transform.SetParent(transform.parent);
-        if (itemsDisplayed[obj].id >= 0)
+        if (slotsOnInterface[obj].item.id >= 0)
         {
             var img = mouseObject.AddComponent<Image>();
-            img.sprite = inventory.database.GetItem[itemsDisplayed[obj].id].uiDisplay;
+            img.sprite = slotsOnInterface[obj].ItemObject.uiDisplay;
             img.raycastTarget = false;
         }
-        player.mouseItem.obj = mouseObject;
-        player.mouseItem.item = itemsDisplayed[obj];
+        MouseData.tempItem = mouseObject;
     }
     public void OnDragEnd(GameObject obj)
     {
-        var itemOnMouse = player.mouseItem;
-        var mouseHoverItem = itemOnMouse.hoverItem;
-        var mouseHoverObj = itemOnMouse.hoverObj;
-        var getItemObj = inventory.database.GetItem;
-
-        if(itemOnMouse.ui != null)
+        Destroy(MouseData.tempItem);
+        //if dragging item ended up outside any inventory, it destroys the item
+        //to-do: implement either spawning dropped item or not destroying it altogether
+        if(MouseData.interfaceMouseOver == null)
         {
-            if (mouseHoverObj)
-            {
-                inventory.MoveItem(itemsDisplayed[obj], mouseHoverItem.parent.itemsDisplayed[mouseHoverObj]);
-            }
+            slotsOnInterface[obj].RemoveItem();
+            return;
         }
-        else
+        //if we have an item in the slot we are dragging the current item to
+        if (MouseData.slotHoveredOver)
         {
-            //deletes item when not in inv system
-            //will fix soon
-            inventory.RemoveItem(itemsDisplayed[obj].item);
+            InventorySlot mouseHoverSlotData = MouseData.interfaceMouseOver.slotsOnInterface[MouseData.slotHoveredOver];
+            inventory.SwapItems(slotsOnInterface[obj], mouseHoverSlotData);
         }
-        //deletes the copy that was hovering
-        Destroy(itemOnMouse.obj);
-        itemOnMouse.item = null;
     }
 }
-public class MouseItem
+public static class MouseData
 {
-    public UserInterface ui;
-    public GameObject obj;
-    public InventorySlot item;
-    public InventorySlot hoverItem;
-    public GameObject hoverObj;
+    public static UserInterface interfaceMouseOver;
+    public static GameObject tempItem;
+    public static GameObject slotHoveredOver;
 }

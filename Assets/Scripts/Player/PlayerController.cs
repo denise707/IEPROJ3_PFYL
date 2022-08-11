@@ -28,12 +28,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject tool;
     public bool hasTool = false;
 
-
-    //temp for inv
-    public MouseItem mouseItem = new MouseItem();
     private float rotationY;
     bool[] inputs;
     public InventoryObject inventory;
+    public InventoryObject hotbar;
 
     // Start is called before the first frame update
     void Start()
@@ -215,17 +213,27 @@ public class PlayerController : MonoBehaviour
         var item = other.GetComponent<GroundItem>();
         if (item)
         {
-            //update to handle setting items in hotbar first before inv system
-            //find a way to check if hotbar is full
-            inventory.AddItem(new Item(item.item), 1);
-            Destroy(other.gameObject);
+            //will need update to stack items properly
+            Item _item = new Item(item.item);
+            if(hotbar.AddItem(new Item(item.item), 1))
+            {
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                if(inventory.AddItem(new Item(item.item),1)){
+                    Destroy(other.gameObject);
+                }
+            }
+            
         }
     }
 
     //Clearing inventory after quitting play
     private void OnApplicationQuit()
     {
-        inventory.Container.Items = new InventorySlot[18];
+        inventory.Container.Clear();
+        hotbar.Container.Clear();
     }
 
     private void ResetInputState()

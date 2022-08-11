@@ -14,7 +14,7 @@ public class ItemDatabaseObject : ScriptableObject, ISerializationCallbackReceiv
         for(int i = 0; i < items.Length; i++)
         {
             //setting item id during serialization
-            items[i].Id = i;
+            items[i].data.id = i;
             GetItem.Add(i, items[i]);
         }
     }
