@@ -7,8 +7,6 @@ using UnityEngine.EventSystems;
 using TMPro;
 public abstract class UserInterface : MonoBehaviour
 {
-    //temp
-   /* public PlayerController player;*/
     public InventoryObject inventory;
     //Game Object is the key
     public Dictionary<GameObject, InventorySlot> slotsOnInterface = new Dictionary<GameObject, InventorySlot>();
