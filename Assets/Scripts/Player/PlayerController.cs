@@ -215,13 +215,13 @@ public class PlayerController : MonoBehaviour
         {
             //will need update to stack items properly
             Item _item = new Item(item.item);
-            if(hotbar.AddItem(new Item(item.item), 1))
+            if(hotbar.AddItem(_item, 1))
             {
                 Destroy(other.gameObject);
             }
             else
             {
-                if(inventory.AddItem(new Item(item.item),1)){
+                if(inventory.AddItem(_item, 1)){
                     Destroy(other.gameObject);
                 }
             }

@@ -7,6 +7,6 @@ public class ToolObject : ItemObject
 {
     public void Awake()
     {
-        type = ItemType.Tool;
+        
     }
 }

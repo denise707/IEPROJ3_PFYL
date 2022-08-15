@@ -16,13 +16,21 @@ public class InventoryObject : ScriptableObject
 
     public bool AddItem(Item _item, int _amount)
     {
-        if(EmptySlotCount <= 0)
-        {
-            return false;
-        }
         InventorySlot slot = FindItemOnInventory(_item);
+        if (EmptySlotCount <= 0)
+        {
+            //checks if the picked up item can be stacked inside one of the filled slots in either inventory
+            if (database.items[_item.id].isStackable)
+            {
+                SetEmptySlot(_item, _amount);
+                slot.AddAmount(_amount);
+                return true;
+            }
+            else
+                return false;
+        }
         //if not stackable
-        if (!database.GetItem[_item.id].isStackable || slot == null)
+        if (!database.items[_item.id].isStackable || slot == null)
         {
             SetEmptySlot(_item, _amount);
             return true;
@@ -138,7 +146,7 @@ public class InventorySlot
         {
             if(item.id >= 0)
             {
-                return parent.inventory.database.GetItem[item.id];
+                return parent.inventory.database.items[item.id];
             }
             return null;
         }

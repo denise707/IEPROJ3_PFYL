@@ -83,17 +83,22 @@ public abstract class UserInterface : MonoBehaviour
     }
     public void OnDragStart(GameObject obj)
     {
-        var mouseObject = new GameObject();
-        var rt = mouseObject.AddComponent<RectTransform>();
-        rt.sizeDelta = new Vector2(75, 75);
-        mouseObject.transform.SetParent(transform.parent);
+        MouseData.tempItem = CreateTemp(obj);
+    }
+    public GameObject CreateTemp(GameObject obj)
+    {
+        GameObject tempItem = null;
         if (slotsOnInterface[obj].item.id >= 0)
         {
-            var img = mouseObject.AddComponent<Image>();
+            tempItem = new GameObject();
+            var rt = tempItem.AddComponent<RectTransform>();
+            rt.sizeDelta = new Vector2(75, 75);
+            tempItem.transform.SetParent(transform.parent);
+            var img = tempItem.AddComponent<Image>();
             img.sprite = slotsOnInterface[obj].ItemObject.uiDisplay;
             img.raycastTarget = false;
         }
-        MouseData.tempItem = mouseObject;
+        return tempItem;
     }
     public void OnDragEnd(GameObject obj)
     {

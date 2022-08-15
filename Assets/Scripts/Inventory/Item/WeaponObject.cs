@@ -8,6 +8,6 @@ public class WeaponObject : ItemObject
     public float atkDmg;
     public void Awake()
     {
-        type = ItemType.Weapon;
+        
     }
 }

@@ -8,7 +8,7 @@ public class PlantObject : ItemObject
     public int growthSpeed = 1;
     public void Awake()
     {
-        type = ItemType.Plant;
+        
         isStackable = true;
     }
 }
