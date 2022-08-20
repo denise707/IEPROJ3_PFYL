@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-18934
+  m_Name: pb_Mesh-1576
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -663,7 +663,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1254
+  m_Name: pb_Mesh-1496
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -827,7 +827,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1242
+  m_Name: pb_Mesh-1484
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -985,26 +985,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &538874330 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7358613628737092193, guid: 3bf67560f55c6b2418248d32017b5ff4, type: 3}
-  m_PrefabInstance: {fileID: 1853675587}
-  m_PrefabAsset: {fileID: 0}
---- !u!111 &538874332
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 538874330}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!850595691 &765552362
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1077,7 +1057,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-18958
+  m_Name: pb_Mesh-1600
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1241,7 +1221,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-18982
+  m_Name: pb_Mesh-1588
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1405,7 +1385,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-18970
+  m_Name: pb_Mesh-1612
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1777,7 +1757,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1278
+  m_Name: pb_Mesh-1520
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1941,7 +1921,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1230
+  m_Name: pb_Mesh-1472
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2349,6 +2329,10 @@ PrefabInstance:
       value: Watering Can
       objectReference: {fileID: 0}
     - target: {fileID: 7358613628737092193, guid: 3bf67560f55c6b2418248d32017b5ff4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358613628737092193, guid: 3bf67560f55c6b2418248d32017b5ff4, type: 3}
       propertyPath: m_TagString
       value: Tool
       objectReference: {fileID: 0}
@@ -2440,7 +2424,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1266
+  m_Name: pb_Mesh-1508
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

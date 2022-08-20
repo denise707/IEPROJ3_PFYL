@@ -6931,6 +6931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7358613628737092198}
   - component: {fileID: 4667923954681864555}
+  - component: {fileID: -2540534689721251598}
   m_Layer: 0
   m_Name: Watering Can
   m_TagString: Tool
@@ -6973,6 +6974,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-2540534689721251598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7358613628737092193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d62b3c3568ca2de478473908a2f3e628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
 --- !u!1 &7358613629014553816
 GameObject:
   m_ObjectHideFlags: 0
