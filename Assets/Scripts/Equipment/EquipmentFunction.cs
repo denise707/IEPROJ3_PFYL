@@ -32,7 +32,7 @@ public class EquipmentFunction: MonoBehaviour
         {
             type = EquipmentType.Tool;
         }
-        else if (this.gameObject.CompareTag("weapon"))
+        else if (this.gameObject.CompareTag("Weapon"))
         {
             type = EquipmentType.Weapon;
         }
@@ -58,9 +58,9 @@ public class EquipmentFunction: MonoBehaviour
     {
         if (type == EquipmentType.Weapon) // weapons
         {
-            if (CompareName("Gun"))
+            if (CompareName("Pistol"))
             {
-                TriggerGun(); // function
+                TriggerPistol(); // function
             }
             else if (CompareName("Machete"))
             {
@@ -96,11 +96,12 @@ public class EquipmentFunction: MonoBehaviour
     #endregion
 
     #region Equipment Trigger Functions 
-    void TriggerGun()
+    void TriggerPistol()
     {
 
         if (firePoint)
         {
+            animator.SetTrigger("isTriggered");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 

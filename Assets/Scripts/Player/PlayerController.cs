@@ -20,8 +20,8 @@ public class PlayerController : MonoBehaviour
 
     // temp can be accessed from inv?
     [Header("Weapon")]
-    [SerializeField] private GameObject pistol;
-    public bool hasGun = false;
+    [SerializeField] private GameObject weapon;
+    public bool hasWeapon = false;
 
     // temp can be accessed from inv?
     [Header("Tool")]
@@ -58,30 +58,38 @@ public class PlayerController : MonoBehaviour
 
     private void UpdatePlayerTool()
     {
-        if (Input.GetKeyDown(KeyCode.U) && !hasGun)
+        // ADD
+        if (Input.GetKeyDown(KeyCode.U) && !hasWeapon)
         {
             // when [tool/wep] is active in inventory -> instantiate or spawn [tool/wep] in corresponding spawn point
-            GameObject bulletSphere = (GameObject)Instantiate(pistol ,weaponSP);
+            GameObject obj = (GameObject)Instantiate(weapon ,weaponSP);
+            obj.name = weapon.name;
+
             //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
             Debug.Log("Spawn Gun");
-            hasGun = true;
-        }else if (Input.GetKeyDown(KeyCode.U) && hasGun)
+            hasWeapon = true;
+        }
+        // REMOVE
+        else if (Input.GetKeyDown(KeyCode.U) && hasWeapon)
         {
             // when [tool/wep] is active in inventory -> instantiate or spawn [tool/wep] in corresponding spawn point
             Transform obj = weaponSP.GetChild(0);
             Destroy(obj.gameObject);
-            Debug.Log("destroyed gun");
-            hasGun = false;
+            Debug.Log("destroyed weapon");
+            hasWeapon = false;
         }
 
+        //ADD
         if (Input.GetKeyDown(KeyCode.I) && !hasTool)
         {
             // when [tool/wep] is active in inventory -> instantiate or spawn [tool/wep] in corresponding spawn point
-            GameObject bulletSphere = (GameObject)Instantiate(tool, toolSP);
+            GameObject obj = (GameObject)Instantiate(tool, toolSP);
+            obj.name = tool.name;
             //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
             Debug.Log("Spawn Tool");
             hasTool = true;
         }
+        //REMOVE
         else if (Input.GetKeyDown(KeyCode.I) && hasTool)
         {
             // when [tool/wep] is active in inventory -> instantiate or spawn [tool/wep] in corresponding spawn point
