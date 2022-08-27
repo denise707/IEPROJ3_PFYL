@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -10,7 +8,8 @@ public class EquipmentFunction: MonoBehaviour
     private enum EquipmentType
     {
         Tool,
-        Weapon
+        Weapon,
+        Plant
     };
 
     EquipmentType type;
@@ -19,7 +18,12 @@ public class EquipmentFunction: MonoBehaviour
     [Header ("Shooting")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
-    
+
+    [Header("Temp Seed")]
+    [SerializeField] PlantObject plant;
+
+    public Soil soil;
+
 
 
     // Start is called before the first frame update
@@ -35,6 +39,10 @@ public class EquipmentFunction: MonoBehaviour
         else if (this.gameObject.CompareTag("Weapon"))
         {
             type = EquipmentType.Weapon;
+        }
+        else if (this.gameObject.CompareTag("Plant"))
+        {
+            type = EquipmentType.Plant;
         }
 
 
@@ -75,17 +83,34 @@ public class EquipmentFunction: MonoBehaviour
         {
             if (CompareName("Hoe"))
             {
-                // func
-                TriggerHoe();
+                // trigger Hoe
+                animator.SetTrigger("isTriggered");
+                // trigger hoe func in end of anim
             }
             else if (CompareName("Watering Can"))
             {
                 // func
-                TriggerWateringCan();
+                animator.SetTrigger("isTriggered");
+                // trigger hoe func in end of anim
             }
             else
             {
-                Debug.Log($"Tool name not found: {this.gameObject.name}" );
+                Debug.Log($"Tool name not found: {this.gameObject.name}");
+            }
+        }
+        else if (type == EquipmentType.Plant) // tools
+        {
+            if (CompareName("Rose"))
+            {
+                // trigger Hoe
+                //imator.SetTrigger("isTriggered");
+
+                TriggerPlanting();
+                // trigger hoe func in end of anim
+            }
+            else
+            {
+                Debug.Log($"Tool name not found: {this.gameObject.name}");
             }
         }
         else
@@ -122,17 +147,86 @@ public class EquipmentFunction: MonoBehaviour
 
     }
 
-    void TriggerHoe()
+    public void TriggerHoe()
     {
-        animator.SetTrigger("isTriggered");
+        GetSoil();
+
+        // check if soil
+
+        if (soil)
+        {
+            
+            soil.TillSoil();
+            
+        }
+        else
+        {
+            Debug.Log("Missing Soil Component");
+        }
     }
 
     void TriggerWateringCan()
     {
-        animator.SetTrigger("isTriggered");
+        GetSoil();
+        if (soil)
+        {
+
+            soil.WaterSoil();
+
+        }
+        else
+        {
+            Debug.Log("Missing Soil Component");
+        }
+
+        // get soil comp
+        // trigger functions
+    }
+
+    void TriggerPlanting()
+    {
+        GetSoil();
+        if (soil)
+        {
+
+            soil.PlantSeed(this.plant);
+
+        }
+        else
+        {
+            Debug.Log("Missing Soil Component");
+        }
+
+        // get soil comp
+        // trigger functions
     }
 
     #endregion
+
+
+    void GetSoil()
+    {
+        
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Soil")))
+        {
+            Debug.Log("Hit: " + hit.transform.name);
+            //Select stage    
+            if (hit.transform.CompareTag("Soil"))
+            {
+                soil = hit.transform.GetComponent<Soil>();
+            }
+            
+           
+        }
+        else
+        {
+            Debug.Log("did not hit anything");
+        }
+
+    }
 
     #region Utility Functions
     bool CompareName(string name)

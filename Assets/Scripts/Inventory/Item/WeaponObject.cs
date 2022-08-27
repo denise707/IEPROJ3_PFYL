@@ -6,6 +6,8 @@ using UnityEngine;
 public class WeaponObject : ItemObject
 {
     public float atkDmg;
+
+    public GameObject prefab;
     public void Awake()
     {
         

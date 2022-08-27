@@ -9,6 +9,8 @@ TagManager:
   - Tool
   - Weapon
   - Gun
+  - Soil
+  - Plant
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
+  - Soil
   - 
   - 
   - 

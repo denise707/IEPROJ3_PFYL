@@ -19,14 +19,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform toolSP;
 
     // temp can be accessed from inv?
-    [Header("Weapon")]
-    [SerializeField] private GameObject weapon;
+    [Header("Weapon Temp")]
+    [SerializeField] private WeaponObject weapon;
     public bool hasWeapon = false;
 
     // temp can be accessed from inv?
-    [Header("Tool")]
-    [SerializeField] private GameObject tool;
+    [Header("Tool Temp")]
+    [SerializeField] private ToolObject tool;
     public bool hasTool = false;
+
+    [Header("Item Temp")]
+    [SerializeField] private PlantObject plant;
+    public bool hasPlant = false;
 
     private float rotationY;
     bool[] inputs;
@@ -61,8 +65,8 @@ public class PlayerController : MonoBehaviour
         // ADD
         if (Input.GetKeyDown(KeyCode.U) && !hasWeapon)
         {
-            // when [tool/wep] is active in inventory -> instantiate or spawn [tool/wep] in corresponding spawn point
-            GameObject obj = (GameObject)Instantiate(weapon ,weaponSP);
+            // get scriptable from inventory and acces the prefab
+            GameObject obj = (GameObject)Instantiate(weapon.prefab ,weaponSP);
             obj.name = weapon.name;
 
             //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
@@ -72,7 +76,7 @@ public class PlayerController : MonoBehaviour
         // REMOVE
         else if (Input.GetKeyDown(KeyCode.U) && hasWeapon)
         {
-            // when [tool/wep] is active in inventory -> instantiate or spawn [tool/wep] in corresponding spawn point
+           
             Transform obj = weaponSP.GetChild(0);
             Destroy(obj.gameObject);
             Debug.Log("destroyed weapon");
@@ -82,8 +86,8 @@ public class PlayerController : MonoBehaviour
         //ADD
         if (Input.GetKeyDown(KeyCode.I) && !hasTool)
         {
-            // when [tool/wep] is active in inventory -> instantiate or spawn [tool/wep] in corresponding spawn point
-            GameObject obj = (GameObject)Instantiate(tool, toolSP);
+            // get scriptable from inventory and acces the prefab
+            GameObject obj = (GameObject)Instantiate(tool.prefab, toolSP);
             obj.name = tool.name;
             //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
             Debug.Log("Spawn Tool");
@@ -92,12 +96,31 @@ public class PlayerController : MonoBehaviour
         //REMOVE
         else if (Input.GetKeyDown(KeyCode.I) && hasTool)
         {
-            // when [tool/wep] is active in inventory -> instantiate or spawn [tool/wep] in corresponding spawn point
             Transform obj = toolSP.GetChild(0);
             Destroy(obj.gameObject);
             Debug.Log("destroyed Tool");
             hasTool = false;
         }
+
+        //ADD
+        if (Input.GetKeyDown(KeyCode.O) && !hasTool)
+        {
+            // get scriptable from inventory and acces the prefab
+            GameObject obj = (GameObject)Instantiate(plant.prefab, toolSP);
+            obj.name = plant.name;
+            //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
+            Debug.Log("Spawn Tool");
+            hasTool = true;
+        }
+        //REMOVE
+        else if (Input.GetKeyDown(KeyCode.O) && hasTool)
+        {
+            Transform obj = toolSP.GetChild(0);
+            Destroy(obj.gameObject);
+            Debug.Log("destroyed Tool");
+            hasTool = false;
+        }
+
     }
 
     private void UpdatePlayerMovement()

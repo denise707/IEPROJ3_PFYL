@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a758e62343819674f88c138eb1edaeb7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - defaultSoil_MT: {fileID: 2100000, guid: 4641295981c379a4ca5ff9694bdf14ba, type: 2}
+  - tilledSoil_MT: {fileID: 2100000, guid: 0c81cd6a81bd52541ae07521bc35d72f, type: 2}
+  - wateredSoil_MT: {fileID: 2100000, guid: 5db97e36aaa5ca640855ab7a4d919a02, type: 2}
+  - plant: {instanceID: 0}
+  - seed_sprt: {instanceID: 0}
+  - midGrowth_sprt: {instanceID: 0}
+  - fullyGrown_sprt: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

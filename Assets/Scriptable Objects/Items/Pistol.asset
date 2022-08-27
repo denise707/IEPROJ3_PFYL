@@ -9,15 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c7e94e1e6d8c2142b99e1f8c4094436, type: 3}
-  m_Name: Hoe
+  m_Script: {fileID: 11500000, guid: 826b71d203dc4414ea232888e9dc96fb, type: 3}
+  m_Name: Pistol
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: 21300000, guid: d5366787dbeda7f43b93424c6a003444, type: 3}
+  uiDisplay: {fileID: 21300000, guid: 6c7b60f9fb54b0343abf48d6a107f6ca, type: 3}
   isStackable: 0
-  type: 2
+  type: 1
   description: 
   data:
     name: 
-    id: 1
+    id: -1
     stackable: 0
-  prefab: {fileID: 329703709224659723, guid: 64cff8c8037ffae43a3bf32d84e720eb, type: 3}
+  atkDmg: 0
+  prefab: {fileID: 5154942929864560513, guid: 1f925b982a75ce94289f27efd7b5db3e, type: 3}

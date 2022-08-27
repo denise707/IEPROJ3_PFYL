@@ -13,7 +13,18 @@ MonoBehaviour:
   m_Name: Rose
   m_EditorClassIdentifier: 
   uiDisplay: {fileID: 21300000, guid: 121d3b17b31e6b045bf055e14a9595a6, type: 3}
-  Id: 0
+  isStackable: 1
   type: 0
   description: 
-  growthSpeed: 1
+  data:
+    name: 
+    id: 2
+    stackable: 0
+  growthDuration: 20
+  PlantGrowthSpriteList:
+  - {fileID: 21300000, guid: 6edf004e1c7a6e945ace06c16100eb2b, type: 3}
+  - {fileID: 21300000, guid: e2b840f86e310b342bd32ab1d05ee224, type: 3}
+  - {fileID: 21300000, guid: 4316d7745aa1e5142a6c4f71a86a7845, type: 3}
+  DropsA: {fileID: 0}
+  DropsB: {fileID: 0}
+  prefab: {fileID: 1661777123652080288, guid: f177fb8dc42dc114697ed96a1a5961ac, type: 3}
