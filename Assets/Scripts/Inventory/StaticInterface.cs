@@ -11,7 +11,7 @@ public class StaticInterface : UserInterface
     {
         // creates a new dictionary to make sure we dont use an old dictionary
         slotsOnInterface = new Dictionary<GameObject, InventorySlot>();
-        for (int i = 0; i < inventory.Container.Items.Length; i++)
+        for (int i = 0; i < inventory.GetSlots.Length; i++)
         {
             var obj = slots[i];
 
@@ -20,8 +20,9 @@ public class StaticInterface : UserInterface
             AddEvent(obj, EventTriggerType.BeginDrag, delegate { OnDragStart(obj); });
             AddEvent(obj, EventTriggerType.EndDrag, delegate { OnDragEnd(obj); });
             AddEvent(obj, EventTriggerType.Drag, delegate { OnDrag(obj); });
+            inventory.GetSlots[i].slotDisplay = obj;
 
-            slotsOnInterface.Add(obj, inventory.Container.Items[i]);
+            slotsOnInterface.Add(obj, inventory.GetSlots[i]);
         }
     }
 }
