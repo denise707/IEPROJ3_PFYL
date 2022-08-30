@@ -13,42 +13,64 @@ public abstract class UserInterface : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < inventory.Container.Items.Length; i++)
+        for (int i = 0; i < inventory.GetSlots.Length; i++)
         {
-            inventory.Container.Items[i].parent = this;
+            inventory.GetSlots[i].parent = this;
+            inventory.GetSlots[i].OnAfterUpdate += OnSlotUpdate;
         }
         CreateSlots();
         AddEvent(gameObject, EventTriggerType.PointerEnter, delegate { OnEnterInterface(gameObject); });
         AddEvent(gameObject, EventTriggerType.PointerExit, delegate { OnExitInterface(gameObject); });
     }
 
+    private void OnSlotUpdate(InventorySlot slot)
+    {
+        //checks if inv slot has an item
+        if (slot.item.id >= 0)
+        {
+            //designed this way to make saving the inventory system lighter
+            slot.slotDisplay.transform.GetChild(0).GetComponentInChildren<Image>().sprite = slot.ItemObject.uiDisplay;
+            slot.slotDisplay.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
+            slot.slotDisplay.GetComponentInChildren<TextMeshProUGUI>().text = slot.amount == 1 ? "" : slot.amount.ToString("n0");
+        }
+        else
+        {
+            slot.slotDisplay.transform.GetChild(0).GetComponentInChildren<Image>().sprite = null;
+            //sets alpha to 0
+            slot.slotDisplay.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 0);
+            slot.slotDisplay.GetComponentInChildren<TextMeshProUGUI>().text = "";
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         //temp, needs to only update when an item is added or removed
-        UpdateSlots();
+        //UpdateSlots();
     }
-    public void UpdateSlots()
-    {
-        foreach (KeyValuePair<GameObject, InventorySlot> slot in slotsOnInterface)
-        {
-            //checks if inv slot has an item
-            if (slot.Value.item.id >= 0)
-            {
-                //designed this way to make saving the inventory system lighter
-                slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = slot.Value.ItemObject.uiDisplay;
-                slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
-                slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = slot.Value.amount == 1 ? "" : slot.Value.amount.ToString("n0");
-            }
-            else
-            {
-                slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = null;
-                //sets alpha to 0
-                slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 0);
-                slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = "";
-            }
-        }
-    }
+
+    //public void UpdateSlots()
+    //{
+    //    foreach (KeyValuePair<GameObject, InventorySlot> slot in slotsOnInterface)
+    //    {
+    //        //checks if inv slot has an item
+    //        if (slot.Value.item.id >= 0)
+    //        {
+    //            //designed this way to make saving the inventory system lighter
+    //            slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = slot.Value.ItemObject.uiDisplay;
+    //            slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
+    //            slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = slot.Value.amount == 1 ? "" : slot.Value.amount.ToString("n0");
+    //        }
+    //        else
+    //        {
+    //            slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = null;
+    //            //sets alpha to 0
+    //            slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 0);
+    //            slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = "";
+    //        }
+    //    }
+    //}
+
     public abstract void CreateSlots();
     protected void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
     {
