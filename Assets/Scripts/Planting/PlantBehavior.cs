@@ -48,6 +48,7 @@ public class PlantBehavior : MonoBehaviour
 
     public void UpdatePlantProperty(PlantObject plantObj)
     {
+        this.gameObject.transform.localPosition = gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, 0.5f, gameObject.transform.localPosition.z);
         Debug.Log("Updating Plant Stats");
         this.GrowthSpriteList = plantObj.PlantGrowthSpriteList;
         this.DropA_sprt = plantObj.DropsA;
@@ -75,10 +76,6 @@ public class PlantBehavior : MonoBehaviour
         StartCoroutine(NextPlantPhase(growthDuration / nTransitions));
         
         //PrepareForHarvest();
-
-
-
-
     }
 
     IEnumerator NextPlantPhase(float timePerPhase)
@@ -94,6 +91,7 @@ public class PlantBehavior : MonoBehaviour
 
             if (phase == 1)
             {
+                this.gameObject.transform.localPosition = gameObject.transform.localPosition= new Vector3(gameObject.transform.localPosition.x, 0.80f, gameObject.transform.localPosition.z);
                 plantStatus = PlantPhase.Phase2_MidGrown;
                 this.gameObject.GetComponent<SpriteRenderer>().sprite = GrowthSpriteList[phase];
 

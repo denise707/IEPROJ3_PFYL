@@ -25,8 +25,10 @@ public class PlayerController : MonoBehaviour
 
     // temp can be accessed from inv?
     [Header("Tool Temp")]
-    [SerializeField] private ToolObject tool;
+    [SerializeField] private ToolObject hoeTool;
     public bool hasTool = false;
+
+    [SerializeField] private ToolObject wateringCanTool;
 
     [Header("Item Temp")]
     [SerializeField] private PlantObject plant;
@@ -46,7 +48,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdatePlayerMovement();
+        
         UpdatePlayerTool();
         // Debug.Log(aim.rotation.eulerAngles);
         if (weaponAim)
@@ -58,6 +60,11 @@ public class PlayerController : MonoBehaviour
         {
             UpdateAnimation2();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        UpdatePlayerMovement();
     }
 
     private void UpdatePlayerTool()
@@ -87,8 +94,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I) && !hasTool)
         {
             // get scriptable from inventory and acces the prefab
-            GameObject obj = (GameObject)Instantiate(tool.prefab, toolSP);
-            obj.name = tool.name;
+            GameObject obj = (GameObject)Instantiate(hoeTool.prefab, toolSP);
+            obj.name = hoeTool.name;
             //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
             Debug.Log("Spawn Tool");
             hasTool = true;
@@ -114,6 +121,25 @@ public class PlayerController : MonoBehaviour
         }
         //REMOVE
         else if (Input.GetKeyDown(KeyCode.O) && hasTool)
+        {
+            Transform obj = toolSP.GetChild(0);
+            Destroy(obj.gameObject);
+            Debug.Log("destroyed Tool");
+            hasTool = false;
+        }
+
+        //ADD
+        if (Input.GetKeyDown(KeyCode.P) && !hasTool)
+        {
+            // get scriptable from inventory and acces the prefab
+            GameObject obj = (GameObject)Instantiate(wateringCanTool.prefab, toolSP);
+            obj.name = wateringCanTool.name;
+            //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
+            Debug.Log("Spawn Tool");
+            hasTool = true;
+        }
+        //REMOVE
+        else if (Input.GetKeyDown(KeyCode.P) && hasTool)
         {
             Transform obj = toolSP.GetChild(0);
             Destroy(obj.gameObject);
