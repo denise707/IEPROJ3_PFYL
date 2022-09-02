@@ -271,6 +271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 5031747301353126514, guid: 6d3663d225173b947b83bd063bf34cf8, type: 3}
   firePoint: {fileID: 7904058482812645485}
+  plant: {fileID: 0}
+  soil: {fileID: 0}
 --- !u!95 &760212264339288432
 Animator:
   serializedVersion: 3
@@ -413,7 +415,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7956871803755022618}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000031515185, y: -3.4125657, z: 0.00000044951648}
+  m_LocalPosition: {x: 0.00000031515185, y: -3.36, z: 0}
   m_LocalScale: {x: 1.1953382, y: 1.1953398, z: 1.1953415}
   m_Children: []
   m_Father: {fileID: 7956871805645845201}

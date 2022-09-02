@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5552937708113483260
+--- !u!1 &895573509552311671
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5552937708113483261}
-  - component: {fileID: 5552937708113483202}
-  - component: {fileID: 5552937708113483203}
+  - component: {fileID: 895573509552311674}
+  - component: {fileID: 895573509552311673}
+  - component: {fileID: 895573509552311672}
   m_Layer: 6
   m_Name: PlantSprite
   m_TagString: Untagged
@@ -18,27 +18,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5552937708113483261
+--- !u!4 &895573509552311674
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5552937708113483260}
+  m_GameObject: {fileID: 895573509552311671}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 5552937708741563056}
+  m_Father: {fileID: 895573509986644518}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5552937708113483202
+--- !u!212 &895573509552311673
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5552937708113483260}
+  m_GameObject: {fileID: 895573509552311671}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -83,13 +83,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5552937708113483203
+--- !u!114 &895573509552311672
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5552937708113483260}
+  m_GameObject: {fileID: 895573509552311671}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc2ab50bcc6e13147ad60fcde1c803b3, type: 3}
@@ -103,7 +103,7 @@ MonoBehaviour:
   GrowthSpriteList: []
   DropA_sprt: {fileID: 0}
   DropB_sprt: {fileID: 0}
---- !u!1 &5552937708741563054
+--- !u!1 &895573509986644512
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,12 +111,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5552937708741563056}
-  - component: {fileID: 5552937708741563059}
-  - component: {fileID: 5552937708741563058}
-  - component: {fileID: 5552937708741563053}
-  - component: {fileID: 5552937708741563052}
-  - component: {fileID: 5552937708741563055}
+  - component: {fileID: 895573509986644518}
+  - component: {fileID: 895573509986644517}
+  - component: {fileID: 895573509986644516}
+  - component: {fileID: 895573509986644515}
+  - component: {fileID: 895573509986644514}
+  - component: {fileID: 895573509986644513}
   m_Layer: 6
   m_Name: Soil
   m_TagString: Soil
@@ -124,36 +124,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5552937708741563056
+--- !u!4 &895573509986644518
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5552937708741563054}
+  m_GameObject: {fileID: 895573509986644512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.28342876, y: -0.3, z: 1.219879}
+  m_LocalPosition: {x: -0.28342876, y: -0.266, z: 1.219879}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5552937708113483261}
+  - {fileID: 895573509552311674}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5552937708741563059
+--- !u!33 &895573509986644517
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5552937708741563054}
+  m_GameObject: {fileID: 895573509986644512}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5552937708741563058
+--- !u!23 &895573509986644516
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5552937708741563054}
+  m_GameObject: {fileID: 895573509986644512}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -188,27 +188,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5552937708741563053
+--- !u!65 &895573509986644515
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5552937708741563054}
+  m_GameObject: {fileID: 895573509986644512}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &5552937708741563052
+--- !u!95 &895573509986644514
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5552937708741563054}
+  m_GameObject: {fileID: 895573509986644512}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c1a65cf93ae34bc489e7896a0787c0c3, type: 2}
@@ -220,13 +220,13 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5552937708741563055
+--- !u!114 &895573509986644513
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5552937708741563054}
+  m_GameObject: {fileID: 895573509986644512}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a758e62343819674f88c138eb1edaeb7, type: 3}
@@ -237,5 +237,5 @@ MonoBehaviour:
   defaultSoil_MT: {fileID: 2100000, guid: 4641295981c379a4ca5ff9694bdf14ba, type: 2}
   tilledSoil_MT: {fileID: 2100000, guid: 0c81cd6a81bd52541ae07521bc35d72f, type: 2}
   wateredSoil_MT: {fileID: 2100000, guid: 5db97e36aaa5ca640855ab7a4d919a02, type: 2}
-  plant: {fileID: 5552937708113483260}
+  plant: {fileID: 895573509552311671}
   plantBehavior: {fileID: 0}
