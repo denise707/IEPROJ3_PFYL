@@ -380,6 +380,8 @@ GameObject:
   - component: {fileID: 3615366472763522665}
   - component: {fileID: 3615366472763522664}
   - component: {fileID: 3615366472763522671}
+  - component: {fileID: 1706109481608940629}
+  - component: {fileID: 2769783413833032844}
   m_Layer: 0
   m_Name: SlimePrefab
   m_TagString: Enemy
@@ -394,14 +396,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3615366472763522677}
-  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 2.261, y: 0.8, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3615366471758262239}
+  - {fileID: 1208911056618482201}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3615366472763522676
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -466,8 +469,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: Slime
-  currHealth: 50
+  maxHealth: 50
   atkDamage: 0
+  currState: 0
   spawnVFX: {fileID: 6218200324367903362, guid: 6d411af8f532fa041a7e24639d7d2ad3, type: 3}
   attackVFX: {fileID: 2573766368864417822, guid: 3c02283098997af40a9405503dc0080b, type: 3}
   deathVFX: {fileID: 7936732115390944027, guid: c8af9642b753eae4a95cf7171e8560f5, type: 3}
@@ -513,5 +517,62 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.25, y: 2.0000005, z: 0.20000005}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.7273326, y: 1.8648279, z: 0.20000005}
+  m_Center: {x: 0.1261611, y: 0.0675863, z: 0}
+--- !u!114 &1706109481608940629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3615366472763522677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec71d522a307aee4aac3542787b126d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapCopy: {fileID: 7379597031506313833, guid: f528404d753dc394c8dcd672b2704bb8, type: 3}
+  spawnLoc: {fileID: 8236881813875295503}
+  trapList: []
+--- !u!114 &2769783413833032844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3615366472763522677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed672c79ec3fe544b80458e2620da27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8236881813875295503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1208911056618482201}
+  m_Layer: 0
+  m_Name: TrapSpawnLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1208911056618482201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8236881813875295503}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.829, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3615366472763522667}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

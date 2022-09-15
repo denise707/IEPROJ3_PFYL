@@ -5,8 +5,10 @@ using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class MainMenuUIManager : MonoBehaviour
 {
+    public static MainMenuUIManager instance;
+
     [Header("Blocker Panels")]
     [SerializeField] private GameObject blocker1;
     [SerializeField] private GameObject blocker2;
@@ -24,6 +26,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject deleteConfirmation;
     [SerializeField] private GameObject tutorialConfirmation;
     [SerializeField] private GameObject loadSavedConfirmation;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
 
     public void NewGameConfimation()
     {

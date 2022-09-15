@@ -11,13 +11,9 @@ public class EnemyBehaviour : MonoBehaviour
     private float currHealth = 0f;
     [SerializeField] private float maxHealth = 50f;
     [SerializeField] private float atkDamage = 0f;
-    
-    //For attack function
-    private float ticks = 0f;
-    const float ATTACK_INTERVAL = 3.0f;
 
-    private enum State { Chase, Damaged, ReachedPlayer, AttackPlayer };
-    State currState = State.Chase;
+    public enum State { Chase, Damaged, ReachedPlayer, AttackPlayer };
+    public State currState = State.Chase;
 
     [Header("VFX")]
     [SerializeField] GameObject spawnVFX;
@@ -42,7 +38,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void Update()
     {
-        Action();
+        if (currState == State.Chase) Move();
     }
 
     void OnEnable()
@@ -62,28 +58,6 @@ public class EnemyBehaviour : MonoBehaviour
         GetComponentInChildren<EnemyHPBar>().UpdateHPBar(currHealth, maxHealth);
         currState = State.Chase;
         baseColor = GetComponent<SpriteRenderer>().color;
-    }
-
-    private void Action()
-    {
-        switch (currState)
-        {
-            case State.Chase:
-                Move();
-                break;
-            case State.ReachedPlayer:
-                // To reset attack interval timer
-                ticks = 0f;
-                break;
-            case State.AttackPlayer:
-                Attack();
-                break;
-            case State.Damaged:
-                // Change back color after receiving damage
-                ChangeColor(Color.red);
-                StartCoroutine("ResetColor", 0.2f);
-                break;
-        }
     }
 
     private void Move()
@@ -121,7 +95,7 @@ public class EnemyBehaviour : MonoBehaviour
             Die();
         }
 
-        currState = State.Damaged;
+        Damaged();
     }
 
     private void Die()
@@ -148,16 +122,16 @@ public class EnemyBehaviour : MonoBehaviour
         EnemyPoolManager.instance.ReturnEnemy(this.gameObject);
     }
 
-    private void Attack()
+    private void Damaged()
     {
-        // Attack based on attack interval
-        this.ticks += Time.deltaTime;
-        if (ticks > ATTACK_INTERVAL)
+        ChangeColor(Color.red);
+        if (this.gameObject.activeInHierarchy)
         {
-            PlayVFX(attackVFX, player.transform.position, Quaternion.LookRotation(player.transform.position - transform.position), 2.0f); 
-            ticks = 0.0f;
-
-            // +Player receives damage
+            StartCoroutine("ResetColor", 0.2f);
+        }
+        else
+        {
+            ChangeColor(baseColor);
         }
     }
 
@@ -169,34 +143,9 @@ public class EnemyBehaviour : MonoBehaviour
     IEnumerator ResetColor(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
-
-        currState = State.Chase;
         ChangeColor(baseColor);
     }
 
-    private void OnCollisionStay(Collision collider)
-    {
-        if (collider.gameObject.tag == "Player")
-        {
-            currState = State.AttackPlayer;
-        }
-    }
-
-    private void OnCollisionEnter(Collision collider)
-    {
-        if (collider.gameObject.tag == "Player")
-        {
-            currState = State.ReachedPlayer;
-        }
-    }
-
-    private void OnCollisionExit(Collision collider)
-    {
-        if (collider.gameObject.tag == "Player")
-        {
-            currState = State.Chase;
-        }
-    }
 
     private void PlayVFX(GameObject VFX, Vector3 position, Quaternion rotation, float ticks)
     {
@@ -204,6 +153,11 @@ public class EnemyBehaviour : MonoBehaviour
         {
             Destroy(Instantiate(VFX, position, rotation), ticks);
         }
+    }
+
+    public void AttackVFX()
+    {
+        PlayVFX(attackVFX, player.transform.position, Quaternion.LookRotation(player.transform.position - transform.position), 2.0f);
     }
 }
 
