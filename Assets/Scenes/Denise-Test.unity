@@ -665,6 +665,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1083748481507107390, guid: f1c540aa8ed75f14d969335ae7584853, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1083748482218907606, guid: f1c540aa8ed75f14d969335ae7584853, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -792,6 +796,10 @@ PrefabInstance:
     - target: {fileID: 1083748483349799068, guid: f1c540aa8ed75f14d969335ae7584853, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 1083748483478979150, guid: f1c540aa8ed75f14d969335ae7584853, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1c540aa8ed75f14d969335ae7584853, type: 3}

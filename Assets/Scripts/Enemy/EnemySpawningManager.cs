@@ -24,8 +24,8 @@ public class EnemySpawningManager : MonoBehaviour
     public static int currWave = 0; //Current wave #
     private int[] maxEnemyPerWave = { 0, 0, 0, 0, 0};
 
-    private int waveMinEnemies = 1; //Min possible number of enemies per wave
-    private int waveMaxEnemies = 1; //Max possible number of enemies per wave
+    private int waveMinEnemies = 5; //Min possible number of enemies per wave
+    private int waveMaxEnemies = 7; //Max possible number of enemies per wave
     private int totalEnemyReleasedInWave = 0; //Total enemies per wave
     private int totalEnemyKilledInWave = 0; //Total enemies per wave
 
