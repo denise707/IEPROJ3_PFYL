@@ -1,12 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawningManager : MonoBehaviour
 {
     public static EnemySpawningManager instance;
 
     private List<Transform> spawnLocations = new List<Transform>();
+    private List<String> enemyList = new List<string>();
+    private bool releaseBoss = false;
 
     private enum SpawnerState { Generate, Release, WaveReleased, EnemyCleared };
     private SpawnerState currSpawnerState;
@@ -16,14 +20,17 @@ public class EnemySpawningManager : MonoBehaviour
 
     private int difficulty = 1; //+Move to Game Manager 1 = -, 2 = easy...
 
-    private const int NUM_OF_WAVES = 6; //Max number of waves per day or level
+    private const int NUM_OF_WAVES = 5; //Max number of waves per day or level
     public static int currWave = 0; //Current wave #
-    private int[] maxEnemyPerWave = { 0, 0, 0, 0, 0, 0 };
+    private int[] maxEnemyPerWave = { 0, 0, 0, 0, 0};
 
-    private int waveMinEnemies = 0; //Min possible number of enemies per wave
-    private int waveMaxEnemies = 0; //Max possible number of enemies per wave
+    private int waveMinEnemies = 5; //Min possible number of enemies per wave
+    private int waveMaxEnemies = 7; //Max possible number of enemies per wave
     private int totalEnemyReleasedInWave = 0; //Total enemies per wave
     private int totalEnemyKilledInWave = 0; //Total enemies per wave
+
+    public int totalEnemyKilledInLevel = 0;
+    private int totalEnemyInLevel = 0;
 
     private void Awake()
     {
@@ -40,23 +47,16 @@ public class EnemySpawningManager : MonoBehaviour
     private void Start()
     {
         InitializeSpawnLocations();
-        InitializeLevel();
         InitializeTotalEnemiesPerWave();
+        currWave = 0;
+        totalEnemyReleasedInWave = 0;
+        totalEnemyKilledInWave = 0;
+        ticks = 0;
+        enemyList.Clear();
+        releaseBoss = false;
         currSpawnerState = SpawnerState.Generate;
     }
 
-    private void InitializeLevel() //To be continued after implementing difficulty system
-    {
-        // Spawn rate per difficulty
-        switch (difficulty)
-        {
-            case 1: waveMinEnemies = 3; waveMaxEnemies = 5; break; //None
-            case 2: waveMinEnemies = 5; waveMaxEnemies = 10; break; //Easy
-            case 3: waveMinEnemies = 15; waveMaxEnemies = 20; break; //Medium
-            case 4: waveMinEnemies = 15; waveMaxEnemies = 30; break; //Hard
-            case 5: waveMinEnemies = 9999; waveMaxEnemies = 9999; break; //Impossible (WIP)
-        }
-    }
 
     private void InitializeSpawnLocations()
     {
@@ -71,6 +71,7 @@ public class EnemySpawningManager : MonoBehaviour
         for (int i = 0; i < NUM_OF_WAVES; i++)
         {
             maxEnemyPerWave[i] = Random.Range(waveMinEnemies, waveMaxEnemies);
+            totalEnemyInLevel += maxEnemyPerWave[i]; //Add 1 more for boss
         }
     }
 
@@ -92,7 +93,6 @@ public class EnemySpawningManager : MonoBehaviour
             }
 
         }
-
         else currSpawnerState = SpawnerState.Generate;
     }
 
@@ -100,34 +100,77 @@ public class EnemySpawningManager : MonoBehaviour
     {
         if(TimeManager.instance.IsNightTime())
             currSpawnerState = SpawnerState.Release;
-        //maxEnemyPerWave[0] = 1; ->For debugging
-        Debug.Log("Curr Wave " + currWave + 1);
- 
+
         switch (TimeManager.instance.day)
         {
-            // Boss waves on Day 5
-            case 5: SpawnBossEnemy(); break;
-            // Possible to spawn weaker boss enemies
-            case 6: 
-            case 7: if (Random.Range(1, 100) >= 80) { SpawnEnemy("Weaker Boss " + GetRandomEnemyType()); } break;
+            case 1: 
+                if(!IsEnemyTypeExisting("Zombie"))
+                    enemyList.Add("Zombie");
+                if(currWave == 3 && !IsEnemyTypeExisting("Weaker Boss Zombie"))
+                    enemyList.Add("Weaker Boss Zombie");
+                break;
+            case 2:
+                if (!IsEnemyTypeExisting("Golem"))
+                    enemyList.Add("Golem");
+                if (currWave == 3 && !IsEnemyTypeExisting("Weaker Boss Golem"))
+                    enemyList.Add("Weaker Boss Golem");
+                break;
+            case 3:
+                if (!IsEnemyTypeExisting("Slime"))
+                    enemyList.Add("Slime");
+                if (currWave == 3 && !IsEnemyTypeExisting("Weaker Boss Slime"))
+                    enemyList.Add("Weaker Boss Slime");
+                releaseBoss = true;
+                break;
+            case 4:
+                releaseBoss = true;
+                break;
+            case 5:
+                releaseBoss = true;
+                break;
         }
+    }
+
+    bool IsEnemyTypeExisting(String enemyType)
+    {
+        bool isExisting = false;
+
+        for (int i = 0; i < enemyList.Count; i++)
+        {
+            if (enemyType == enemyList[i])
+            {
+                isExisting = true;
+            }
+        }
+
+        return isExisting;
     }
 
     private void SpawnBossEnemy()
     {
-        switch (difficulty) // Different spawn rate according to difficulty
+        switch (TimeManager.instance.day)  
         {
-            case 1: if ((currWave + 1) % 5 == 0) { SpawnEnemy("Boss " + GetRandomEnemyType()); } break; //None
-            case 2: if ((currWave + 1) % 5 == 0) { SpawnEnemy("Boss " + GetRandomEnemyType()); } break; //Easy
-            case 3: if ((currWave + 1) % 3 == 0) { SpawnEnemy("Boss " + GetRandomEnemyType()); } break; //Medium
-            case 4: if ((currWave + 1) % 2 == 0) { SpawnEnemy("Boss " + GetRandomEnemyType()); } break; //Hard
-            case 5: SpawnEnemy("Boss " + GetRandomEnemyType()); break; //Impossible
+            case 3: 
+                SpawnEnemy("Boss Zombie");
+                break; 
+            case 4:
+                SpawnEnemy("Boss Golem");
+                break;
+            case 5:
+                SpawnEnemy("Boss Slime");
+                break;
         }
     }
 
     private void ReleaseWave()
     {
-        Debug.Log("total = " + totalEnemyReleasedInWave + " / max = " + maxEnemyPerWave[currWave]);
+        if (currWave == 5 && releaseBoss)
+        {
+            maxEnemyPerWave[currWave] += 1; //Add 1 boss
+            SpawnBossEnemy();
+            releaseBoss = false;
+        }
+
         if (totalEnemyReleasedInWave < maxEnemyPerWave[currWave])
         {
             this.ticks += Time.deltaTime;
@@ -165,14 +208,16 @@ public class EnemySpawningManager : MonoBehaviour
 
     private void NextDay()
     {
+        totalEnemyInLevel = 0;
+        totalEnemyKilledInLevel = 0;
         InitializeTotalEnemiesPerWave();
         currWave = 0;
     }
 
     private string GetRandomEnemyType()
     {
-        string[] enemyList = { "Slime", "Zombie", "Golem"};
-        return enemyList[Random.Range(0, enemyList.Length)];
+        //Debug.Log("Enemy type total: " + enemyList.Count);
+        return enemyList[Random.Range(0, enemyList.Count)];
     }
 
     private void SpawnEnemy(string enemyName)
@@ -184,7 +229,34 @@ public class EnemySpawningManager : MonoBehaviour
 
     public void IncrementTotalEnemyKilledInWave()
     {
+        //Debug.Log(totalEnemyKilledInLevel + " / " + totalEnemyInLevel);
+        totalEnemyKilledInLevel++;
         totalEnemyKilledInWave++;
+    }
+
+    public bool IsEnemyCleared()
+    {
+        return (currSpawnerState == SpawnerState.EnemyCleared) ? true : false;
+    }
+
+    public float GetEnemyKilledRatio()
+    {
+        //Debug.Log((float)totalEnemyKilledInLevel / totalEnemyInLevel);
+        return (float)totalEnemyKilledInLevel / totalEnemyInLevel;
+    }
+
+    //--------------To be continued after implementing difficulty system--------------
+    private void InitializeLevel()
+    {
+        // Spawn rate per difficulty
+        switch (difficulty)
+        {
+            case 1: waveMinEnemies = 3; waveMaxEnemies = 5; break; //None
+            case 2: waveMinEnemies = 5; waveMaxEnemies = 10; break; //Easy
+            case 3: waveMinEnemies = 15; waveMaxEnemies = 20; break; //Medium
+            case 4: waveMinEnemies = 15; waveMaxEnemies = 30; break; //Hard
+            case 5: waveMinEnemies = 9999; waveMaxEnemies = 9999; break; //Impossible 
+        }
     }
 
     public float IncreaseEnemyStats(float baseHP)
@@ -201,10 +273,5 @@ public class EnemySpawningManager : MonoBehaviour
         }
 
         return additionalHP;
-    }
-
-    public bool IsEnemyCleared()
-    {
-        return (currSpawnerState == SpawnerState.EnemyCleared) ? true : false;
     }
 }

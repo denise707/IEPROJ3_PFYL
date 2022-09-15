@@ -1388,6 +1388,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
   firePoint: {fileID: 0}
+  plant: {fileID: 0}
+  soil: {fileID: 0}
 --- !u!1 &329703709547075709
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5378211709962462507}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.05, y: 5.231, z: -11.85}
+  m_LocalPosition: {x: -6.05, y: 5.55, z: -11.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5378211710262820571}
@@ -101,6 +101,12 @@ MonoBehaviour:
   slimePrefab: {fileID: 3615366472763522677, guid: 3824b6fbfcd1d314ab4c1328f9cf03db, type: 3}
   zombiePrefab: {fileID: 5579977063640292523, guid: 91bcecfd3b891704497553a622e98e51, type: 3}
   golemPrefab: {fileID: 7706898509311815282, guid: bf49a27e5c2d59949b4ea248c6767186, type: 3}
+  weakerBossSlimePrefab: {fileID: 2547163085458364252, guid: 1b093c5353676924f912fbe3231e97ce, type: 3}
+  weakerBossZombiePrefab: {fileID: 5127384901888413847, guid: 2d19713e497c4c04892de44551b4c873, type: 3}
+  weakerBossGolemPrefab: {fileID: 7351023795395169326, guid: 44e5be29a9e5e114cab04c90b09884d6, type: 3}
+  bossSlimePrefab: {fileID: 5643699992736296185, guid: 5107deab79e5cee44b9759a2fc45b337, type: 3}
+  bossZombiePrefab: {fileID: 1421984130686750464, guid: 7140a080b64ff7b469d2b7994fd506d2, type: 3}
+  bossGolemPrefab: {fileID: 4173486419658797108, guid: 93a31df065dd698418e8274c54faf4c7, type: 3}
 --- !u!1 &5378211710529559318
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +132,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5378211710529559318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.37, y: 5.231, z: -11.85}
+  m_LocalPosition: {x: -0.37, y: 6.01, z: -11.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5378211710262820571}
@@ -165,7 +171,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5378211710822613849}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.23, y: 5.231, z: -16.83}
+  m_LocalPosition: {x: -5.23, y: 5.84, z: -16.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5378211710262820571}

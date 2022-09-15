@@ -39,6 +39,8 @@ public class TimeManager : MonoBehaviour
 
     private void UpdateTimeState()
     {
+        InGameUIManager.instance.UpdateDayLabel("Day " + day);
+
         if (hour == maxHours && currTime == TimeState.DayTime) // set to night when the hours needed is met
         {
             Debug.Log("NIGHT");
@@ -69,8 +71,6 @@ public class TimeManager : MonoBehaviour
                 minute = 59.0f;
             }
         }
-
-        //Debug.Log("Day " + day + "Time " + hour + " : " + minute);
     }
 
     private void PlayTicks()

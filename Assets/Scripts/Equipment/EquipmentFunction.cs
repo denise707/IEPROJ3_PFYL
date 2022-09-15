@@ -83,12 +83,14 @@ public class EquipmentFunction: MonoBehaviour
         {
             if (CompareName("Hoe"))
             {
+                GetSoil();
                 // trigger Hoe
                 animator.SetTrigger("isTriggered");
                 // trigger hoe func in end of anim
             }
             else if (CompareName("Watering Can"))
             {
+                GetSoil();
                 // func
                 animator.SetTrigger("isTriggered");
                 // trigger hoe func in end of anim
@@ -102,9 +104,7 @@ public class EquipmentFunction: MonoBehaviour
         {
             if (CompareName("Rose"))
             {
-                // trigger Hoe
-                //imator.SetTrigger("isTriggered");
-
+                GetSoil();
                 TriggerPlanting();
                 // trigger hoe func in end of anim
             }
@@ -149,7 +149,7 @@ public class EquipmentFunction: MonoBehaviour
 
     public void TriggerHoe()
     {
-        GetSoil();
+        //GetSoil();
 
         // check if soil
 
@@ -167,7 +167,7 @@ public class EquipmentFunction: MonoBehaviour
 
     void TriggerWateringCan()
     {
-        GetSoil();
+        //GetSoil();
         if (soil)
         {
 
@@ -185,7 +185,7 @@ public class EquipmentFunction: MonoBehaviour
 
     void TriggerPlanting()
     {
-        GetSoil();
+        //GetSoil();
         if (soil)
         {
 
@@ -210,7 +210,7 @@ public class EquipmentFunction: MonoBehaviour
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Soil")))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Ground")))
         {
             Debug.Log("Hit: " + hit.transform.name);
             //Select stage    

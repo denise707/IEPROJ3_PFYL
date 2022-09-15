@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 895573509552311674}
   - component: {fileID: 895573509552311673}
   - component: {fileID: 895573509552311672}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: PlantSprite
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,8 @@ GameObject:
   - component: {fileID: 895573509986644515}
   - component: {fileID: 895573509986644514}
   - component: {fileID: 895573509986644513}
-  m_Layer: 6
+  - component: {fileID: 667657249752077147}
+  m_Layer: 3
   m_Name: Soil
   m_TagString: Soil
   m_Icon: {fileID: 0}
@@ -166,7 +167,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4641295981c379a4ca5ff9694bdf14ba, type: 2}
+  - {fileID: 2100000, guid: 5cf2a84051be0e445a0ae09794087692, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -234,8 +235,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soilStatus: 0
   isOccupied: 0
+  hover: {fileID: 667657249752077147}
   defaultSoil_MT: {fileID: 2100000, guid: 4641295981c379a4ca5ff9694bdf14ba, type: 2}
   tilledSoil_MT: {fileID: 2100000, guid: 0c81cd6a81bd52541ae07521bc35d72f, type: 2}
   wateredSoil_MT: {fileID: 2100000, guid: 5db97e36aaa5ca640855ab7a4d919a02, type: 2}
   plant: {fileID: 895573509552311671}
   plantBehavior: {fileID: 0}
+--- !u!114 &667657249752077147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895573509986644512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f20c60a62f20a64b8dc3035bef3e232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startcolor: {r: 0, g: 0, b: 0, a: 0}
+  renderer: {fileID: 0}
+  intensity: 0.1

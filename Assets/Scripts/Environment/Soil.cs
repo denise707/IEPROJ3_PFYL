@@ -18,7 +18,8 @@ public class Soil : MonoBehaviour
     public SoilStatus soilStatus = SoilStatus.Default;
     [SerializeField] private bool isOccupied = false;
 
-    [Header ("Soil Materials")]
+    [Header("Soil Materials")]
+    [SerializeField] HoverBehavior hover;
     [SerializeField] Material defaultSoil_MT;
     [SerializeField] Material tilledSoil_MT;
     [SerializeField] Material wateredSoil_MT;
@@ -86,6 +87,8 @@ public class Soil : MonoBehaviour
             Debug.Log("Watered Soil");
             //change color
             this.gameObject.GetComponent<MeshRenderer>().material = wateredSoil_MT;
+            hover.UpdateStartColor();
+
             // start growth timer
         }
         else if (soilStatus == SoilStatus.Planted) // water tilled soil
@@ -93,6 +96,8 @@ public class Soil : MonoBehaviour
             Debug.Log("Watered Plant");
             //change color
             this.gameObject.GetComponent<MeshRenderer>().material = wateredSoil_MT;
+            hover.UpdateStartColor();
+
             // start growth timer
             plantBehavior.EnablePlantGrowth();
         }
@@ -113,6 +118,8 @@ public class Soil : MonoBehaviour
         Debug.Log("Harvest Plant");
         // disable
         this.gameObject.GetComponent<MeshRenderer>().material = defaultSoil_MT;
+        hover.UpdateStartColor();
+
     }
 
 }

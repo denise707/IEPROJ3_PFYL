@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289973316536731272}
-  m_LocalRotation: {x: -0.5, y: -0, z: -0, w: 0.8660254}
-  m_LocalPosition: {x: -0.1500001, y: -0.79, z: 0.41}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6034445496604688325}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -60, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &6662305731484596483
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5095,6 +5095,7 @@ GameObject:
   - component: {fileID: 9025896448170268149}
   - component: {fileID: 1513047490236259405}
   - component: {fileID: 7610993059126449319}
+  - component: {fileID: 2136524218383154687}
   m_Layer: 0
   m_Name: WeakerBossZombiePrefab
   m_TagString: Enemy
@@ -5109,15 +5110,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5127384901888413847}
-  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: -1.81, y: 0.8, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1275497201048076367}
   - {fileID: 3119095598906566754}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1672752462233318361
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5182,8 +5183,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: Weaker Boss Zombie
-  currHealth: 50
-  atkDamage: 0
+  maxHealth: 80
+  atkDamage: 20
+  currState: 0
   spawnVFX: {fileID: 6218200324367903362, guid: 6d411af8f532fa041a7e24639d7d2ad3, type: 3}
   attackVFX: {fileID: 2573766368864417822, guid: 3c02283098997af40a9405503dc0080b, type: 3}
   deathVFX: {fileID: 7936732115390944027, guid: c8af9642b753eae4a95cf7171e8560f5, type: 3}
@@ -5229,8 +5231,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.25, y: 2.0000005, z: 0.20000005}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.2914392, y: 3.4805713, z: 0.20000005}
+  m_Center: {x: -0.022185743, y: 0.03226143, z: 0.000000044355808}
+--- !u!114 &2136524218383154687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5127384901888413847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c568cc8294899542a1835f5a01dccad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7781324162800765380
 GameObject:
   m_ObjectHideFlags: 0
