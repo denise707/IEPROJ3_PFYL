@@ -87,7 +87,7 @@ public class Soil : MonoBehaviour
             Debug.Log("Watered Soil");
             //change color
             this.gameObject.GetComponent<MeshRenderer>().material = wateredSoil_MT;
-            hover.UpdateStartColor();
+            //hover.UpdateStartColor();
 
             // start growth timer
         }
@@ -96,7 +96,7 @@ public class Soil : MonoBehaviour
             Debug.Log("Watered Plant");
             //change color
             this.gameObject.GetComponent<MeshRenderer>().material = wateredSoil_MT;
-            hover.UpdateStartColor();
+            //hover.UpdateStartColor();
 
             // start growth timer
             plantBehavior.EnablePlantGrowth();

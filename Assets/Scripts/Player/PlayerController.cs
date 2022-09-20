@@ -213,6 +213,24 @@ public class PlayerController : MonoBehaviour
     private void UpdateAnimation2()
     {
         // key for not not moving
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            inputs[0] = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            inputs[1] = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            inputs[2] = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            inputs[3] = true;
+        }
+
+        // key for not not moving
         if (Input.GetKeyUp(KeyCode.W))
         {
             inputs[0] = false;
@@ -230,38 +248,34 @@ public class PlayerController : MonoBehaviour
             inputs[3] = false;
         }
 
+
+        animator.SetBool("isMoving", isPlayingMoving()); // w - back
+
+
         // direction facing
-        if ((Utils.InRange(rotationY, 0, 44) || Utils.InRange(rotationY, 316, 360)) && inputs[0] == false )
+        if ((Utils.InRange(rotationY, 0, 44) || Utils.InRange(rotationY, 316, 360)) )
         {
             ResetInputState();
-            inputs[0] = true;
-           // animator.SetTrigger("Flip");
-            animator.SetBool("faceBack", inputs[0]); // w - back
+            animator.SetBool("faceBack", true); // w - back
         }
-        else if (Utils.InRange(rotationY, 135, 225) == true && inputs[1] == false)
+        else if (Utils.InRange(rotationY, 135, 225) == true )
         {
             ResetInputState();
-            inputs[1] = true;
-          //  animator.SetTrigger("Flip");
-            animator.SetBool("faceFront", inputs[1]); // S - front
+            animator.SetBool("faceFront", true); // S - front
         }
-        else if (Utils.InRange(rotationY, 226, 315) ==  true && inputs[2] == false)
+        else if (Utils.InRange(rotationY, 226, 315) ==  true )
         {
             ResetInputState();
-            inputs[2] = true;
-           // animator.SetTrigger("Flip");
-            animator.SetBool("faceLeft", inputs[2]); // A - left
+            animator.SetBool("faceLeft", true); // A - left
         }
-        else if (Utils.InRange(rotationY, 45, 134) == true && inputs[3] == false)
+        else if (Utils.InRange(rotationY, 45, 134) == true )
         {
             ResetInputState();
-            inputs[3] = true;
-            //animator.SetTrigger("Flip");
-            animator.SetBool("faceRight", inputs[3]); // D - right
+            animator.SetBool("faceRight", true); // D - right
         }
 
      
-            PlayerLookAt();
+           // PlayerLookAt();
        
     }
 
@@ -297,12 +311,12 @@ public class PlayerController : MonoBehaviour
     {
         for (int i = 0; i < inputs.Length; i++)
         {
-            inputs[i] = false;
+            //inputs[i] = false;
         }
-        animator.SetBool("faceBack", inputs[0]); // w - back
-        animator.SetBool("faceFront", inputs[1]); // S - front
-        animator.SetBool("faceLeft", inputs[2]); // A - left
-        animator.SetBool("faceRight", inputs[3]); // D - right
+        animator.SetBool("faceBack", false); // w - back
+        animator.SetBool("faceFront", false); // S - front
+        animator.SetBool("faceLeft", false); // A - left
+        animator.SetBool("faceRight", false); // D - right
     }
 
     private void PlayerLookAt()
@@ -329,5 +343,18 @@ public class PlayerController : MonoBehaviour
             
         }
 
+    }
+
+    private bool isPlayingMoving()
+    {
+        for (int i = 0; i <inputs.Length; i++)
+        {
+            if (inputs[i] == true)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
