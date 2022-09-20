@@ -11,6 +11,8 @@ TagManager:
   - Gun
   - Soil
   - Plant
+  - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - Water
   - UI
   - Soil
-  - 
-  - 
+  - Projectiles
+  - Enemy
   - 
   - 
   - 

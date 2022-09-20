@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 1421984130686750493}
   - component: {fileID: 1421984130686750490}
   - component: {fileID: 5897616534616090557}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BossZombiePrefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}

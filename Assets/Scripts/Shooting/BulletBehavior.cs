@@ -19,7 +19,19 @@ public class BulletBehavior : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+        Debug.Log(collision.gameObject.name);
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Enemy Hit");
+            collision.gameObject.GetComponent<EnemyBehaviour>().ReceiveDamage(30);
+
+        }
+        Destroy(gameObject);
 
     }
+
+
+
+
 }
