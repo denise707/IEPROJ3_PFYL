@@ -55,7 +55,7 @@ public class PlayerWeaponAim : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             transform.LookAt(hit.point); // Look at the point
-            transform.rotation = Quaternion.Euler(new Vector3(0bale capsu, transform.rotation.eulerAngles.y, 0)); // Clamp the x and z rotation
+            transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.eulerAngles.y, 0)); // Clamp the x and z rotation
         }
 
     }
