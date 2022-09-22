@@ -33,13 +33,13 @@ public class FadeVFX : MonoBehaviour
         if (panelState == PanelState.FadeIn)
         {
             
-            ticks += Time.deltaTime;
+            ticks += Time.unscaledDeltaTime;
             FadeIn();
         }
 
         else if (panelState == PanelState.FadeOut)
         {
-            ticks += Time.deltaTime;
+            ticks += Time.unscaledDeltaTime;
             FadeOut();
         }
     }

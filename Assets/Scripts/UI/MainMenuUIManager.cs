@@ -11,21 +11,12 @@ public class MainMenuUIManager : MonoBehaviour
 
     [Header("Blocker Panels")]
     [SerializeField] private GameObject blocker1;
-    [SerializeField] private GameObject blocker2;
-    [SerializeField] private GameObject blocker3;
-    [SerializeField] private GameObject blocker4;
 
     [Header("Pop Up Panels")]
-    [SerializeField] private GameObject newGameConfirmation;
-    [SerializeField] private GameObject loadGameConfirmation;
+    [SerializeField] private GameObject playGameConfirmation;
+    [SerializeField] private GameObject playTutorialConfirmation;
     [SerializeField] private GameObject optionsMenu;
-    [SerializeField] private GameObject loadFile;
     [SerializeField] private GameObject exitGameConfirmation;
-    [SerializeField] private GameObject createFile;
-    [SerializeField] private GameObject overwriteConfirmation;
-    [SerializeField] private GameObject deleteConfirmation;
-    [SerializeField] private GameObject tutorialConfirmation;
-    [SerializeField] private GameObject loadSavedConfirmation;
 
     private void Awake()
     {
@@ -39,13 +30,13 @@ public class MainMenuUIManager : MonoBehaviour
         }
     }
 
-    public void NewGameConfimation()
+    public void PlayGameConfimation()
     {
-        HandlePopUp(newGameConfirmation, blocker1);
+        HandlePopUp(playGameConfirmation, blocker1);
     }
-    public void LoadGameConfimation()
+    public void PlayTutorialConfimation()
     {
-        HandlePopUp(loadGameConfirmation, blocker1);
+        HandlePopUp(playTutorialConfirmation, blocker1);
     }
 
     public void OptionsMenu()
@@ -58,41 +49,22 @@ public class MainMenuUIManager : MonoBehaviour
         HandlePopUp(exitGameConfirmation, blocker1);
     }
 
+    public void OpenMainLevel()
+    {
+        SceneManager.LoadScene("Denise-Test");
+    }
+
+    public void OpenTutorialLevel()
+    {
+        SceneManager.LoadScene("Tutorial Level");
+    }
+
     public void ExitGame()
     {
         Debug.Log("Exit Game");
         Application.Quit();
     }
 
-    public void LoadFile()
-    {
-        HandlePopUp(loadFile, blocker2);
-    }
-
-    public void CreateFile()
-    {
-        HandlePopUp(createFile, blocker2);
-    }
-
-    public void OverwriteConfirmation()
-    {
-        HandlePopUp(overwriteConfirmation, blocker3);
-    }
-
-    public void DeleteConfirmation()
-    {
-        HandlePopUp(deleteConfirmation, blocker3);
-    }
-
-    public void LoadSavedConfirmation()
-    {
-        HandlePopUp(loadSavedConfirmation, blocker3);
-    }
-
-    public void TutorialConfirmation()
-    {
-        HandlePopUp(tutorialConfirmation, blocker4);
-    }
 
     public void HandlePopUp(GameObject popUp, GameObject blocker)
     {

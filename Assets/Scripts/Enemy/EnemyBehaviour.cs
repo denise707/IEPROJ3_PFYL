@@ -104,15 +104,15 @@ public class EnemyBehaviour : MonoBehaviour
         // +Contact spawn manager
         // +Drop loot
 
-        PlayVFX(deathVFX, transform.position, transform.rotation, 1.0f); 
-
-        EnemySpawningManager.instance.IncrementTotalEnemyKilledInWave();
+        EnemySpawningManager.instance.RemoveEnemy(this.gameObject);
 
         DestroyEnemy();
     }
 
-    private void DestroyEnemy()
+    public void DestroyEnemy()
     {
+        PlayVFX(deathVFX, transform.position, transform.rotation, 1.0f);
+
         // Remove enemy game object from screen
         Vector3 currPosition = transform.position;
         currPosition.y = -20f;
