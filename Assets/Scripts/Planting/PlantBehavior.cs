@@ -31,6 +31,8 @@ public class PlantBehavior : MonoBehaviour
     [SerializeField] Sprite DropA_sprt;
     [SerializeField] Sprite DropB_sprt;
 
+    Soil soil;
+
    
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,8 @@ public class PlantBehavior : MonoBehaviour
         {
             UpdatePlantProperty(plantToGrow);
         }
+
+        soil = gameObject.GetComponentInParent<Soil>();
        
     }
 
@@ -58,7 +62,7 @@ public class PlantBehavior : MonoBehaviour
         Debug.Log("Updating Plant Stats");
         this.GrowthSpriteList = plantObj.PlantGrowthSpriteList;
         this.DropA_sprt = plantObj.DropsA;
-        this.DropA_sprt = plantObj.DropsB;
+        this.DropB_sprt = plantObj.DropsB;
 
         this.growthDuration = plantObj.growthDuration;
 
@@ -69,6 +73,25 @@ public class PlantBehavior : MonoBehaviour
 
 
     }
+
+    public void ResetPlantProperty()
+    {
+        this.gameObject.transform.localPosition = gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, 0.5f, gameObject.transform.localPosition.z);
+        Debug.Log("Reset Plant Stats");
+        //this.GrowthSpriteList.Clear();
+        this.DropA_sprt = null;
+        this.DropB_sprt = null;
+
+        this.growthDuration = 0;
+
+        this.phase = 0;
+        plantStatus = PlantPhase.Phase0_Default;
+
+
+        //this.gameObject.GetComponent<SpriteRenderer>().sprite = GrowthSpriteList[phase]; // seed
+        //plantStatus = PlantPhase.Phase1_Seedling;
+    }
+
 
     public void EnablePlantGrowth()
     {
@@ -107,8 +130,9 @@ public class PlantBehavior : MonoBehaviour
             {
                 plantStatus = PlantPhase.Phase3_FullyGrown;
                 this.gameObject.GetComponent<SpriteRenderer>().sprite = GrowthSpriteList[phase];
-                //PrepareForHarvest();
+                PrepareForHarvest();
                 isGrowing = false;
+                simulateGrowth = false;
             }
 
         }
@@ -118,8 +142,17 @@ public class PlantBehavior : MonoBehaviour
 
     void PrepareForHarvest()
     {
-        this.phase = 0;
+        if (soil)
+        {
+
+            soil.soilStatus = Soil.SoilStatus.ForHarvesting;
+
+        }
+        else {
+            Debug.Log("not found");
+                
+                }
         // enable particle
-        
+
     }
 }

@@ -131,8 +131,15 @@ public class EquipmentFunction: MonoBehaviour
 
         if (soil)
         {
+            if (soil.soilStatus == Soil.SoilStatus.ForHarvesting)
+            {
+                soil.HarvestPlant();
+            }
+            else
+            {
+                soil.TillSoil();
+            }
             
-            soil.TillSoil();
             
         }
         else
@@ -147,7 +154,14 @@ public class EquipmentFunction: MonoBehaviour
         if (soil)
         {
 
-            soil.WaterSoil();
+            if (soil.soilStatus == Soil.SoilStatus.ForHarvesting)
+            {
+                soil.HarvestPlant();
+            }
+            else
+            {
+                soil.WaterSoil();
+            }
 
         }
         else
@@ -164,8 +178,15 @@ public class EquipmentFunction: MonoBehaviour
         //GetSoil();
         if (soil)
         {
-
-            soil.PlantSeed(this.plant);
+            if (soil.soilStatus == Soil.SoilStatus.ForHarvesting)
+            {
+                soil.HarvestPlant();
+            }
+            else
+            {
+                soil.PlantSeed(this.plant);
+            }
+            
 
         }
         else

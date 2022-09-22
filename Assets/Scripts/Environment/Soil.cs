@@ -72,7 +72,7 @@ public class Soil : MonoBehaviour
     {
         // plant seeds on empty and plowed soil and update status
 
-        if (isOccupied == false && soilStatus == SoilStatus.Tilled)
+        if (isOccupied == false && (soilStatus == SoilStatus.Tilled || soilStatus == SoilStatus.Watered))
         {
             plantBehavior.UpdatePlantProperty(plantObj); // update plant comp in plant sprite
 
@@ -92,6 +92,8 @@ public class Soil : MonoBehaviour
             Debug.Log("Watered Soil");
             //change color
             this.gameObject.GetComponent<MeshRenderer>().material = wateredSoil_MT;
+            soilStatus = SoilStatus.Watered;
+
             //hover.UpdateStartColor();
 
             // start growth timer
@@ -105,6 +107,8 @@ public class Soil : MonoBehaviour
 
             // start growth timer
             plantBehavior.EnablePlantGrowth();
+            soilStatus = SoilStatus.Growing;
+
         }
         else
         {
@@ -121,9 +125,17 @@ public class Soil : MonoBehaviour
     public void HarvestPlant()
     {
         Debug.Log("Harvest Plant");
+        ResetSoil();
         // disable
+    }
+
+    private void ResetSoil()
+    {
+        this.soilStatus = SoilStatus.Default;
         this.gameObject.GetComponent<MeshRenderer>().material = defaultSoil_MT;
-        hover.UpdateStartColor();
+        plantBehavior.ResetPlantProperty();
+        plant.SetActive(false);
+        isOccupied = false;
 
     }
 
