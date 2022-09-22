@@ -9,28 +9,19 @@ public class EnemySpawningManager : MonoBehaviour
     public static EnemySpawningManager instance;
 
     private List<Transform> spawnLocations = new List<Transform>();
-    private List<String> enemyList = new List<string>();
+    private List<String> enemyTypeList = new List<string>();
+    private List<GameObject> spawnedEnemyList = new List<GameObject>();
     private bool releaseBoss = false;
 
-    private enum SpawnerState { Generate, Release, WaveReleased, EnemyCleared };
+    private enum SpawnerState { Generate, Release, EnemyCleared , Default};
     private SpawnerState currSpawnerState;
 
     private float ticks = 0.0f;
-    private float SPAWN_INTERVAL = 5.0f;
+    private float minSpawnInterval = 3.0f;
+    private float maxSpawnInterval = 10.0f;
+    private float spawnInterval = 5.0f;
 
     private int difficulty = 1; //+Move to Game Manager 1 = -, 2 = easy...
-
-    private const int NUM_OF_WAVES = 5; //Max number of waves per day or level
-    public static int currWave = 0; //Current wave #
-    private int[] maxEnemyPerWave = { 0, 0, 0, 0, 0};
-
-    private int waveMinEnemies = 5; //Min possible number of enemies per wave
-    private int waveMaxEnemies = 7; //Max possible number of enemies per wave
-    private int totalEnemyReleasedInWave = 0; //Total enemies per wave
-    private int totalEnemyKilledInWave = 0; //Total enemies per wave
-
-    public int totalEnemyKilledInLevel = 0;
-    private int totalEnemyInLevel = 0;
 
     private void Awake()
     {
@@ -47,14 +38,15 @@ public class EnemySpawningManager : MonoBehaviour
     private void Start()
     {
         InitializeSpawnLocations();
-        InitializeTotalEnemiesPerWave();
-        currWave = 0;
-        totalEnemyReleasedInWave = 0;
-        totalEnemyKilledInWave = 0;
         ticks = 0;
-        enemyList.Clear();
+        enemyTypeList.Clear();
         releaseBoss = false;
-        currSpawnerState = SpawnerState.Generate;
+        currSpawnerState = SpawnerState.Default;
+    }
+
+    private void RandomizeSpawnInterval()
+    {
+        spawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
     }
 
 
@@ -66,60 +58,60 @@ public class EnemySpawningManager : MonoBehaviour
         }
     }
 
-    private void InitializeTotalEnemiesPerWave()
-    {
-        for (int i = 0; i < NUM_OF_WAVES; i++)
-        {
-            maxEnemyPerWave[i] = Random.Range(waveMinEnemies, waveMaxEnemies);
-            totalEnemyInLevel += maxEnemyPerWave[i]; //Add 1 more for boss
-        }
-    }
-
     void Update()
     {
         if (TimeManager.instance.IsNightTime())
         {
+            if (currSpawnerState != SpawnerState.Release)
+            {
+                currSpawnerState = SpawnerState.Generate;
+                RandomizeSpawnInterval();
+            }
+            
             switch (currSpawnerState)
             {
                 case SpawnerState.Generate:
-                    GenerateWave();
+                    GenerateEnemies();
                     break;
                 case SpawnerState.Release:
-                    ReleaseWave();
-                    break;
-                case SpawnerState.WaveReleased:
-                    NextWave();
+                    ReleaseEnemies();
                     break;
             }
-
         }
-        else currSpawnerState = SpawnerState.Generate;
+
+        else
+        {
+            if (currSpawnerState != SpawnerState.EnemyCleared)
+            {
+                ClearEnemies();
+                currSpawnerState = SpawnerState.EnemyCleared;
+            }
+        }
     }
 
-    private void GenerateWave()
+    private void GenerateEnemies()
     {
-        if(TimeManager.instance.IsNightTime())
-            currSpawnerState = SpawnerState.Release;
+        currSpawnerState = SpawnerState.Release;
 
         switch (TimeManager.instance.day)
         {
             case 1: 
                 if(!IsEnemyTypeExisting("Zombie"))
-                    enemyList.Add("Zombie");
-                if(currWave == 3 && !IsEnemyTypeExisting("Weaker Boss Zombie"))
-                    enemyList.Add("Weaker Boss Zombie");
+                    enemyTypeList.Add("Zombie");
+                if(!IsEnemyTypeExisting("Weaker Boss Zombie"))
+                    enemyTypeList.Add("Weaker Boss Zombie");
                 break;
             case 2:
                 if (!IsEnemyTypeExisting("Golem"))
-                    enemyList.Add("Golem");
-                if (currWave == 3 && !IsEnemyTypeExisting("Weaker Boss Golem"))
-                    enemyList.Add("Weaker Boss Golem");
+                    enemyTypeList.Add("Golem");
+                if (!IsEnemyTypeExisting("Weaker Boss Golem"))
+                    enemyTypeList.Add("Weaker Boss Golem");
                 break;
             case 3:
                 if (!IsEnemyTypeExisting("Slime"))
-                    enemyList.Add("Slime");
-                if (currWave == 3 && !IsEnemyTypeExisting("Weaker Boss Slime"))
-                    enemyList.Add("Weaker Boss Slime");
+                    enemyTypeList.Add("Slime");
+                if (!IsEnemyTypeExisting("Weaker Boss Slime"))
+                    enemyTypeList.Add("Weaker Boss Slime");
                 releaseBoss = true;
                 break;
             case 4:
@@ -135,14 +127,13 @@ public class EnemySpawningManager : MonoBehaviour
     {
         bool isExisting = false;
 
-        for (int i = 0; i < enemyList.Count; i++)
+        for (int i = 0; i < enemyTypeList.Count; i++)
         {
-            if (enemyType == enemyList[i])
+            if (enemyType == enemyTypeList[i])
             {
                 isExisting = true;
             }
         }
-
         return isExisting;
     }
 
@@ -162,62 +153,26 @@ public class EnemySpawningManager : MonoBehaviour
         }
     }
 
-    private void ReleaseWave()
+    private void ReleaseEnemies()
     {
-        if (currWave == 5 && releaseBoss)
+        if (releaseBoss)
         {
-            maxEnemyPerWave[currWave] += 1; //Add 1 boss
             SpawnBossEnemy();
             releaseBoss = false;
         }
 
-        if (totalEnemyReleasedInWave < maxEnemyPerWave[currWave])
+        this.ticks += Time.deltaTime;
+
+        if (this.ticks > this.spawnInterval)
         {
-            this.ticks += Time.deltaTime;
-
-            if (this.ticks > this.SPAWN_INTERVAL)
-            {
-                this.SPAWN_INTERVAL = Random.Range(5.0f, 10.0f);
-                SpawnEnemy(GetRandomEnemyType());
-                totalEnemyReleasedInWave++;
-                this.ticks = 0.0f;
-            }
+            SpawnEnemy(GetRandomEnemyType());
+            this.ticks = 0.0f;
         }
-
-        else
-        {
-            currSpawnerState = SpawnerState.WaveReleased;
-            totalEnemyReleasedInWave = 0;
-        }
-    }
-
-    private void NextWave()
-    {
-        if (totalEnemyKilledInWave == maxEnemyPerWave[currWave])
-        {
-            currWave++;
-            totalEnemyKilledInWave = 0;
-            currSpawnerState = SpawnerState.Generate;
-            if (currWave >= NUM_OF_WAVES)
-            {
-                currSpawnerState = SpawnerState.EnemyCleared;
-                NextDay();
-            }
-        }
-    }
-
-    private void NextDay()
-    {
-        totalEnemyInLevel = 0;
-        totalEnemyKilledInLevel = 0;
-        InitializeTotalEnemiesPerWave();
-        currWave = 0;
     }
 
     private string GetRandomEnemyType()
     {
-        //Debug.Log("Enemy type total: " + enemyList.Count);
-        return enemyList[Random.Range(0, enemyList.Count)];
+        return enemyTypeList[Random.Range(0, enemyTypeList.Count)];
     }
 
     private void SpawnEnemy(string enemyName)
@@ -225,24 +180,20 @@ public class EnemySpawningManager : MonoBehaviour
         Transform location = this.spawnLocations[Random.Range(0, spawnLocations.Count)].transform;
         GameObject newEnemy = EnemyPoolManager.instance.GetEnemy(enemyName);
         newEnemy.transform.position = location.position;
+        spawnedEnemyList.Add(newEnemy);
     }
 
-    public void IncrementTotalEnemyKilledInWave()
+    public void RemoveEnemy(GameObject enemy)
     {
-        //Debug.Log(totalEnemyKilledInLevel + " / " + totalEnemyInLevel);
-        totalEnemyKilledInLevel++;
-        totalEnemyKilledInWave++;
+        spawnedEnemyList.Remove(enemy);
     }
 
-    public bool IsEnemyCleared()
+    private void ClearEnemies()
     {
-        return (currSpawnerState == SpawnerState.EnemyCleared) ? true : false;
-    }
-
-    public float GetEnemyKilledRatio()
-    {
-        //Debug.Log((float)totalEnemyKilledInLevel / totalEnemyInLevel);
-        return (float)totalEnemyKilledInLevel / totalEnemyInLevel;
+        for (int i = 0; i < spawnedEnemyList.Count; i++)
+        {
+            spawnedEnemyList[i].GetComponent<EnemyBehaviour>().DestroyEnemy();
+        }
     }
 
     //--------------To be continued after implementing difficulty system--------------
@@ -251,11 +202,7 @@ public class EnemySpawningManager : MonoBehaviour
         // Spawn rate per difficulty
         switch (difficulty)
         {
-            case 1: waveMinEnemies = 3; waveMaxEnemies = 5; break; //None
-            case 2: waveMinEnemies = 5; waveMaxEnemies = 10; break; //Easy
-            case 3: waveMinEnemies = 15; waveMaxEnemies = 20; break; //Medium
-            case 4: waveMinEnemies = 15; waveMaxEnemies = 30; break; //Hard
-            case 5: waveMinEnemies = 9999; waveMaxEnemies = 9999; break; //Impossible 
+            // +max 
         }
     }
 

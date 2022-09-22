@@ -9,14 +9,18 @@ public class TimeManager : MonoBehaviour
     private TimeState currTime = TimeState.DayTime;
 
     public int day = 1;
-    public float hour = 0; // set to 5 for debugging
-    private float minute = 0.0f;
 
-    private const int maxDay = 8; // one full week cycle
-    private float maxHours = 6.0f; // hours it takes to be considered as a Day
-    private float maxMins = 60.0f; // mins it takes to be considered as an hour
+    public float dayHour = 0; // set to 5 for debugging
+    private float dayMinute = 0.0f;
 
-    private float TIME_MULTIPLIER = 60.0f; // 3f for debugging // 2.0f normal
+    public float nightHour = 0; // set to 5 for debugging
+    private float nightMinute = 0.0f;
+
+    private const int maxDay = 5; // one full week cycle
+    public float maxHours = 2.0f; // hours it takes to be considered as a Day (2 hours = 1 minute irl)
+    public float maxMins = 60.0f; // mins it takes to be considered as an hour
+
+    private float TIME_MULTIPLIER = 2.0f; // --- 60.0f for debugging --- 2.0f normal ---
 
     private void Awake()
     {
@@ -30,59 +34,99 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        currTime = TimeState.DayTime;
+    }
+
     void Update()
     {
-        PlayTicks();
-        UpdateTime();
         UpdateTimeState();
+
+        if (currTime == TimeState.DayTime)
+        {
+            PlayDayTicks();
+            UpdateDayTime();
+        }
+
+        if (currTime == TimeState.NightTime)
+        {
+            PlayNightTicks();
+            UpdateNightTime();
+        }
     }
 
     private void UpdateTimeState()
     {
         InGameUIManager.instance.UpdateDayLabel("Day " + day);
 
-        if (hour == maxHours && currTime == TimeState.DayTime) // set to night when the hours needed is met
+        if (dayHour == maxHours && currTime == TimeState.DayTime) // set to night when the hours needed is met
         {
-            Debug.Log("NIGHT");
+            
             currTime = TimeState.NightTime;
+            nightHour = 0;
+            nightMinute = 0;
         }
 
-        if (EnemySpawningManager.instance.IsEnemyCleared() && currTime == TimeState.NightTime) // if total enemy killed == total enemy for a day
+        if (nightHour == maxHours && currTime == TimeState.NightTime) // if total enemy killed == total enemy for a day
         {
             Debug.Log("DAY");
             currTime = TimeState.DayTime;
-            hour = 0;
-            minute = 0;
+            dayHour = 0;
+            dayMinute = 0;
             day++;
         }
     }
 
-    private void UpdateTime()
+    private void PlayDayTicks()
     {
-        if (minute >= maxMins)// increment the hour if minute is greater than max min
+        dayMinute += Time.deltaTime * TIME_MULTIPLIER; //2f; Note: Use 30f for debugging 
+    }
+
+    private void UpdateDayTime()
+    {
+        if (dayMinute >= maxMins)// increment the hour if minute is greater than max min
         {
-            if (!(day == maxDay - 1 && hour == maxHours))
+            if (!(day == maxDay - 1 && dayHour == maxHours))
             {
-                hour++; // increment hour
-                minute = 0.0f; // reset minutes
+                dayHour++; // increment hour
+                dayMinute = 0.0f; // reset minutes
             }
             else
             {
-                minute = 59.0f;
+                dayMinute = 59.0f;
             }
         }
     }
 
-    private void PlayTicks()
+    private void PlayNightTicks()
     {
-        if (currTime == TimeState.DayTime) 
+        nightMinute += Time.deltaTime * TIME_MULTIPLIER; //2f; Note: Use 30f for debugging 
+    }
+
+    private void UpdateNightTime()
+    {
+        if (nightMinute >= maxMins)// increment the hour if minute is greater than max min
         {
-            minute += Time.deltaTime * TIME_MULTIPLIER; //2f; Note: Use 30f for debugging 
+            if (!(day == maxDay - 1 && nightHour == maxHours))
+            {
+                nightHour++; // increment hour
+                nightMinute = 0.0f; // reset minutes
+            }
+            else
+            {
+                nightMinute = 59.0f;
+            }
         }
     }
 
     public bool IsNightTime()
     {
         return (currTime == TimeState.NightTime) ? true : false;
+    }
+
+    public float MaxHoursTimesMaxMins()
+    {
+        return maxHours * maxMins;
     }
 }

@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InGameUIManager : MonoBehaviour
@@ -9,7 +11,8 @@ public class InGameUIManager : MonoBehaviour
     public static InGameUIManager instance;
 
     private float accumMins = 0.0f;
-    private float TIME_MULTIPLIER = 60.0f; // 3f for debugging // 2.0f normal
+
+    private float TIME_MULTIPLIER = 2.0f; // --- 60.0f for debugging --- 2.0f normal ---
 
     [Header("HUD Objects")]
     [SerializeField] Transform clock;
@@ -23,6 +26,9 @@ public class InGameUIManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject mainMenuConfirmation;
+
+    private bool resetDay = false;
+    private bool resetNight = false;
 
     private void Awake()
     {
@@ -58,21 +64,32 @@ public class InGameUIManager : MonoBehaviour
     {
         if (!TimeManager.instance.IsNightTime())
         {
+            if (!resetDay)
+            {
+                accumMins = 0;
+                resetDay = true;
+                resetNight = false;
+            }
+
             accumMins += Time.deltaTime * TIME_MULTIPLIER;
-            float angle = Mathf.Lerp(0.0f, -180, accumMins / (6 * 60));
+            float angle = Mathf.Lerp(0.0f, -180, accumMins / TimeManager.instance.MaxHoursTimesMaxMins());
             Quaternion target = Quaternion.Euler(0, 0, angle);
-            clock.transform.rotation = Quaternion.Slerp(clock.transform.rotation, target, Time.deltaTime * 5.0f);
+            clock.transform.rotation = Quaternion.Slerp(clock.transform.rotation, target, Time.deltaTime * TIME_MULTIPLIER);
         }
 
         else
         {
-            if (EnemySpawningManager.instance.totalEnemyKilledInLevel > 0)
+            if (!resetNight)
             {
                 accumMins = 0;
-                float angle = Mathf.Lerp(-180, -360, EnemySpawningManager.instance.GetEnemyKilledRatio());
-                Quaternion target = Quaternion.Euler(0, 0, angle);
-                clock.transform.rotation = Quaternion.Slerp(clock.transform.rotation, target, Time.deltaTime);
+                resetDay = false;
+                resetNight = true;
             }
+
+            accumMins += Time.deltaTime * TIME_MULTIPLIER;
+            float angle = Mathf.Lerp(-180, -360, accumMins / TimeManager.instance.MaxHoursTimesMaxMins());
+            Quaternion target = Quaternion.Euler(0, 0, angle);
+            clock.transform.rotation = Quaternion.Slerp(clock.transform.rotation, target, Time.deltaTime * TIME_MULTIPLIER);
         }
     }
 
@@ -84,6 +101,13 @@ public class InGameUIManager : MonoBehaviour
     public void PauseMenu()
     {
         HandlePopUp(pauseMenu, blocker1);
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        HandlePopUp(pauseMenu, blocker1);
+        Time.timeScale = 1;
     }
 
     public void OptionsMenu()
@@ -94,6 +118,12 @@ public class InGameUIManager : MonoBehaviour
     public void MainMenuConfirmation()
     {
         HandlePopUp(mainMenuConfirmation, blocker2);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void HandlePopUp(GameObject popUp, GameObject blocker)
@@ -119,7 +149,6 @@ public class InGameUIManager : MonoBehaviour
             BlockerfadeOut(blocker);
         }
     }
-
 
     public void BlockerfadeIn(GameObject obj)
     {
