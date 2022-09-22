@@ -215,8 +215,8 @@ GameObject:
   - component: {fileID: 5579977063640292532}
   - component: {fileID: 5579977063640292535}
   - component: {fileID: 5579977063640292534}
-  - component: {fileID: 5579977063640292529}
   - component: {fileID: 8632419095051335147}
+  - component: {fileID: 6089489317430812411}
   m_Layer: 0
   m_Name: ZombiePrefab
   m_TagString: Enemy
@@ -340,19 +340,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &5579977063640292529
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5579977063640292523}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2805343, y: 3.4910855, z: 0.20000005}
-  m_Center: {x: 0.055933952, y: 0.07061213, z: -0.00000010057537}
 --- !u!114 &8632419095051335147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,6 +352,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c568cc8294899542a1835f5a01dccad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &6089489317430812411
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5579977063640292523}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.62727606
+  m_Height: 3.7
+  m_Direction: 1
+  m_Center: {x: 0.009137511, y: 0, z: 0}
 --- !u!1 &5579977063651618701
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 23.6}
+  m_AnchoredPosition: {x: 0, y: 28.8}
   m_SizeDelta: {x: 50, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5579977063651618703

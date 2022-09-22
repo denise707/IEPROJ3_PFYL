@@ -5146,7 +5146,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 5.9}
   m_SizeDelta: {x: 50, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5643699992724545501
@@ -5213,9 +5213,9 @@ GameObject:
   - component: {fileID: 5643699992736296166}
   - component: {fileID: 5643699992736296165}
   - component: {fileID: 5643699992736296164}
-  - component: {fileID: 5643699992736296163}
   - component: {fileID: 4393286335912561424}
   - component: {fileID: 7507236854825059074}
+  - component: {fileID: 3459343978087681570}
   m_Layer: 0
   m_Name: BossSlimePrefab
   m_TagString: Enemy
@@ -5341,19 +5341,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &5643699992736296163
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5643699992736296185}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.25, y: 2.0000005, z: 0.20000005}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4393286335912561424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5381,3 +5368,17 @@ MonoBehaviour:
   trapCopy: {fileID: 7379597031506313833, guid: f528404d753dc394c8dcd672b2704bb8, type: 3}
   spawnLoc: {fileID: 1006371276124367392}
   trapList: []
+--- !u!136 &3459343978087681570
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643699992736296185}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.72927076
+  m_Height: 2.0910242
+  m_Direction: 1
+  m_Center: {x: 0.071872056, y: 0.024992228, z: -0.054569602}

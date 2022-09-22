@@ -14,10 +14,12 @@ public class GolemRange : MonoBehaviour
 
     [SerializeField] private GameObject range;
     [SerializeField] private GameObject spike;
+    [SerializeField] private GameObject maxRange;
 
     public void showRange()
     {
         range.SetActive(true);
+        maxRange.SetActive(true);
         timeStartedLerping = Time.time;
         shouldLerp = true;
     }
@@ -44,6 +46,7 @@ public class GolemRange : MonoBehaviour
     public void HideRange()
     {
         range.SetActive(false);
+        maxRange.SetActive(false);
     }
 
     public void ShowSpike()
