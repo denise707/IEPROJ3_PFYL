@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d09a1c2572de802439590d5b840fbd87, type: 3}
+  m_Name: Nuke
+  m_EditorClassIdentifier: 
+  uiDisplay: {fileID: 21300000, guid: b14628394703c1046b66d3baedf319c9, type: 3}
+  isStackable: 1
+  type: 0
+  description: A nuke plant to end the game
+  data:
+    name: Nuke
+    id: 5
+    stackable: 0
+  growthDuration: 5
+  PlantGrowthSpriteList:
+  - {fileID: 21300000, guid: b14628394703c1046b66d3baedf319c9, type: 3}
+  - {fileID: 21300000, guid: 008559fd55d786040bf9d5a57305024c, type: 3}
+  - {fileID: 21300000, guid: 6785e0e5cbbf5ab4891a6dfb0cb0a897, type: 3}
+  DropsA: {fileID: 0}
+  DropsB: {fileID: 0}
+  prefab: {fileID: 2671296062513102976, guid: 8f8796fe6caada2498e5ad174b92ec58, type: 3}
