@@ -5094,8 +5094,8 @@ GameObject:
   - component: {fileID: 5965653766885204533}
   - component: {fileID: 9025896448170268149}
   - component: {fileID: 1513047490236259405}
-  - component: {fileID: 7610993059126449319}
   - component: {fileID: 2136524218383154687}
+  - component: {fileID: 5410278898099298865}
   m_Layer: 0
   m_Name: WeakerBossZombiePrefab
   m_TagString: Enemy
@@ -5220,19 +5220,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &7610993059126449319
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5127384901888413847}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2914392, y: 3.4805713, z: 0.20000005}
-  m_Center: {x: -0.022185743, y: 0.03226143, z: 0.000000044355808}
 --- !u!114 &2136524218383154687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5245,6 +5232,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c568cc8294899542a1835f5a01dccad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &5410278898099298865
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5127384901888413847}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5589503
+  m_Height: 3.7
+  m_Direction: 1
+  m_Center: {x: -0.02880764, y: 0, z: 0.0007916689}
 --- !u!1 &7781324162800765380
 GameObject:
   m_ObjectHideFlags: 0
@@ -5280,7 +5281,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 23.6}
+  m_AnchoredPosition: {x: 0.5, y: 28.2}
   m_SizeDelta: {x: 50, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5699615078136402169

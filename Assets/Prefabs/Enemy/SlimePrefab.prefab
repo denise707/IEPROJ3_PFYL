@@ -312,7 +312,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 3.4}
   m_SizeDelta: {x: 50, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3615366472752057681
@@ -379,9 +379,9 @@ GameObject:
   - component: {fileID: 3615366472763522666}
   - component: {fileID: 3615366472763522665}
   - component: {fileID: 3615366472763522664}
-  - component: {fileID: 3615366472763522671}
   - component: {fileID: 1706109481608940629}
   - component: {fileID: 2769783413833032844}
+  - component: {fileID: 1909239759383933981}
   m_Layer: 0
   m_Name: SlimePrefab
   m_TagString: Enemy
@@ -506,19 +506,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &3615366472763522671
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3615366472763522677}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.7273326, y: 1.8648279, z: 0.20000005}
-  m_Center: {x: 0.1261611, y: 0.0675863, z: 0}
 --- !u!114 &1706109481608940629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,6 +533,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed672c79ec3fe544b80458e2620da27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &1909239759383933981
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3615366472763522677}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.8324332
+  m_Height: 1.8314334
+  m_Direction: 1
+  m_Center: {x: 0.043042183, y: 0.056975424, z: 0.020448446}
 --- !u!1 &8236881813875295503
 GameObject:
   m_ObjectHideFlags: 0
