@@ -13,9 +13,13 @@ public class PlantBehavior : MonoBehaviour
     }
 
     [Header("Plant Properties")]
-    public PlantPhase plantStatus = PlantPhase.Phase0_Default;
+    [SerializeField] PlantObject plantToGrow;
+
+    public PlantPhase plantStatus = PlantPhase.Phase0_Default; 
     [SerializeField] int phase = 0;
+     public bool simulateGrowth = false;
     [SerializeField] bool isGrowing = false;
+
     [SerializeField] float growthDuration = 0;
 
     public float ticks = 0f;
@@ -26,23 +30,25 @@ public class PlantBehavior : MonoBehaviour
     [Header("Plant Drops Sprite")]
     [SerializeField] Sprite DropA_sprt;
     [SerializeField] Sprite DropB_sprt;
+
+   
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (plantToGrow)
+        {
+            UpdatePlantProperty(plantToGrow);
+        }
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isGrowing)
+        if (simulateGrowth && !isGrowing)
         {
-            ticks += Time.deltaTime;
-
-            if(ticks >= this.growthDuration)
-            {
-                //StartCoroutine
-            }
+            EnablePlantGrowth();
+            isGrowing = true;
         }
     }
 
@@ -69,6 +75,7 @@ public class PlantBehavior : MonoBehaviour
         //this.isGrowing = true;
         Debug.Log("Start Growing");
         //ticks = 0;
+        isGrowing = true;
 
         int nTransitions = GrowthSpriteList.Count - 1;
 
@@ -101,6 +108,7 @@ public class PlantBehavior : MonoBehaviour
                 plantStatus = PlantPhase.Phase3_FullyGrown;
                 this.gameObject.GetComponent<SpriteRenderer>().sprite = GrowthSpriteList[phase];
                 //PrepareForHarvest();
+                isGrowing = false;
             }
 
         }

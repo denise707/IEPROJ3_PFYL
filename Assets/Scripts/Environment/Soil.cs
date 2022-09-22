@@ -39,9 +39,14 @@ public class Soil : MonoBehaviour
         else
         {
             Debug.Log("behavior found");
+            if (!plantBehavior.simulateGrowth)
+            {
+                plant.SetActive(false);
+
+            }
         }
 
-        plant.SetActive(false);
+        
     }
 
     // Update is called once per frame
