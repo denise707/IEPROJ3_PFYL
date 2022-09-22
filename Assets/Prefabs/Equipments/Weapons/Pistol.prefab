@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48494933660044872}
-  m_LocalRotation: {x: 0.70701367, y: 0.011476974, z: 0.011476974, w: 0.70701367}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.10600002, z: 0.4636473}
   m_LocalScale: {x: 0.06629857, y: 0.06629864, z: 0.066298604}
   m_Children: []
@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 4353030282239761501}
   - component: {fileID: 4310613603054402854}
   - component: {fileID: 760212264339288432}
+  - component: {fileID: 4695408537208069613}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Weapon
@@ -269,8 +270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62b3c3568ca2de478473908a2f3e628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 5031747301353126514, guid: 6d3663d225173b947b83bd063bf34cf8, type: 3}
-  firePoint: {fileID: 7904058482812645485}
   plant: {fileID: 0}
   soil: {fileID: 0}
 --- !u!95 &760212264339288432
@@ -292,6 +291,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4695408537208069613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5154942929864560513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29775c3d2f19d2741ae70230ea326eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 0}
+  bulletPrefab: {fileID: 5031747301353126514, guid: 6d3663d225173b947b83bd063bf34cf8, type: 3}
 --- !u!1 &7449651219257582353
 GameObject:
   m_ObjectHideFlags: 0

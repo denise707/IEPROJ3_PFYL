@@ -163,53 +163,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void UpdateAnimation()
-    {
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            inputs[0] = false;
-        }
-        else if (Input.GetKeyUp(KeyCode.S))
-        {
-            inputs[1] = false;
-        }
-        else if (Input.GetKeyUp(KeyCode.A))
-        {
-            inputs[2] = false;
-        }
-        else if (Input.GetKeyUp(KeyCode.D))
-        {
-            inputs[3] = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            ResetInputState();
-            inputs[0] = true;
-            animator.SetBool("faceBack", inputs[0]); // w - back
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            ResetInputState();
-            inputs[1] = true;
-            animator.SetBool("faceFront", inputs[1]); // S - front
-        }
-        else if (Input.GetKeyDown(KeyCode.A))
-        {
-            ResetInputState();
-            inputs[2] = true;
-            animator.SetBool("faceLeft", inputs[2]); // A - left
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            ResetInputState();
-            inputs[3] = true;
-            animator.SetBool("faceRight", inputs[3]); // D - right
-        }
-
-        
-    }
-
     private void UpdateAnimation2()
     {
         // key for not not moving
@@ -356,5 +309,21 @@ public class PlayerController : MonoBehaviour
         }
 
         return false;
+    }
+
+
+    public void TakeDamage(float damage)
+    {
+        PlayerData.instance.currHP -= damage;
+        //this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        Debug.Log("Hit");
+        InGameUIManager.instance.UpdateHP();
+    }
+
+    public void AddGold(int amnt)
+    {
+        PlayerData.instance.GOLD += amnt;
+        InGameUIManager.instance.UpdateGold();
+
     }
 }

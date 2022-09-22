@@ -15,10 +15,6 @@ public class EquipmentFunction: MonoBehaviour
     EquipmentType type;
     Animator animator;
 
-    [Header ("Shooting")]
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform firePoint;
-
     [Header("Temp Seed")]
     [SerializeField] PlantObject plant;
 
@@ -46,7 +42,7 @@ public class EquipmentFunction: MonoBehaviour
         }
 
 
-        firePoint = this.gameObject.transform.Find("FirePoint");
+        //firePoint = this.gameObject.transform.Find("FirePoint");
     }
 
     // Update is called once per frame
@@ -123,28 +119,8 @@ public class EquipmentFunction: MonoBehaviour
     #region Equipment Trigger Functions 
     void TriggerPistol()
     {
-
-        if (firePoint)
-        {
-            animator.SetTrigger("isTriggered");
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Ground")))
-            {
-                GameObject bulletSphere = (GameObject)Instantiate(bulletPrefab, new Vector3(firePoint.position.x, firePoint.position.y, firePoint.position.z), firePoint.rotation);
-                bulletSphere.transform.LookAt(new Vector3(hit.point.x, 2.0f, hit.point.z));
-                //Debug.Log("Spawn Bullet");
-
-            }
-            //Debug.Log("Shoot");
-        }
-        else
-        {
-            Debug.Log("cant find fire point");
-        }
-       
-
+        animator.SetTrigger("isTriggered");
+        gameObject.GetComponent<GunBehavior>().Shoot();
     }
 
     public void TriggerHoe()

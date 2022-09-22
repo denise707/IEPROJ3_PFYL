@@ -202,6 +202,7 @@ public class EnemySpawningManager : MonoBehaviour
         // Spawn rate per difficulty
         switch (difficulty)
         {
+            default:  break;
             // +max 
         }
     }

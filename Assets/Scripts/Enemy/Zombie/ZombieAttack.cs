@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ZombieAttack : MonoBehaviour
 {
+    private PlayerController playerController;
+
     private EnemyBehaviour enemyBehaviour;
     private GolemRange golemRange;
 
@@ -13,6 +15,9 @@ public class ZombieAttack : MonoBehaviour
     void Start()
     {
         enemyBehaviour = this.GetComponent<EnemyBehaviour>();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        playerController = player.GetComponent<PlayerController>();
     }
 
     void Update()
@@ -39,6 +44,8 @@ public class ZombieAttack : MonoBehaviour
             ticks = 0.0f;
 
             // +Player receives damage
+            playerController.TakeDamage(enemyBehaviour.atkDamage);
+            Debug.Log("attack player");
         }
     }
 

@@ -10,7 +10,7 @@ public class EnemyBehaviour : MonoBehaviour
     private float speed = 0f;
     private float currHealth = 0f;
     [SerializeField] private float maxHealth = 50f;
-    [SerializeField] private float atkDamage = 0f;
+    [SerializeField] public float atkDamage = 0f;
 
     public enum State { Chase, Damaged, ReachedPlayer, AttackPlayer };
     public State currState = State.Chase;

@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
+//using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,6 +17,12 @@ public class InGameUIManager : MonoBehaviour
     [Header("HUD Objects")]
     [SerializeField] Transform clock;
     [SerializeField] Text dayLabel;
+
+    [Header("Player HUD Objects")]
+    [SerializeField] Slider hpBar;
+    [SerializeField] Text goldLabel;
+    [SerializeField] Text bulletCountText;
+
 
     [Header("Blocker Panels")]
     [SerializeField] private GameObject blocker1;
@@ -41,7 +47,10 @@ public class InGameUIManager : MonoBehaviour
             Destroy(this);
         }
     }
-
+    void Start()
+    {
+        
+    }
     void Update()
     {
         UpdateClock();
@@ -58,6 +67,28 @@ public class InGameUIManager : MonoBehaviour
         {
             popUp.SetActive(false);
         }
+    }
+    public void UpdateHP()
+    {
+        PlayerData.instance.currHP = Mathf.Clamp(PlayerData.instance.currHP, 0.0f, PlayerData.instance.maxHP);
+
+        hpBar.maxValue = PlayerData.instance.maxHP;
+        hpBar.value = PlayerData.instance.currHP;
+    }
+
+    public void UpdateGold()
+    {
+        if (PlayerData.instance.GOLD <= 0)
+        {
+            PlayerData.instance.GOLD = 0;
+        }
+
+        goldLabel.text = PlayerData.instance.GOLD.ToString();
+    }
+
+    public void UpdateBulletUI ()
+    {
+        bulletCountText.text = PlayerData.instance.bulletCount.ToString();
     }
 
     public void UpdateClock()
