@@ -16,7 +16,7 @@ public class EquipmentFunction: MonoBehaviour
     Animator animator;
 
     [Header("Temp Seed")]
-    [SerializeField] PlantObject plant;
+    [SerializeField] InventoryItemData plant;
 
     public Soil soil;
 

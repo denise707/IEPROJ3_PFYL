@@ -68,13 +68,13 @@ public class Soil : MonoBehaviour
         
     }
 
-    public void PlantSeed(PlantObject plantObj)
+    public void PlantSeed(InventoryItemData plantObj)
     {
         // plant seeds on empty and plowed soil and update status
 
         if (isOccupied == false && (soilStatus == SoilStatus.Tilled || soilStatus == SoilStatus.Watered))
         {
-            plantBehavior.InitializePlantProperty(plantObj); // update plant comp in plant sprite
+            plantBehavior.PlantSeed(plantObj); // update plant comp in plant sprite
 
             Debug.Log("Seed Planted");
             soilStatus = SoilStatus.Planted;

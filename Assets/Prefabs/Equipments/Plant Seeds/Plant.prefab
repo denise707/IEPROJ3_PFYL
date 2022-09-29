@@ -147,9 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62b3c3568ca2de478473908a2f3e628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 5031747301353126514, guid: 6d3663d225173b947b83bd063bf34cf8, type: 3}
-  firePoint: {fileID: 0}
-  plant: {fileID: 11400000, guid: 1fb464bb5300f0a4eb7fab86930c6549, type: 2}
+  plant: {fileID: 11400000, guid: dda96c5c44459804591b1c2502d94d9c, type: 2}
   soil: {fileID: 0}
 --- !u!1 &6720303349145233417
 GameObject:

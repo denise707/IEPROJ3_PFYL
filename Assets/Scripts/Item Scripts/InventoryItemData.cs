@@ -11,11 +11,21 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Inventory System/Inventory Item")]
 public class InventoryItemData : ScriptableObject
 {
+    [Header("Basic Properties")]
     public int ID;
     public string DisplayName;
     [TextArea(4, 4)]
     public string Description;
     public Sprite Icon;
     public int MaxStackSize;
+    public GameObject prefab;
+
+    [Header("Plant Properties")]
+    public float growthDuration = 5;
+    public List<Sprite> PlantGrowthSpriteList;
+
+    public GameObject DropA;
+    public GameObject DropB;
+
 
 }

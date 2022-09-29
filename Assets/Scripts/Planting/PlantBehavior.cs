@@ -13,7 +13,7 @@ public class PlantBehavior : MonoBehaviour
     }
 
     [Header("Plant Properties")]
-    [SerializeField] PlantObject plantToGrow;
+    [SerializeField] InventoryItemData plantToGrow;
 
     public PlantPhase plantStatus = PlantPhase.Phase0_Default;
     [SerializeField] int phase = 0;
@@ -28,8 +28,8 @@ public class PlantBehavior : MonoBehaviour
     [SerializeField] List<Sprite> GrowthSpriteList;
 
     [Header("Plant Drops Sprite")]
-    [SerializeField] Sprite DropA_sprt;
-    [SerializeField] Sprite DropB_sprt;
+    [SerializeField] GameObject DropA_sprt;
+    [SerializeField] GameObject DropB_sprt;
     [SerializeField] GameObject DropObj;
     [SerializeField] Transform DropLoc;
 
@@ -45,7 +45,7 @@ public class PlantBehavior : MonoBehaviour
     {
         if (plantToGrow)
         {
-            InitializePlantProperty(plantToGrow);
+            PlantSeed(plantToGrow);
         }
 
         soil = gameObject.GetComponentInParent<Soil>();
@@ -69,13 +69,13 @@ public class PlantBehavior : MonoBehaviour
         }
     }
 
-    public void InitializePlantProperty(PlantObject plantObj)
+    public void PlantSeed(InventoryItemData plantObj)
     {
         this.gameObject.transform.localPosition = gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, 0.5f, gameObject.transform.localPosition.z);
         Debug.Log("Updating Plant Stats");
         this.GrowthSpriteList = plantObj.PlantGrowthSpriteList;
-        this.DropA_sprt = plantObj.DropsA;
-        this.DropB_sprt = plantObj.DropsB;
+        this.DropA_sprt = plantObj.DropA;
+        this.DropB_sprt = plantObj.DropB;
 
         this.growthDuration = plantObj.growthDuration;
 
@@ -83,8 +83,6 @@ public class PlantBehavior : MonoBehaviour
 
         this.gameObject.GetComponent<SpriteRenderer>().sprite = GrowthSpriteList[phase]; // seed
         plantStatus = PlantPhase.Phase1_Seedling;
-
-
     }
 
     public void EnablePlantGrowth()
@@ -178,10 +176,10 @@ public class PlantBehavior : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            GameObject DropObject = (GameObject)Instantiate(DropObj, new Vector3(DropLoc.position.x, DropLoc.position.y, DropLoc.position.z), DropLoc.rotation);
+            GameObject DropObject = (GameObject)Instantiate(DropA_sprt, new Vector3(DropLoc.position.x, DropLoc.position.y, DropLoc.position.z), DropLoc.rotation);
             DropObject.gameObject.transform.LookAt(Camera.main.transform);
 
-            DropObject.GetComponent<SpriteRenderer>().sprite = DropA_sprt;
+            Debug.Log("Drop items");
         }
 
         //bulletSphere.transform.LookAt(new Vector3(hit.point.x, 2.0f, hit.point.z));
