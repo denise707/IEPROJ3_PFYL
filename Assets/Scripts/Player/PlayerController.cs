@@ -20,18 +20,18 @@ public class PlayerController : MonoBehaviour
 
     // temp can be accessed from inv?
     [Header("Weapon Temp")]
-    [SerializeField] private WeaponObject weapon;
+    [SerializeField] private InventoryItemData weapon;
     public bool hasWeapon = false;
 
     // temp can be accessed from inv?
     [Header("Tool Temp")]
-    [SerializeField] private ToolObject hoeTool;
+    [SerializeField] private InventoryItemData hoeTool;
     public bool hasTool = false;
 
-    [SerializeField] private ToolObject wateringCanTool;
+    [SerializeField] private InventoryItemData wateringCanTool;
 
     [Header("Item Temp")]
-    [SerializeField] private PlantObject plant;
+    [SerializeField] private InventoryItemData plant;
     public bool hasPlant = false;
 
     private float rotationY;

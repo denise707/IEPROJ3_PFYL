@@ -16,7 +16,7 @@ MonoBehaviour:
   DisplayName: Rose Dagger Seed
   Description: 
   Icon: {fileID: 21300000, guid: 121d3b17b31e6b045bf055e14a9595a6, type: 3}
-  MaxStackSize: 0
+  MaxStackSize: 10
   prefab: {fileID: 7923153364323608396, guid: a28bb87bde2233c4380c956353839bae, type: 3}
   growthDuration: 10
   PlantGrowthSpriteList:
@@ -25,3 +25,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4316d7745aa1e5142a6c4f71a86a7845, type: 3}
   DropA: {fileID: 7923153364323608396, guid: a28bb87bde2233c4380c956353839bae, type: 3}
   DropB: {fileID: 7923153364323608396, guid: a28bb87bde2233c4380c956353839bae, type: 3}
+  Damage: 5

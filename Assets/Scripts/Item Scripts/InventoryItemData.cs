@@ -27,5 +27,15 @@ public class InventoryItemData : ScriptableObject
     public GameObject DropA;
     public GameObject DropB;
 
+    [Header("Weapon Properties")]
+    public float Damage = 5;
+    //public List<Sprite> PlantGrowthSpriteList;
+
+    //public GameObject DropA;
+    //public GameObject DropB;
+
+    //[Header("Tool Properties")]
+
+
 
 }
