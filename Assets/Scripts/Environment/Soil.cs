@@ -74,7 +74,7 @@ public class Soil : MonoBehaviour
 
         if (isOccupied == false && (soilStatus == SoilStatus.Tilled || soilStatus == SoilStatus.Watered))
         {
-            plantBehavior.UpdatePlantProperty(plantObj); // update plant comp in plant sprite
+            plantBehavior.InitializePlantProperty(plantObj); // update plant comp in plant sprite
 
             Debug.Log("Seed Planted");
             soilStatus = SoilStatus.Planted;
@@ -133,7 +133,7 @@ public class Soil : MonoBehaviour
     {
         this.soilStatus = SoilStatus.Default;
         this.gameObject.GetComponent<MeshRenderer>().material = defaultSoil_MT;
-        plantBehavior.ResetPlantProperty();
+        plantBehavior.HarvestPlant();
         plant.SetActive(false);
         isOccupied = false;
 

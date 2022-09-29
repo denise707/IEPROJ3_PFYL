@@ -326,4 +326,13 @@ public class PlayerController : MonoBehaviour
         InGameUIManager.instance.UpdateGold();
 
     }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Item"))
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 }
