@@ -39,7 +39,7 @@ public class MouseItemData : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && !IsPointerOverUIObject())
             {
                 Debug.Log("This item should have dropped: implement");
-                //ClearSlot();
+                ClearSlot();
             }
         }
     }
