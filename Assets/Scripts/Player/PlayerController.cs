@@ -36,8 +36,6 @@ public class PlayerController : MonoBehaviour
 
     private float rotationY;
     bool[] inputs;
-    public InventoryObject inventory;
-    public InventoryObject hotbar;
 
     // Start is called before the first frame update
     void Start()
@@ -233,7 +231,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-    {
+    {/*
         var item = other.GetComponent<GroundItem>();
         if (item)
         {
@@ -250,14 +248,13 @@ public class PlayerController : MonoBehaviour
                 }
             }
             
-        }
+        }*/
     }
 
     //Clearing inventory after quitting play
     private void OnApplicationQuit()
     {
-        inventory.Container.Clear();
-        hotbar.Container.Clear();
+
     }
 
     private void ResetInputState()
