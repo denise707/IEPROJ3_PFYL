@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5343056474910978132}
   - component: {fileID: 3631951217881817755}
   m_Layer: 0
-  m_Name: Plant
+  m_Name: Rose_Plant
   m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

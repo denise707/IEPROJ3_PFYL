@@ -11,14 +11,21 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Inventory System/Inventory Item")]
 public class InventoryItemData : ScriptableObject
 {
+    public enum ItemType
+    {
+        Drops,
+        Tool,
+        Weapon
+    }
+
     [Header("Basic Properties")]
+    public GameObject prefab;
     public int ID;
     public string DisplayName;
     [TextArea(4, 4)]
     public string Description;
     public Sprite Icon;
     public int MaxStackSize;
-    public GameObject prefab;
 
     [Header("Plant Properties")]
     public float growthDuration = 5;
@@ -28,7 +35,11 @@ public class InventoryItemData : ScriptableObject
     public GameObject DropB;
 
     [Header("Weapon Properties")]
-    public float Damage = 5;
+    public float attackDamage = 5;
+    public float reloadTime = 5;
+    public float range = 5;
+    public int maxAmmo = 10;
+
     //public List<Sprite> PlantGrowthSpriteList;
 
     //public GameObject DropA;

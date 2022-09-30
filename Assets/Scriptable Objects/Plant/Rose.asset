@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad30aaa24cec532419b790b24b8d8c88, type: 3}
-  m_Name: Rose_scriptable
+  m_Name: Rose
   m_EditorClassIdentifier: 
+  prefab: {fileID: 1661777123652080288, guid: f177fb8dc42dc114697ed96a1a5961ac, type: 3}
   ID: 0
   DisplayName: Rose Dagger Seed
   Description: 
   Icon: {fileID: 21300000, guid: 121d3b17b31e6b045bf055e14a9595a6, type: 3}
   MaxStackSize: 10
-  prefab: {fileID: 7923153364323608396, guid: a28bb87bde2233c4380c956353839bae, type: 3}
   growthDuration: 10
   PlantGrowthSpriteList:
   - {fileID: 21300000, guid: 6edf004e1c7a6e945ace06c16100eb2b, type: 3}
@@ -25,4 +25,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4316d7745aa1e5142a6c4f71a86a7845, type: 3}
   DropA: {fileID: 7923153364323608396, guid: a28bb87bde2233c4380c956353839bae, type: 3}
   DropB: {fileID: 7923153364323608396, guid: a28bb87bde2233c4380c956353839bae, type: 3}
-  Damage: 5
+  attackDamage: 5
+  reloadTime: 5
+  range: 5
+  maxAmmo: 10

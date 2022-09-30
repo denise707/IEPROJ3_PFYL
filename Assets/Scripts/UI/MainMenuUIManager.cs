@@ -51,7 +51,7 @@ public class MainMenuUIManager : MonoBehaviour
 
     public void OpenMainLevel()
     {
-        SceneManager.LoadScene("Denise-Test");
+        SceneManager.LoadScene("Level-Test");
     }
 
     public void OpenTutorialLevel()
