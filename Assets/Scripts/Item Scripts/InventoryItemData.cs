@@ -13,12 +13,14 @@ public class InventoryItemData : ScriptableObject
 {
     public enum ItemType
     {
+        NotSet,
         Drops,
         Tool,
         Weapon
     }
 
     [Header("Basic Properties")]
+    public ItemType itemType;
     public GameObject prefab;
     public int ID;
     public string DisplayName;

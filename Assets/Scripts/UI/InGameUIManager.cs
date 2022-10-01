@@ -21,7 +21,9 @@ public class InGameUIManager : MonoBehaviour
     [Header("Player HUD Objects")]
     [SerializeField] Slider hpBar;
     [SerializeField] Text goldLabel;
-    [SerializeField] Text bulletCountText;
+
+    [SerializeField] Slider bulletSlider;
+    [SerializeField] Text bulletLabel;
 
 
     [Header("Blocker Panels")]
@@ -49,11 +51,26 @@ public class InGameUIManager : MonoBehaviour
     }
     void Start()
     {
-        
+        bulletSlider.maxValue = PlayerData.instance.reload_time;
+        bulletSlider.value = PlayerData.instance.reload_ticks;
     }
     void Update()
     {
         UpdateClock();
+        UpdateBulletSlider();
+    }
+
+    private void UpdateBulletSlider()
+    {
+        if (PlayerData.instance.IsAtMaxAmmo())
+        {
+            // display filled slider when ammo at max
+            bulletSlider.value = PlayerData.instance.reload_time;
+        }
+        else
+        {
+            bulletSlider.value = PlayerData.instance.reload_ticks;
+        }
     }
 
     public void Inventory(GameObject popUp)
@@ -88,7 +105,7 @@ public class InGameUIManager : MonoBehaviour
 
     public void UpdateBulletUI ()
     {
-        bulletCountText.text = PlayerData.instance.bulletCount.ToString();
+        bulletLabel.text = PlayerData.instance.bulletCount.ToString();
     }
 
     public void UpdateClock()

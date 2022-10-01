@@ -120,7 +120,14 @@ public class EquipmentFunction: MonoBehaviour
     void TriggerPistol()
     {
         animator.SetTrigger("isTriggered");
-        gameObject.GetComponent<GunBehavior>().Shoot();
+        if (PlayerData.instance.bulletCount > 0)
+        {
+            gameObject.GetComponent<GunBehavior>().Shoot();
+        }
+        else
+        {
+            Debug.Log("No ammo");
+        }
     }
 
     public void TriggerHoe()

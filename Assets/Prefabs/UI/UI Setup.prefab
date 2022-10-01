@@ -438,9 +438,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6014705043272360739}
     - target: {fileID: 3255045931659893956, guid: 164d66bc314cbbb4594797eccd9f45ef, type: 3}
+      propertyPath: bulletLabel
+      value: 
+      objectReference: {fileID: 3648720034623155570}
+    - target: {fileID: 3255045931659893956, guid: 164d66bc314cbbb4594797eccd9f45ef, type: 3}
       propertyPath: optionsMenu
       value: 
       objectReference: {fileID: 1601561235218029381}
+    - target: {fileID: 3255045931659893956, guid: 164d66bc314cbbb4594797eccd9f45ef, type: 3}
+      propertyPath: bulletSlider
+      value: 
+      objectReference: {fileID: 2314505202832897658}
     - target: {fileID: 3255045931659893956, guid: 164d66bc314cbbb4594797eccd9f45ef, type: 3}
       propertyPath: bulletCountText
       value: 
@@ -932,6 +940,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2314505202832897658 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2140936275185573147, guid: f1c540aa8ed75f14d969335ae7584853, type: 3}
+  m_PrefabInstance: {fileID: 4443051767836109665}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3648720034623155570 stripped

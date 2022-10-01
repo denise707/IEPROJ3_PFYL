@@ -4,6 +4,27 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public enum GamePhase
+    {
+        Default,
+        Mainmenu,
+        Tutorial,
+        Daytime,
+        Nighttime,
+
+    }
+
+    public enum GameState
+    {
+        Default,
+        Win,
+        Lose,
+    }
+
+    [Header(" Game Phase and States")]
+    public GamePhase gamePhase;
+    public GameState gameState;
+
     public static GameManager instance;
     GameObject player;
 

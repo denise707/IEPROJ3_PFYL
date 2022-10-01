@@ -31,7 +31,6 @@ public class GunBehavior : MonoBehaviour
 
     public void Shoot()
     {
-
         if (firePoint)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

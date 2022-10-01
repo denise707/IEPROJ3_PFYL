@@ -14,13 +14,12 @@ public class PlayerData : MonoBehaviour
     public  int GOLD = 100;
 
     [Header("PLAYER GUN STATS")]
+
     public int maxBulletCount = 10;
     public int bulletCount = 10;
-    private float ticks = 0;
+    public float reload_ticks = 0;
     public float reload_time = 3.0f;
     private bool isReloading = false;
-
-
 
     private void Awake()
     {
@@ -49,15 +48,25 @@ public class PlayerData : MonoBehaviour
     {
         if(bulletCount < maxBulletCount)
         {
-            ticks += Time.deltaTime;
+            reload_ticks += Time.deltaTime;
 
-            if (ticks >= reload_time)
+            if (reload_ticks >= reload_time)
             {
-                ticks = 0;
+                reload_ticks = 0;
                 bulletCount++;
                 InGameUIManager.instance.UpdateBulletUI();
 
             }
         }
+    }
+
+    public bool IsAtMaxAmmo()
+    {
+        if (bulletCount >= maxBulletCount)
+        {
+            return true;
+        }
+        return false;
+
     }
 }
