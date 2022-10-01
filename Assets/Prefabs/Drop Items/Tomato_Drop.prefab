@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2164454373428192873}
   - component: {fileID: 2164454373428192875}
+  - component: {fileID: 8931549673733883323}
   - component: {fileID: 2164454373428192874}
-  m_Layer: 0
-  m_Name: Tomato
+  m_Layer: 10
+  m_Name: Tomato_Drop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +47,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &8931549673733883323
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2164454373428192872}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2164454373428192874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50997012e0085814bb439b15fd59fdca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickupRadius: 0.5
+  PickupRadius: 1
   ItemData: {fileID: 11400000, guid: 203d5794fa08a26469d43d06898a5363, type: 2}
 --- !u!1 &2164454373510837592
 GameObject:

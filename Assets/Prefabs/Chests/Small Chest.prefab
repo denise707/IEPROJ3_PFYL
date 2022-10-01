@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8298494414196259720}
   - component: {fileID: 8298494414196259719}
   - component: {fileID: 8298494414196259718}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 8298494414417059775}
   - component: {fileID: 8298494414417059770}
   - component: {fileID: 8298494414417059773}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 8298494414922609504}
   - component: {fileID: 8298494414922609566}
   - component: {fileID: 8298494414922609505}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Small Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}

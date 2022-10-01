@@ -7,8 +7,8 @@ public class GunBehavior : MonoBehaviour
     [SerializeField] Transform firePoint;
     [SerializeField] GameObject bulletPrefab;
 
-    private float ticks = 0.0f;
-    private const float INTERVAL = 5f;
+    //private float ticks = 0.0f;
+    //private const float INTERVAL = 5f;
 
     //Animator animator;
 

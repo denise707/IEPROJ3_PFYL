@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4535971628932352576, guid: de64936acde117540a1cf196c1d9e05c, type: 3}
+      propertyPath: m_TagString
+      value: Hotbar
+      objectReference: {fileID: 0}
     - target: {fileID: 4535971628932352582, guid: de64936acde117540a1cf196c1d9e05c, type: 3}
       propertyPath: inventoryHolder
       value: 
@@ -188,6 +192,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7362239943147639775, guid: de64936acde117540a1cf196c1d9e05c, type: 3}
+      propertyPath: assignedInventorySlot.itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 122df2e1c7d3ee84c9c566f858819eb8, type: 2}
+    - target: {fileID: 7362239943656797315, guid: de64936acde117540a1cf196c1d9e05c, type: 3}
+      propertyPath: assignedInventorySlot.itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: dda96c5c44459804591b1c2502d94d9c, type: 2}
+    - target: {fileID: 7362239943708945632, guid: de64936acde117540a1cf196c1d9e05c, type: 3}
+      propertyPath: assignedInventorySlot.itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 09c4b68578af5c24ab7a8540843dd855, type: 2}
+    - target: {fileID: 7362239944255642820, guid: de64936acde117540a1cf196c1d9e05c, type: 3}
+      propertyPath: assignedInventorySlot.itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: bc59477913f41f34ba0eab88d7733c8d, type: 2}
     - target: {fileID: 7544316102230660046, guid: de64936acde117540a1cf196c1d9e05c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

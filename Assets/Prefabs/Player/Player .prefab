@@ -109,6 +109,8 @@ GameObject:
   - component: {fileID: 5079493008729250801}
   - component: {fileID: 5079493008729250814}
   - component: {fileID: 7657821892960320820}
+  - component: {fileID: 1989012373}
+  - component: {fileID: 1989012374}
   m_Layer: 9
   m_Name: 'Player '
   m_TagString: Player
@@ -221,15 +223,13 @@ MonoBehaviour:
   toolAim: {fileID: 5079493009225859942}
   weaponSP: {fileID: 5079493009540312855}
   toolSP: {fileID: 5079493009713936653}
-  weapon: {fileID: 11400000, guid: 5fe20837fcbb9614d8b9d8bbffe7e768, type: 2}
+  weapon: {fileID: 11400000, guid: 09c4b68578af5c24ab7a8540843dd855, type: 2}
   hasWeapon: 0
-  hoeTool: {fileID: 11400000, guid: c5e25788015bc5042a52dc2d547f1070, type: 2}
+  hoeTool: {fileID: 11400000, guid: bc59477913f41f34ba0eab88d7733c8d, type: 2}
   hasTool: 0
-  wateringCanTool: {fileID: 11400000, guid: 2184133fd7361ca41985fa2417561bdc, type: 2}
-  plant: {fileID: 11400000, guid: 1fb464bb5300f0a4eb7fab86930c6549, type: 2}
+  wateringCanTool: {fileID: 11400000, guid: 122df2e1c7d3ee84c9c566f858819eb8, type: 2}
+  plant: {fileID: 11400000, guid: dda96c5c44459804591b1c2502d94d9c, type: 2}
   hasPlant: 0
-  inventory: {fileID: 11400000, guid: 4dde8cd1de1fcf1428e6ee50958404a3, type: 2}
-  hotbar: {fileID: 11400000, guid: 83396e5f1cd882d4c982e2d1979a3197, type: 2}
 --- !u!54 &5079493008729250814
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -260,6 +260,41 @@ CapsuleCollider:
   m_Height: 3.15
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1989012373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5079493008729250811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c052617aa1596324ca933f7d08f86be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventorySize: 10
+  primaryInventorySystem:
+    inventorySlots: []
+  secondaryInventorySize: 30
+  secondaryInventorySystem:
+    inventorySlots: []
+--- !u!114 &1989012374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5079493008729250811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a55e6f101a2194ea7ec34abae006de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractionPoint: {fileID: 0}
+  InteractionLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  InteractionPointRadius: 1
 --- !u!1 &5079493008865118053
 GameObject:
   m_ObjectHideFlags: 0

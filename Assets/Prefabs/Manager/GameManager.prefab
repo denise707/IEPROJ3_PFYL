@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4518738597449896969}
   - component: {fileID: 4518738597449896974}
+  - component: {fileID: 1103066198}
+  - component: {fileID: 1103066199}
+  - component: {fileID: 1103066203}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,4 +47,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   day: 1
-  hour: 0
+  dayHour: 0
+  nightHour: 0
+  maxHours: 2
+  maxMins: 60
+--- !u!114 &1103066198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518738597449896975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a02c76a1c44304e9674b1856556a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamePhase: 0
+  gameState: 0
+--- !u!114 &1103066199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518738597449896975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ae9bd83438f3f4b8660ca08cf46327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 100
+  currHP: 100
+  GOLD: 100
+  maxBulletCount: 10
+  bulletCount: 10
+  reload_ticks: 0
+  reload_time: 3
+--- !u!114 &1103066203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518738597449896975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19bd1b7c5aa11d42be8f8f98928a658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotbarContainer: {fileID: 0}
+  invSlots: []

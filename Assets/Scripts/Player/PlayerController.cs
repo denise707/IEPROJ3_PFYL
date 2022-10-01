@@ -46,8 +46,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        UpdatePlayerTool();
         // Debug.Log(aim.rotation.eulerAngles);
         if (weaponAim)
         {
@@ -65,84 +63,71 @@ public class PlayerController : MonoBehaviour
         UpdatePlayerMovement();
     }
 
-    private void UpdatePlayerTool()
+    public void UpdatePlayerEquip(InventoryItemData itemData)
     {
+        //if (itemData == null)
+        //{
+        //    if (hasTool)
+        //    {
+        //        Transform obj = toolSP.GetChild(0);
+        //        Destroy(obj.gameObject);
+        //        Debug.Log("destroyed Tool");
+        //        hasTool = false;
+        //    }
+
+        //    if (hasWeapon)
+        //    {
+        //        Transform obj = weaponSP.GetChild(0);
+        //        Destroy(obj.gameObject);
+        //        Debug.Log("destroyed Weapon");
+        //        hasTool = false;
+        //    }
+
+        //    return;
+        //}
+
+        if (hasTool && toolSP.childCount > 0)
+        {
+            Transform obj = toolSP.GetChild(0);
+            Destroy(obj.gameObject);
+            Debug.Log("destroyed Tool");
+            hasTool = false;
+        }
+
+        if (hasWeapon && weaponSP.childCount > 0)
+        {
+            Transform obj = weaponSP.GetChild(0);
+            Destroy(obj.gameObject);
+            Debug.Log("destroyed Weapon");
+            hasTool = false;
+        }
+
+        if (itemData == null)
+        {
+            return;
+        }
+
         // ADD
-        if (Input.GetKeyDown(KeyCode.U) && !hasWeapon)
+        if (itemData.itemType == InventoryItemData.ItemType.Weapon)
         {
             // get scriptable from inventory and acces the prefab
-            GameObject obj = (GameObject)Instantiate(weapon.prefab ,weaponSP);
+            GameObject obj = (GameObject)Instantiate(itemData.prefab ,weaponSP);
             obj.name = weapon.name;
 
             //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
-            Debug.Log("Spawn Gun");
+            Debug.Log($"Spawn {obj.name}");
             hasWeapon = true;
         }
-        // REMOVE
-        else if (Input.GetKeyDown(KeyCode.U) && hasWeapon)
-        {
-           
-            Transform obj = weaponSP.GetChild(0);
-            Destroy(obj.gameObject);
-            Debug.Log("destroyed weapon");
-            hasWeapon = false;
-        }
 
         //ADD
-        if (Input.GetKeyDown(KeyCode.I) && !hasTool)
+        if (itemData.itemType == InventoryItemData.ItemType.Tool)
         {
             // get scriptable from inventory and acces the prefab
-            GameObject obj = (GameObject)Instantiate(hoeTool.prefab, toolSP);
+            GameObject obj = (GameObject)Instantiate(itemData.prefab, toolSP);
             obj.name = hoeTool.name;
             //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
-            Debug.Log("Spawn Tool");
+            Debug.Log($"Spawn {obj.name}");
             hasTool = true;
-        }
-        //REMOVE
-        else if (Input.GetKeyDown(KeyCode.I) && hasTool)
-        {
-            Transform obj = toolSP.GetChild(0);
-            Destroy(obj.gameObject);
-            Debug.Log("destroyed Tool");
-            hasTool = false;
-        }
-
-        //ADD
-        if (Input.GetKeyDown(KeyCode.O) && !hasTool)
-        {
-            // get scriptable from inventory and acces the prefab
-            GameObject obj = (GameObject)Instantiate(plant.prefab, toolSP);
-            obj.name = plant.name;
-            //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
-            Debug.Log("Spawn Tool");
-            hasTool = true;
-        }
-        //REMOVE
-        else if (Input.GetKeyDown(KeyCode.O) && hasTool)
-        {
-            Transform obj = toolSP.GetChild(0);
-            Destroy(obj.gameObject);
-            Debug.Log("destroyed Tool");
-            hasTool = false;
-        }
-
-        //ADD
-        if (Input.GetKeyDown(KeyCode.P) && !hasTool)
-        {
-            // get scriptable from inventory and acces the prefab
-            GameObject obj = (GameObject)Instantiate(wateringCanTool.prefab, toolSP);
-            obj.name = wateringCanTool.name;
-            //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
-            Debug.Log("Spawn Tool");
-            hasTool = true;
-        }
-        //REMOVE
-        else if (Input.GetKeyDown(KeyCode.P) && hasTool)
-        {
-            Transform obj = toolSP.GetChild(0);
-            Destroy(obj.gameObject);
-            Debug.Log("destroyed Tool");
-            hasTool = false;
         }
 
     }
