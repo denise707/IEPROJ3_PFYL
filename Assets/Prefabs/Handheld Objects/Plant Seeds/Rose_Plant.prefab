@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62b3c3568ca2de478473908a2f3e628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plant: {fileID: 11400000, guid: dda96c5c44459804591b1c2502d94d9c, type: 2}
+  obj: {fileID: 11400000, guid: dda96c5c44459804591b1c2502d94d9c, type: 2}
   soil: {fileID: 0}
 --- !u!1 &6720303349145233417
 GameObject:
@@ -167,7 +167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8925591077565832835
 Transform:
   m_ObjectHideFlags: 0

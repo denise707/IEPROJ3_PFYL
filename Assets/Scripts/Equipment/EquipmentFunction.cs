@@ -15,8 +15,8 @@ public class EquipmentFunction: MonoBehaviour
     EquipmentType type;
     Animator animator;
 
-    [Header("Temp Seed")]
-    [SerializeField] InventoryItemData plant;
+    [Header("Data Reference")]
+    [SerializeField] InventoryItemData obj;
 
     public Soil soil;
 
@@ -77,42 +77,35 @@ public class EquipmentFunction: MonoBehaviour
         }
         else if (type == EquipmentType.Tool) // tools
         {
-            if (CompareName("Hoe"))
-            {
-                GetSoil();
-                // trigger Hoe
-                animator.SetTrigger("isTriggered");
-                // trigger hoe func in end of anim
-            }
-            else if (CompareName("Watering Can"))
-            {
-                GetSoil();
-                // func
-                animator.SetTrigger("isTriggered");
-                // trigger hoe func in end of anim
-            }
-            else
-            {
-                Debug.Log($"Tool name not found: {this.gameObject.name}");
-            }
+            GetSoil();
+            animator.SetTrigger("isTriggered");
+            //if (CompareName("Hoe"))
+            //{
+            //    GetSoil();
+            //    // trigger Hoe
+            //    animator.SetTrigger("isTriggered");
+            //    // trigger hoe func in end of anim
+            //}
+            //else if (CompareName("Watering Can"))
+            //{
+            //    GetSoil();
+            //    // func
+            //    animator.SetTrigger("isTriggered");
+            //    // trigger hoe func in end of anim
+            //}
+            //else
+            //{
+            //    Debug.Log($"Tool name not found: {this.gameObject.name}");
+            //}
         }
         else if (type == EquipmentType.Plant) // tools
         {
-            if (CompareName("Rose"))
-            {
+            
                 GetSoil();
                 TriggerPlanting();
                 // trigger hoe func in end of anim
-            }
-            else
-            {
-                Debug.Log($"Tool name not found: {this.gameObject.name}");
-            }
         }
-        else
-        {
-            Debug.Log($"Type not found: {this.type}");
-        }
+        
     }
     #endregion
 
@@ -191,7 +184,7 @@ public class EquipmentFunction: MonoBehaviour
             }
             else
             {
-                soil.PlantSeed(this.plant);
+                soil.PlantSeed(this.obj);
             }
             
 

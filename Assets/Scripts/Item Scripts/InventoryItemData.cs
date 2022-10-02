@@ -16,7 +16,8 @@ public class InventoryItemData : ScriptableObject
         NotSet,
         Drops,
         Tool,
-        Weapon
+        Weapon,
+        Plant
     }
 
     [Header("Basic Properties")]

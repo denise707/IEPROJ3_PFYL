@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -722792694971897071}
   - component: {fileID: -4468873803070163447}
   m_Layer: 10
-  m_Name: RoseSeed_Drp 1
+  m_Name: RoseSeed_Drop
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

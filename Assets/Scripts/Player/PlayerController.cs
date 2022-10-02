@@ -65,27 +65,6 @@ public class PlayerController : MonoBehaviour
 
     public void UpdatePlayerEquip(InventoryItemData itemData)
     {
-        //if (itemData == null)
-        //{
-        //    if (hasTool)
-        //    {
-        //        Transform obj = toolSP.GetChild(0);
-        //        Destroy(obj.gameObject);
-        //        Debug.Log("destroyed Tool");
-        //        hasTool = false;
-        //    }
-
-        //    if (hasWeapon)
-        //    {
-        //        Transform obj = weaponSP.GetChild(0);
-        //        Destroy(obj.gameObject);
-        //        Debug.Log("destroyed Weapon");
-        //        hasTool = false;
-        //    }
-
-        //    return;
-        //}
-
         if (hasTool && toolSP.childCount > 0)
         {
             Transform obj = toolSP.GetChild(0);
@@ -120,7 +99,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //ADD
-        if (itemData.itemType == InventoryItemData.ItemType.Tool)
+        if (itemData.itemType == InventoryItemData.ItemType.Tool || itemData.itemType == InventoryItemData.ItemType.Plant)
         {
             // get scriptable from inventory and acces the prefab
             GameObject obj = (GameObject)Instantiate(itemData.prefab, toolSP);

@@ -19,7 +19,7 @@ public class PlayerData : MonoBehaviour
     public int bulletCount = 10;
     public float reload_ticks = 0;
     public float reload_time = 3.0f;
-    private bool isReloading = false;
+    //private bool isReloading = false;
 
     private void Awake()
     {

@@ -138,6 +138,9 @@ public class PlantBehavior : MonoBehaviour
 
             soil.soilStatus = Soil.SoilStatus.ForHarvesting;
             animator.SetBool("isFullyGrown", true);
+
+            // show and play particle
+            particle.gameObject.SetActive(true);
             particle.Play();
 
 
@@ -165,7 +168,11 @@ public class PlantBehavior : MonoBehaviour
         this.phase = 0;
         plantStatus = PlantPhase.Phase0_Default;
         animator.SetBool("isFullyGrown", false);
+
+        // stop and hide particle
         particle.Stop();
+        particle.gameObject.SetActive(true);
+
 
 
         //this.gameObject.GetComponent<SpriteRenderer>().sprite = GrowthSpriteList[phase]; // seed
