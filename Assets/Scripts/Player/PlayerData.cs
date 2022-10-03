@@ -12,6 +12,7 @@ public class PlayerData : MonoBehaviour
     public  float maxHP = 100;
     public  float currHP = 100;
     public  int GOLD = 100;
+    private bool isDead = false;
 
     [Header("PLAYER GUN STATS")]
 
@@ -58,6 +59,12 @@ public class PlayerData : MonoBehaviour
 
             }
         }
+
+        if (currHP <= 0 && !isDead)
+        {
+            GameManager.instance.gameState = GameManager.GameState.Lose;
+            isDead = true;
+        }
     }
 
     public bool IsAtMaxAmmo()
@@ -68,5 +75,11 @@ public class PlayerData : MonoBehaviour
         }
         return false;
 
+    }
+
+    public void ReceiveGold(int gold)
+    {
+        this.GOLD += gold;
+        InGameUIManager.instance.UpdateGold();
     }
 }

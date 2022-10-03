@@ -3971,6 +3971,7 @@ MonoBehaviour:
   enemyType: Boss Golem
   maxHealth: 300
   atkDamage: 100
+  gold: 200
   currState: 0
   spawnVFX: {fileID: 6218200324367903362, guid: 6d411af8f532fa041a7e24639d7d2ad3, type: 3}
   attackVFX: {fileID: 2573766368864417822, guid: 3c02283098997af40a9405503dc0080b, type: 3}

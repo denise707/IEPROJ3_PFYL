@@ -11,6 +11,7 @@ public class EnemyBehaviour : MonoBehaviour
     private float currHealth = 0f;
     [SerializeField] private float maxHealth = 50f;
     [SerializeField] public float atkDamage = 0f;
+    [SerializeField] private int gold = 0;
 
     public enum State { Chase, Damaged, ReachedPlayer, AttackPlayer };
     public State currState = State.Chase;
@@ -100,8 +101,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void Die()
     {
-        // +Add gold to player
-        // +Contact spawn manager
+        PlayerData.instance.ReceiveGold(this.gold);
+
         // +Drop loot
 
         EnemySpawningManager.instance.RemoveEnemy(this.gameObject);

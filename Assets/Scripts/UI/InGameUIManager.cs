@@ -34,6 +34,9 @@ public class InGameUIManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject mainMenuConfirmation;
+    [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject gameWinScreen;
+    [SerializeField] private GameObject restartDayConfirmation;
 
     private bool resetDay = false;
     private bool resetNight = false;
@@ -58,6 +61,16 @@ public class InGameUIManager : MonoBehaviour
     {
         UpdateClock();
         UpdateBulletSlider();
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            GameOverScreen();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            GameWinScreen();
+        }
     }
 
     private void UpdateBulletSlider()
@@ -166,6 +179,46 @@ public class InGameUIManager : MonoBehaviour
     public void MainMenuConfirmation()
     {
         HandlePopUp(mainMenuConfirmation, blocker2);
+    }
+
+    public void GameOverScreen()
+    {
+        HandlePopUp(gameOverScreen, blocker1);
+        Time.timeScale = 0;
+    }
+
+    public void GameWinScreen()
+    {
+        HandlePopUp(gameWinScreen, blocker1);
+        Time.timeScale = 0;
+    }
+
+    public void RestartDayConfirmation()
+    {
+        HandlePopUp(restartDayConfirmation, blocker2);
+    }
+
+    public void RestartDay()
+    {
+        HandlePopUp(restartDayConfirmation, blocker2);
+
+        if (gameOverScreen.activeInHierarchy == true)
+        {
+           gameOverScreen.SetActive(false);
+           BlockerfadeOut(blocker1);
+           BlockerfadeOut(blocker2);
+        }
+
+        if (gameWinScreen.activeInHierarchy == true)
+        {
+            gameWinScreen.SetActive(false);
+            BlockerfadeOut(blocker1);
+            BlockerfadeOut(blocker2);
+        }
+
+        SceneManager.LoadScene("Level-Test");
+
+        Time.timeScale = 1;
     }
 
     public void ReturnToMainMenu()
