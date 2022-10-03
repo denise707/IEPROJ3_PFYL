@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class TimeManager : MonoBehaviour
 
     private float TIME_MULTIPLIER = 60.0f; // --- 60.0f for debugging --- 2.0f normal ---
 
+    [Header(" Light")]
+    [SerializeField] private Light directionalLight;
+    private Color morningColor;
+    private Color nightColor;
+
     private void Awake()
     {
         if (instance == null)
@@ -38,6 +44,8 @@ public class TimeManager : MonoBehaviour
     void Start()
     {
         currTime = TimeState.DayTime;
+        morningColor = new Color(0.8588f, 0.8392f, 1);
+        nightColor = new Color(0.2745f, 0.2352f, 0.4470f);
     }
 
     void Update()
@@ -46,12 +54,17 @@ public class TimeManager : MonoBehaviour
 
         if (currTime == TimeState.DayTime)
         {
+            //temp will adjust for light transitioning
+            directionalLight.color = morningColor;
+            Debug.Log(directionalLight.color);
             PlayDayTicks();
             UpdateDayTime();
         }
 
         if (currTime == TimeState.NightTime)
         {
+            //temp
+            directionalLight.color = nightColor;
             PlayNightTicks();
             UpdateNightTime();
         }
