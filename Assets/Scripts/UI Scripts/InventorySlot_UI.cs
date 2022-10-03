@@ -75,6 +75,7 @@ public class InventorySlot_UI : MonoBehaviour
         }
     }
 
+    // Class that should be called when you click a UI_Slot
     public void OnUISlotClick()
     {
         //Access display class function.

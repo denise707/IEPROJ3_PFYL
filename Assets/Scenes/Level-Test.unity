@@ -12109,6 +12109,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 531284802396313844, guid: 60800f42dd8fb6d44accdfa61812d106, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2523365902519874050, guid: 60800f42dd8fb6d44accdfa61812d106, type: 3}
       propertyPath: m_Name
       value: UI Setup
