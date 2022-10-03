@@ -185,6 +185,10 @@ public class EquipmentFunction: MonoBehaviour
             else
             {
                 soil.PlantSeed(this.obj);
+
+                // Remove stack from inventory
+                //HotbarSelectorManager.instance.currInvSlot.ClearSlot();
+                HotbarSelectorManager.instance.currInvSlot.RemoveFromStack(1);
             }
             
 

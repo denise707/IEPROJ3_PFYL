@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerInventoryHolder : InventoryHolder
 {
+    [SerializeField] private InventoryItemData[] itemsToAdd;
     [SerializeField] protected int secondaryInventorySize;
     [SerializeField] protected InventorySystem secondaryInventorySystem;
 
@@ -17,6 +18,14 @@ public class PlayerInventoryHolder : InventoryHolder
         base.Awake();
 
         secondaryInventorySystem = new InventorySystem(secondaryInventorySize);
+    }
+
+    private void Start()
+    {
+        for(int i = 0; i < itemsToAdd.Length; i++)
+        {
+            AddToInventory(itemsToAdd[i], 1);
+        }
     }
 
     // Update is called once per frame

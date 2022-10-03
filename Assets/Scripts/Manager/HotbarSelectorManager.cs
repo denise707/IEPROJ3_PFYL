@@ -64,12 +64,12 @@ public class HotbarSelectorManager : MonoBehaviour
             if (Input.GetAxis("Mouse ScrollWheel") > 0)
             {
                 //scroll up
-                slotIndex++;
+                slotIndex--;
             }
             else if (Input.GetAxis("Mouse ScrollWheel") < 0)
             {
                 //scroll down
-                slotIndex--;
+                slotIndex++;
             }
 
             // looping

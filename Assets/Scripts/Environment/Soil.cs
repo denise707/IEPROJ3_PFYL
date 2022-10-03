@@ -81,6 +81,7 @@ public class Soil : MonoBehaviour
             isOccupied = true;
             plant.SetActive(true); // show sprite
 
+
         }
 
     }

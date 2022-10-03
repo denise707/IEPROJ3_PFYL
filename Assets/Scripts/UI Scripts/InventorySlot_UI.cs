@@ -62,6 +62,19 @@ public class InventorySlot_UI : MonoBehaviour
         itemCount.text = "";
     }
 
+    public void RemoveFromStack(int amount)
+    {
+        assignedInventorySlot.RemoveFromStack(amount);
+        if(assignedInventorySlot.StackSize <= 0)
+        {
+            ClearSlot();
+        }
+        else
+        {
+            itemCount.text = assignedInventorySlot.StackSize.ToString();
+        }
+    }
+
     public void OnUISlotClick()
     {
         //Access display class function.
