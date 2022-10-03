@@ -21,7 +21,7 @@ public class TimeManager : MonoBehaviour
     public float maxHours = 2.0f; // hours it takes to be considered as a Day (2 hours = 1 minute irl)
     public float maxMins = 60.0f; // mins it takes to be considered as an hour
 
-    private float TIME_MULTIPLIER = 60.0f; // --- 60.0f for debugging --- 2.0f normal ---
+    private float TIME_MULTIPLIER = 2.0f; // --- 60.0f for debugging --- 2.0f normal ---
 
     private void Awake()
     {
