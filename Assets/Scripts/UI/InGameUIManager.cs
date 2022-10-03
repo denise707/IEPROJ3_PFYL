@@ -61,16 +61,6 @@ public class InGameUIManager : MonoBehaviour
     {
         UpdateClock();
         UpdateBulletSlider();
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            GameOverScreen();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            GameWinScreen();
-        }
     }
 
     private void UpdateBulletSlider()
