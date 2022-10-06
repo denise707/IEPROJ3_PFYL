@@ -46,7 +46,7 @@ public class TimeManager : MonoBehaviour
     {
         currTime = TimeState.DayTime;
         morningColor = new Color(0.8588f, 0.8392f, 1);
-        nightColor = new Color(0.2745f, 0.2352f, 0.4470f);
+        nightColor = new Color(0.101f, 0.0682f, 0.24528f);
     }
 
     void Update()
@@ -55,17 +55,12 @@ public class TimeManager : MonoBehaviour
 
         if (currTime == TimeState.DayTime)
         {
-            directionalLight.color = Color.Lerp(morningColor, nightColor, dayHour / 2);
-            Debug.Log(dayHour / 2);
-            //Debug.Log(directionalLight.color);
             PlayDayTicks();
             UpdateDayTime();
         }
 
         if (currTime == TimeState.NightTime)
         {
-            directionalLight.color = Color.Lerp(nightColor, morningColor, nightHour / 2);
-            Debug.Log(nightHour / 2);
             PlayNightTicks();
             UpdateNightTime();
         }
