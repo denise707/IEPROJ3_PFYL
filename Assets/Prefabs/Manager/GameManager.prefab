@@ -51,6 +51,7 @@ MonoBehaviour:
   nightHour: 0
   maxHours: 2
   maxMins: 60
+  directionalLight: {fileID: 0}
 --- !u!114 &1103066198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,4 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hotbarContainer: {fileID: 0}
+  invController: {fileID: 0}
   invSlots: []
+  currInvSlot: {fileID: 0}

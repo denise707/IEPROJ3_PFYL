@@ -23,6 +23,7 @@ public class Interactor : MonoBehaviour
                 if (interactable != null)
                 {
                     StartInteraction(interactable);
+                    HotbarSelectorManager.instance.ActiveInventoryChecker();
                 }
             }
         }

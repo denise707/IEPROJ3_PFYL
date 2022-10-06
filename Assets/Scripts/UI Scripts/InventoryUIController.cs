@@ -29,10 +29,16 @@ public class InventoryUIController : MonoBehaviour
     {
         //Keyboard check if 'ESC' was pressed, close both dynamic panels
         if (chestPanel.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
+        {
             chestPanel.gameObject.SetActive(false);
+            HotbarSelectorManager.instance.ActiveInventoryChecker();
+        }
 
         if (playerBackpackPanel.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
+        {
             playerBackpackPanel.gameObject.SetActive(false);
+            HotbarSelectorManager.instance.ActiveInventoryChecker();
+        }
     }
 
     void DisplayInventory(InventorySystem invToDisplay)

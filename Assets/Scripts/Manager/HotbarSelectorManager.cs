@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class HotbarSelectorManager : MonoBehaviour
 {
@@ -9,7 +11,9 @@ public class HotbarSelectorManager : MonoBehaviour
 
 
     [Header("HB Slots Properties")]
-    [SerializeField] GameObject hotbarContainer; 
+    [SerializeField] GameObject hotbarContainer;
+    [SerializeField] InventoryUIController invController;
+
     public InventorySlot_UI []invSlots;
     private int currentSlotIndex = 0;
     private PlayerController playerController;
@@ -32,6 +36,8 @@ public class HotbarSelectorManager : MonoBehaviour
     void Start()
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>(); // get player controller
+        invController = GameObject.FindGameObjectWithTag("InventoryController").GetComponent<InventoryUIController>(); // get player controller
+
 
         hotbarContainer = GameObject.FindGameObjectWithTag("Hotbar");
         invSlots = hotbarContainer.GetComponentsInChildren<InventorySlot_UI>(); // get array of hotbarinv slots
@@ -46,6 +52,8 @@ public class HotbarSelectorManager : MonoBehaviour
         currInvSlot = invSlots[currentSlotIndex];
         UpdatePlayerEquip(); // update player equip
 
+        ActiveInventoryChecker();
+
     }
 
     // Update is called once per frame
@@ -55,7 +63,28 @@ public class HotbarSelectorManager : MonoBehaviour
         UpdateScrollSlot(); // check scroll input
     }
 
+    public void ActiveInventoryChecker()
+    {
+        if(invController.chestPanel.isActiveAndEnabled ||invController.playerBackpackPanel.isActiveAndEnabled)
+        {
+            Debug.Log("has active inv");
+            SetHotbarButtonsState(true);
+        }
+        else
+        {
+            Debug.Log("no active inv");
 
+            SetHotbarButtonsState(false);
+        }
+    }
+
+    private void SetHotbarButtonsState(bool flag)
+    {
+        for (int i = 0; i < invSlots.Length; i++)
+        {
+            invSlots[i].GetComponent<Button>().interactable = flag;
+        }
+    }
     private void UpdateScrollSlot()
     {
         // if zero = no input

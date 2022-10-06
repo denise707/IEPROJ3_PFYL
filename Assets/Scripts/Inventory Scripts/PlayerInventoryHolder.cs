@@ -36,7 +36,12 @@ public class PlayerInventoryHolder : InventoryHolder
     void Update()
     {
         // keyboard check if 'B' key was pressed. preferred 'TAB' instead of 'B'
-        if (Input.GetKeyDown(KeyCode.Tab)) OnPlayerBackpackDisplayRequested?.Invoke(secondaryInventorySystem);
+        if (Input.GetKeyDown(KeyCode.Tab)) 
+        { 
+            OnPlayerBackpackDisplayRequested?.Invoke(secondaryInventorySystem);
+            HotbarSelectorManager.instance.ActiveInventoryChecker();
+
+        }
     }
 
     public bool AddToInventory(InventoryItemData data, int amount)
