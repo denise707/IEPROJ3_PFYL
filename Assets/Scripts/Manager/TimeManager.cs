@@ -24,10 +24,11 @@ public class TimeManager : MonoBehaviour
 
     private float TIME_MULTIPLIER = 2.0f; // --- 60.0f for debugging --- 2.0f normal ---
 
-    [Header(" Light")]
+    [Header("Light")]
     [SerializeField] private Light directionalLight;
-    private Color morningColor;
-    private Color nightColor;
+    [SerializeField] private Color morningColor;
+    [SerializeField] private Color nightColor;
+
 
     private void Awake()
     {
@@ -54,17 +55,17 @@ public class TimeManager : MonoBehaviour
 
         if (currTime == TimeState.DayTime)
         {
-            //temp will adjust for light transitioning
-            directionalLight.color = morningColor;
-            Debug.Log(directionalLight.color);
+            directionalLight.color = Color.Lerp(morningColor, nightColor, dayHour / 2);
+            Debug.Log(dayHour / 2);
+            //Debug.Log(directionalLight.color);
             PlayDayTicks();
             UpdateDayTime();
         }
 
         if (currTime == TimeState.NightTime)
         {
-            //temp
-            directionalLight.color = nightColor;
+            directionalLight.color = Color.Lerp(nightColor, morningColor, nightHour / 2);
+            Debug.Log(nightHour / 2);
             PlayNightTicks();
             UpdateNightTime();
         }
@@ -83,7 +84,6 @@ public class TimeManager : MonoBehaviour
 
         if (dayHour == maxHours && currTime == TimeState.DayTime) // set to night when the hours needed is met
         {
-            
             currTime = TimeState.NightTime;
             nightHour = 0;
             nightMinute = 0;
