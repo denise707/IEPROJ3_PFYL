@@ -6,27 +6,37 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-
+    [SerializeField] private AudioSource source;
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(instance);
         }
         else
         {
             Destroy(this);
         }
     }
-    // Start is called before the first frame update
-    void Start()
+    /*
+        Plays a oneshot audio clip 
+    */
+    public void PlaySFX(AudioClip clip)
     {
-        
+        source.PlayOneShot(clip);
+    }
+    /*
+        Plays a bgm
+    */
+    public void PlayBGM()
+    {
+        if (source.isPlaying)
+        {
+            source.Stop();
+            /*add bgm controls*/
+        }
+        source.Play();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
