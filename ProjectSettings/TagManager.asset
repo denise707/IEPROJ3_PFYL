@@ -17,6 +17,7 @@ TagManager:
   - Hotbar
   - PlayerRange
   - InventoryController
+  - Clock
   layers:
   - Default
   - TransparentFX

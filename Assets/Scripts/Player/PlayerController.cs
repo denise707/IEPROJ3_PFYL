@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         {
             Transform obj = toolSP.GetChild(0);
             Destroy(obj.gameObject);
-            Debug.Log("destroyed Tool");
+            //Debug.Log("destroyed Tool");
             hasTool = false;
         }
 
@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
         {
             Transform obj = weaponSP.GetChild(0);
             Destroy(obj.gameObject);
-            Debug.Log("destroyed Weapon");
+            //Debug.Log("destroyed Weapon");
             hasTool = false;
         }
 
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
             obj.name = weapon.name;
 
             //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
-            Debug.Log($"Spawn {obj.name}");
+            //Debug.Log($"Spawn {obj.name}");
             hasWeapon = true;
         }
 
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
             GameObject obj = (GameObject)Instantiate(itemData.prefab, toolSP);
             obj.name = hoeTool.name;
             //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
-            Debug.Log($"Spawn {obj.name}");
+           // Debug.Log($"Spawn {obj.name}");
             hasTool = true;
         }
 

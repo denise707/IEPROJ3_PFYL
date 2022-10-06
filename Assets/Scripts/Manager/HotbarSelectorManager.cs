@@ -67,12 +67,12 @@ public class HotbarSelectorManager : MonoBehaviour
     {
         if(invController.chestPanel.isActiveAndEnabled ||invController.playerBackpackPanel.isActiveAndEnabled)
         {
-            Debug.Log("has active inv");
+            //Debug.Log("has active inv");
             SetHotbarButtonsState(true);
         }
         else
         {
-            Debug.Log("no active inv");
+            //Debug.Log("no active inv");
 
             SetHotbarButtonsState(false);
         }
@@ -142,7 +142,7 @@ public class HotbarSelectorManager : MonoBehaviour
         if (data != null)
         {
             Debug.Log(data.DisplayName);
-            Debug.Log("Update Equip");
+            //Debug.Log("Update Equip");
 
         }
 
