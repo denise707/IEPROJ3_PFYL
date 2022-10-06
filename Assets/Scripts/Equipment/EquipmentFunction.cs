@@ -19,6 +19,8 @@ public class EquipmentFunction: MonoBehaviour
     [SerializeField] InventoryItemData obj;
 
     public Soil soil;
+    public HoverBehavior hover;
+
 
 
 
@@ -60,6 +62,7 @@ public class EquipmentFunction: MonoBehaviour
     #region Equipment Checker
     void RunEquipmentFunc()
     {
+        
         if (type == EquipmentType.Weapon) // weapons
         {
             if (CompareName("Pistol"))
@@ -77,32 +80,20 @@ public class EquipmentFunction: MonoBehaviour
         }
         else if (type == EquipmentType.Tool) // tools
         {
-            GetSoil();
-            animator.SetTrigger("isTriggered");
-            //if (CompareName("Hoe"))
-            //{
-            //    GetSoil();
-            //    // trigger Hoe
-            //    animator.SetTrigger("isTriggered");
-            //    // trigger hoe func in end of anim
-            //}
-            //else if (CompareName("Watering Can"))
-            //{
-            //    GetSoil();
-            //    // func
-            //    animator.SetTrigger("isTriggered");
-            //    // trigger hoe func in end of anim
-            //}
-            //else
-            //{
-            //    Debug.Log($"Tool name not found: {this.gameObject.name}");
-            //}
+            GetSoilandHover();
+            if(hover.inRange)
+            {
+                animator.SetTrigger("isTriggered");
+            }
         }
         else if (type == EquipmentType.Plant) // tools
         {
             
-                GetSoil();
+                GetSoilandHover();
+            if (hover.inRange)
+            {
                 TriggerPlanting();
+            }
                 // trigger hoe func in end of anim
         }
         
@@ -125,11 +116,9 @@ public class EquipmentFunction: MonoBehaviour
 
     public void TriggerHoe()
     {
-        //GetSoil();
 
-        // check if soil
 
-        if (soil)
+        if (soil && hover.inRange)
         {
             if (soil.soilStatus == Soil.SoilStatus.ForHarvesting)
             {
@@ -150,8 +139,7 @@ public class EquipmentFunction: MonoBehaviour
 
     void TriggerWateringCan()
     {
-        //GetSoil();
-        if (soil)
+        if (soil && hover.inRange)
         {
 
             if (soil.soilStatus == Soil.SoilStatus.ForHarvesting)
@@ -175,8 +163,7 @@ public class EquipmentFunction: MonoBehaviour
 
     void TriggerPlanting()
     {
-        //GetSoil();
-        if (soil)
+        if (soil && hover.inRange)
         {
             if (soil.soilStatus == Soil.SoilStatus.ForHarvesting)
             {
@@ -205,10 +192,8 @@ public class EquipmentFunction: MonoBehaviour
     #endregion
 
 
-    void GetSoil()
+    void GetSoilandHover()
     {
-        
-
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Ground")))
@@ -218,6 +203,8 @@ public class EquipmentFunction: MonoBehaviour
             if (hit.transform.CompareTag("Soil"))
             {
                 soil = hit.transform.GetComponent<Soil>();
+                hover = hit.transform.GetComponent<HoverBehavior>();
+
             }
             
            

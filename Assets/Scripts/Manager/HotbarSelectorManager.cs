@@ -11,7 +11,7 @@ public class HotbarSelectorManager : MonoBehaviour
     [Header("HB Slots Properties")]
     [SerializeField] GameObject hotbarContainer; 
     public InventorySlot_UI []invSlots;
-    private int slotIndex = 0;
+    private int currentSlotIndex = 0;
     private PlayerController playerController;
 
     public InventorySlot_UI currInvSlot;
@@ -39,11 +39,11 @@ public class HotbarSelectorManager : MonoBehaviour
         for (int i = 0; i < invSlots.Length; i++)
         {
           invSlots[i].name = $"[{i+1}] Slot";
-          //invSlots[i].UpdateUISlot();
+          invSlots[i].UpdateUISlot();
         }
 
-        invSlots[slotIndex].selector.SetActive(true); // show selector
-        currInvSlot = invSlots[slotIndex];
+        invSlots[currentSlotIndex].selector.SetActive(true); // show selector
+        currInvSlot = invSlots[currentSlotIndex];
         UpdatePlayerEquip(); // update player equip
 
     }
@@ -64,45 +64,61 @@ public class HotbarSelectorManager : MonoBehaviour
             if (Input.GetAxis("Mouse ScrollWheel") > 0)
             {
                 //scroll up
-                slotIndex--;
+                currentSlotIndex--;
             }
             else if (Input.GetAxis("Mouse ScrollWheel") < 0)
             {
                 //scroll down
-                slotIndex++;
+                currentSlotIndex++;
             }
 
             // looping
-            if (slotIndex < 0)
+            if (currentSlotIndex < 0)
             {
-                slotIndex = invSlots.Length - 1;
+                currentSlotIndex = invSlots.Length - 1;
             }
-            else if (slotIndex > invSlots.Length - 1)
+            else if (currentSlotIndex > invSlots.Length - 1)
             {
-                slotIndex = 0;
+                currentSlotIndex = 0;
             }
 
             // disable all selector
             ResetSlotsSelector();
 
             // show selector in current slot
-            invSlots[slotIndex].selector.SetActive(true);
-            currInvSlot = invSlots[slotIndex];
+            invSlots[currentSlotIndex].selector.SetActive(true);
+            currInvSlot = invSlots[currentSlotIndex];
 
             // update player equipment (see func.)
             UpdatePlayerEquip();
         }
     }
-    private void UpdatePlayerEquip()
+    public void UpdatePlayerEquip()
     {
         // display item name in the slot if not empty
-        if (invSlots[slotIndex].AssignedInventorySlot.ItemData != null)
+        if (invSlots[currentSlotIndex].AssignedInventorySlot.ItemData != null)
         {
-            Debug.Log(invSlots[slotIndex].AssignedInventorySlot.ItemData.DisplayName);
+            Debug.Log(invSlots[currentSlotIndex].AssignedInventorySlot.ItemData.DisplayName);
+            Debug.Log("Update Equip");
+
         }
 
         // update player equip by sending the item data to player controller
-        playerController.UpdatePlayerEquip(invSlots[slotIndex].AssignedInventorySlot.ItemData);
+        playerController.UpdatePlayerEquip(invSlots[currentSlotIndex].AssignedInventorySlot.ItemData);
+    }
+
+    public void UpdatePlayerEquip(InventoryItemData data)
+    {
+        // display item name in the slot if not empty
+        if (data != null)
+        {
+            Debug.Log(data.DisplayName);
+            Debug.Log("Update Equip");
+
+        }
+
+        // update player equip by sending the item data to player controller
+        playerController.UpdatePlayerEquip(data);
     }
     private void ResetSlotsSelector()
     {

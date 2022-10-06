@@ -233,32 +233,6 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("faceRight", false); // D - right
     }
 
-    private void PlayerLookAt()
-    {
-        // Player look At
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
-        {
-            if (inputs[0] || inputs[1])
-            {
-                playerSprite.LookAt(hit.point); // Look at the point
-                transform.rotation = Quaternion.Euler(new Vector3(0, playerSprite.rotation.eulerAngles.y, 0)); // Clamp the x and z rotation
-
-                //Vector3 dir = playerSprite.position - hit.point;
-                //Quaternion rotation = Quaternion.LookRotation(dir);
-                //playerSprite.rotation = Quaternion.Lerp(transform.rotation, rotation, speed * Time.deltaTime);
-            }
-            else
-            {
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0)); // Clamp the x and z rotation
-            }
-           
-            
-        }
-
-    }
-
     private bool isPlayingMoving()
     {
         for (int i = 0; i <inputs.Length; i++)

@@ -38,7 +38,7 @@ public class Soil : MonoBehaviour
         }
         else
         {
-            Debug.Log("behavior found");
+            //Debug.Log("behavior found");
             if (!plantBehavior.simulateGrowth)
             {
                 plant.SetActive(false);

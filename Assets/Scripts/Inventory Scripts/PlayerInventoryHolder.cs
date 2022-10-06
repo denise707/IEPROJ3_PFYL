@@ -18,14 +18,18 @@ public class PlayerInventoryHolder : InventoryHolder
         base.Awake();
 
         secondaryInventorySystem = new InventorySystem(secondaryInventorySize);
+
+        for (int i = 0; i < itemsToAdd.Length; i++)
+        {
+            AddToInventory(itemsToAdd[i], 1);
+        }
+
     }
 
     private void Start()
     {
-        for(int i = 0; i < itemsToAdd.Length; i++)
-        {
-            AddToInventory(itemsToAdd[i], 1);
-        }
+        HotbarSelectorManager.instance.UpdatePlayerEquip(itemsToAdd[0]);
+
     }
 
     // Update is called once per frame

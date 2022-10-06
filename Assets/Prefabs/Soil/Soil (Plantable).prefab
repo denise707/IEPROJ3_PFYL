@@ -5105,7 +5105,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startcolor: {r: 0, g: 0, b: 0, a: 0}
   renderer: {fileID: 0}
-  intensity: 0.1
+  intensity: 0.2
+  inRange: 0
+  isHighlighted: 0
 --- !u!54 &2749981912656817472
 Rigidbody:
   m_ObjectHideFlags: 0
