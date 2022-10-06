@@ -153,7 +153,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 04ffec34e2afdd1489e4646e9ddfff46, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -275,6 +275,10 @@ MonoBehaviour:
   inventorySize: 10
   primaryInventorySystem:
     inventorySlots: []
+  itemsToAdd:
+  - {fileID: 11400000, guid: bc59477913f41f34ba0eab88d7733c8d, type: 2}
+  - {fileID: 11400000, guid: 122df2e1c7d3ee84c9c566f858819eb8, type: 2}
+  - {fileID: 11400000, guid: 09c4b68578af5c24ab7a8540843dd855, type: 2}
   secondaryInventorySize: 30
   secondaryInventorySystem:
     inventorySlots: []
