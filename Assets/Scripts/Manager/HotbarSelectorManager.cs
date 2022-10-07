@@ -128,7 +128,7 @@ public class HotbarSelectorManager : MonoBehaviour
         if (invSlots[currentSlotIndex].AssignedInventorySlot.ItemData != null)
         {
             Debug.Log(invSlots[currentSlotIndex].AssignedInventorySlot.ItemData.DisplayName);
-            Debug.Log("Update Equip");
+            //Debug.Log("Update Equip");
 
         }
 

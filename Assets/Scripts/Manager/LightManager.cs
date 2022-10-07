@@ -66,30 +66,45 @@ public class LightManager : MonoBehaviour
 
         }
 
-        if (angle < 72)
+        if (angle <= 72 && angle >= 0)
         {
             colorIndexA = 0;
             colorIndexB = 1;
+
+            startColor = lightColor[colorIndexA];
+            targetColor = lightColor[colorIndexB];
         }
-        else if (angle > 72 && angle < 144)
+        else if (angle > 72 && angle <= 144)
         {
             colorIndexA = 1;
             colorIndexB = 2;
+            startColor = lightColor[colorIndexA];
+            targetColor = lightColor[colorIndexB];
+
         }
-        else if (angle > 144 && angle < 216)
+        else if (angle > 144 && angle <= 216)
         {
             colorIndexA = 2;
             colorIndexB = 3;
+
+            startColor = lightColor[colorIndexA];
+            targetColor = lightColor[colorIndexB];
         }
-        else if (angle > 216 && angle < 277)
+        else if (angle > 216 && angle <= 277)
         {
             colorIndexA = 3;
             colorIndexB = 4;
+
+            startColor = lightColor[colorIndexA];
+            targetColor = lightColor[colorIndexB];
         }
-        else if (angle > 277 && angle < 360)
+        else if (angle > 277 && angle <= 360)
         {
             colorIndexA = 4;
             colorIndexB = 0;
+
+            startColor = lightColor[colorIndexA];
+            targetColor = lightColor[colorIndexB];
         }
 
 
