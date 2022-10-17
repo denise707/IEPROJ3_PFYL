@@ -12,6 +12,10 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private float maxHealth = 50f;
     [SerializeField] public float atkDamage = 0f;
     [SerializeField] private int gold = 0;
+    private const int ATTACK_PLANT_CHANCE = 40;
+    [SerializeField] private const int DROP_RATE = 30;
+    private string target = "Player";
+    [SerializeField] private GameObject dropCopy;
 
     public enum State { Chase, Damaged, ReachedPlayer, AttackPlayer };
     public State currState = State.Chase;
@@ -59,21 +63,41 @@ public class EnemyBehaviour : MonoBehaviour
         GetComponentInChildren<EnemyHPBar>().UpdateHPBar(currHealth, maxHealth);
         currState = State.Chase;
         baseColor = GetComponent<SpriteRenderer>().color;
+        SelectTarget();
+    }
+
+    private void SelectTarget()
+    {
+        int chance = Random.Range(1, 100);
+        if (chance <= ATTACK_PLANT_CHANCE)
+        {
+            target = "Nuke Plant";
+        }
     }
 
     private void Move()
     {
         // Follow player
-        Transform playerTransform = player.transform; 
-        this.transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
+        if (target == "Player")
+        {
+            Transform playerTransform = player.transform;
+            this.transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
+            UpdateAnimation(playerTransform);
+        }
 
-        UpdateAnimation(playerTransform);
+        // Follow nuke plant
+        if (target == "Nuke Plant")
+        {
+            Transform plantTransform = GameObject.FindGameObjectWithTag("Nuke Plant").transform;
+            this.transform.position = Vector3.MoveTowards(transform.position, plantTransform.position, speed * Time.deltaTime);
+            UpdateAnimation(plantTransform);
+        }
     }
 
-    private void UpdateAnimation(Transform playerTransform)
+    private void UpdateAnimation(Transform targetTransform)
     {
         // Update sprite based on player direction
-        Vector3 dir = playerTransform.position - transform.position;
+        Vector3 dir = targetTransform.position - transform.position;
         float angle = Mathf.Atan2(dir.z, dir.x) * Mathf.Rad2Deg;
         dir.Normalize();
         Vector2 movement = dir;
@@ -103,11 +127,21 @@ public class EnemyBehaviour : MonoBehaviour
     {
         PlayerData.instance.ReceiveGold(this.gold);
 
-        // +Drop loot
+        // Drop loot
+        DropItem();
 
         EnemySpawningManager.instance.RemoveEnemy(this.gameObject);
 
         DestroyEnemy();
+    }
+
+    private void DropItem()
+    {
+        int chance = Random.Range(1, 100);
+        if (chance <= DROP_RATE)
+        {
+            GameObject drop = Instantiate(dropCopy, this.transform.position, dropCopy.transform.rotation);
+        }
     }
 
     public void DestroyEnemy()
