@@ -10,9 +10,18 @@ public class SlimeAttack : MonoBehaviour
     private float ticks = 0f;
     const float ATTACK_INTERVAL = 3.0f;
 
+    [Header("Sound Files")]
+    [SerializeField] private AudioClip attackSFX;
+    [SerializeField] private AudioClip spawnSFX;
+
     void Start()
     {
         enemyBehaviour = this.GetComponent<EnemyBehaviour>();
+    }
+
+    void OnEnable()
+    {
+        AudioManager.instance.PlaySFX(spawnSFX);
     }
 
     void Update()
@@ -37,7 +46,7 @@ public class SlimeAttack : MonoBehaviour
         {
             enemyBehaviour.AttackVFX();
             ticks = 0.0f;
-
+            AudioManager.instance.PlaySFX(attackSFX);
             // +Player receives damage
         }
     }

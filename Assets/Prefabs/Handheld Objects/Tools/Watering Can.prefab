@@ -191,8 +191,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62b3c3568ca2de478473908a2f3e628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plant: {fileID: 0}
+  obj: {fileID: 0}
   soil: {fileID: 0}
+  hover: {fileID: 0}
+  usetoolSFX: {fileID: 8300000, guid: 454ff067379e27742a76acefb0db2179, type: 3}
 --- !u!1 &7560149555245408962
 GameObject:
   m_ObjectHideFlags: 0

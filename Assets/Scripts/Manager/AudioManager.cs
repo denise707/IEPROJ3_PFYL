@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     [SerializeField] private AudioSource source;
+    private float sliderVolume = 0.0f;
     private void Awake()
     {
         if (instance == null)
@@ -33,10 +34,43 @@ public class AudioManager : MonoBehaviour
     {
         if (source.isPlaying)
         {
-            source.Stop();
+            //source.Stop();
             /*add bgm controls*/
         }
         source.Play();
     }
 
+    public void ChangeBGMClip(AudioClip clip)
+    {
+        source.clip = clip;
+    }
+
+    public void Mute()
+    {
+        if (source.isPlaying)
+        {
+            source.mute = true;
+        }
+    }
+
+    public void Unmute()
+    {
+        if (source.isPlaying)
+        {
+            source.mute = false;
+        }
+    }
+
+    public void StopBGM()
+    {
+        if (source.isPlaying)
+        {
+            source.Stop();
+        }
+    }
+
+    public void ChangeVolume(float volume)
+    {
+        source.volume = volume;
+    }
 }

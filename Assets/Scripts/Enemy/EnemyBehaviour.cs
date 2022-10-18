@@ -12,7 +12,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private float maxHealth = 50f;
     [SerializeField] public float atkDamage = 0f;
     [SerializeField] private int gold = 0;
-    private const int ATTACK_PLANT_CHANCE = 40;
+    private const int ATTACK_PLANT_CHANCE = 10;
     [SerializeField] private const int DROP_RATE = 30;
     private string target = "Player";
     [SerializeField] private GameObject dropCopy;

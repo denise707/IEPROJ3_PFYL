@@ -4,8 +4,13 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - bulletPrefab: {fileID: 5031747301353126514, guid: 6d3663d225173b947b83bd063bf34cf8, type: 3}
-  - firePoint: {instanceID: 0}
+  - obj: {instanceID: 0}
+  - soil: {instanceID: 0}
+  - hover: {instanceID: 0}
+  - useHoeSFX: {fileID: 8300000, guid: 8ec462faa8aa6784588482901ae926f2, type: 3}
+  - useWateringCanSFX: {fileID: 8300000, guid: 454ff067379e27742a76acefb0db2179, type: 3}
+  - usePistolSFX: {fileID: 8300000, guid: 0a9523de9fded154e82083cf2ef06c15, type: 3}
+  - harvestSFX: {fileID: 8300000, guid: 85bb1f70856af174ba2a3854d236bcea, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

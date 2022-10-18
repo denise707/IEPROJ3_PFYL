@@ -13,10 +13,19 @@ public class GolemAttack : MonoBehaviour
 
     public bool playerInRange = false;
 
+    [Header("Sound Files")]
+    [SerializeField] private AudioClip attackSFX;
+    [SerializeField] private AudioClip spawnSFX;
+
     void Start()
     {
         enemyBehaviour = this.GetComponent<EnemyBehaviour>();
         golemRange = this.GetComponent<GolemRange>();
+    }
+
+    void OnEnable()
+    {
+        AudioManager.instance.PlaySFX(spawnSFX);
     }
 
     void Update()
@@ -35,6 +44,7 @@ public class GolemAttack : MonoBehaviour
             enemyBehaviour.currState = EnemyBehaviour.State.AttackPlayer;
             golemRange.HideRange();
             golemRange.ShowSpike();
+            AudioManager.instance.PlaySFX(attackSFX);
             if (playerInRange) enemyBehaviour.AttackVFX();
             StartCoroutine("RemoveSpike");
             ticks = 0.0f;

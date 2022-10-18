@@ -18,6 +18,9 @@ public class MainMenuUIManager : MonoBehaviour
     [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject exitGameConfirmation;
 
+    [Header("Sound Files")] [SerializeField]
+    private AudioClip buttonSFX;
+
     private void Awake()
     {
         if (instance == null)
@@ -28,6 +31,11 @@ public class MainMenuUIManager : MonoBehaviour
         {
             Destroy(this);
         }
+    }
+
+    void onStart()
+    {
+        AudioManager.instance.PlayBGM();
     }
 
     public void PlayGameConfimation()
@@ -52,11 +60,13 @@ public class MainMenuUIManager : MonoBehaviour
     public void OpenMainLevel()
     {
         SceneManager.LoadScene("Level-Test");
+        AudioManager.instance.StopBGM();
     }
 
     public void OpenTutorialLevel()
     {
         SceneManager.LoadScene("Tutorial Level");
+        AudioManager.instance.StopBGM();
     }
 
     public void ExitGame()
@@ -68,6 +78,9 @@ public class MainMenuUIManager : MonoBehaviour
 
     public void HandlePopUp(GameObject popUp, GameObject blocker)
     {
+        //Play SFX
+        AudioManager.instance.PlaySFX(buttonSFX);
+
         if (popUp.activeInHierarchy == false)
         {
             popUp.SetActive(true);

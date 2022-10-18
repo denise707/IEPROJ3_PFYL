@@ -224,7 +224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5579977063640292533
 Transform:
   m_ObjectHideFlags: 0
@@ -355,6 +355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c568cc8294899542a1835f5a01dccad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSFX: {fileID: 8300000, guid: ee4c85eb4385a044bb48977f98b08b5f, type: 3}
+  spawnSFX: {fileID: 8300000, guid: 05691889c7b60aa47b89ec4cfee345ee, type: 3}
 --- !u!136 &6089489317430812411
 CapsuleCollider:
   m_ObjectHideFlags: 0

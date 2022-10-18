@@ -38,6 +38,9 @@ public class InGameUIManager : MonoBehaviour
     [SerializeField] private GameObject gameWinScreen;
     [SerializeField] private GameObject restartDayConfirmation;
 
+    [Header("Sound Files")]
+    [SerializeField] private AudioClip buttonSFX;
+
     private bool resetDay = false;
     private bool resetNight = false;
 
@@ -214,11 +217,15 @@ public class InGameUIManager : MonoBehaviour
     public void ReturnToMainMenu()
     {
         Time.timeScale = 1;
+        AudioManager.instance.StopBGM();
         SceneManager.LoadScene("Main Menu");
     }
 
     public void HandlePopUp(GameObject popUp, GameObject blocker)
     {
+        //Play SFX
+        AudioManager.instance.PlaySFX(buttonSFX);
+
         if (popUp.activeInHierarchy == false)
         {
             popUp.SetActive(true);
