@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 7457726809192019262}
   m_Layer: 0
   m_Name: right hand
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 3999510965294845460}
   m_Layer: 0
   m_Name: Axis
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 4495359867814873509}
   m_Layer: 0
   m_Name: left hand
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 7683108074130771420}
   m_Layer: 0
   m_Name: Origin
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -397,7 +397,7 @@ GameObject:
   - component: {fileID: 8392665523935240226}
   m_Layer: 0
   m_Name: Player Hands
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -520,6 +520,10 @@ PrefabInstance:
     - target: {fileID: 6461158188711079513, guid: 7e00dd40feb65e44f8a9df5fe79908d4, type: 3}
       propertyPath: m_Name
       value: shaft
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461158188711079513, guid: 7e00dd40feb65e44f8a9df5fe79908d4, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7908235042088584861, guid: 7e00dd40feb65e44f8a9df5fe79908d4, type: 3}
       propertyPath: m_Mesh

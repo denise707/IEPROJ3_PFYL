@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 402955668854588735}
   m_Layer: 0
   m_Name: Player Hands
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 3408535172575054529}
   m_Layer: 0
   m_Name: Origin
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 6249249706609871132}
   m_Layer: 0
   m_Name: Axis
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 2342609690173595106}
   m_Layer: 0
   m_Name: right hand
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -344,6 +344,10 @@ PrefabInstance:
     - target: {fileID: 1027406255647165682, guid: f4b6c25b129c2994e8dab61f35cd22f6, type: 3}
       propertyPath: m_Name
       value: Can
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027406255647165682, guid: f4b6c25b129c2994e8dab61f35cd22f6, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1027406255647165683, guid: f4b6c25b129c2994e8dab61f35cd22f6, type: 3}
       propertyPath: m_RootOrder

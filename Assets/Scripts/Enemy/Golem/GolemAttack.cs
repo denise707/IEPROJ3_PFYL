@@ -9,7 +9,7 @@ public class GolemAttack : MonoBehaviour
     private GolemRange golemRange;
 
     private float ticks = 0f;
-    const float ATTACK_INTERVAL = 3.0f;
+    const float ATTACK_INTERVAL = 3.5f;
 
     public bool playerInRange = false;
 
@@ -60,7 +60,7 @@ public class GolemAttack : MonoBehaviour
         golemRange.HideSpike();
     }
 
-    private void OnTriggerStay(Collider collider)
+    private void OnCollisionStay(Collision collider)
     {
         if (collider.gameObject.tag == "Player" && enemyBehaviour.currState != EnemyBehaviour.State.AttackPlayer)
         {

@@ -9,8 +9,8 @@ public class GolemRange : MonoBehaviour
     public float timeStartedLerping;
     public float lerpTime;
 
-    public Vector3 minScale;
-    public Vector3 maxScale;
+    private Vector3 minScale;
+    private Vector3 maxScale;
 
     [SerializeField] private GameObject range;
     [SerializeField] private GameObject spike;
@@ -22,6 +22,8 @@ public class GolemRange : MonoBehaviour
         maxRange.SetActive(true);
         timeStartedLerping = Time.time;
         shouldLerp = true;
+        minScale = new Vector3(0, 0, 0);
+        maxScale = new Vector3(6, 6, 6);
     }
 
     void Update()
@@ -39,6 +41,7 @@ public class GolemRange : MonoBehaviour
         float percentageComplete = timeSinceStarted / lerpTime;
 
         var result = Vector3.Lerp(start, end, percentageComplete);
+        Debug.Log(result);
 
         return result;
     }
@@ -47,6 +50,7 @@ public class GolemRange : MonoBehaviour
     {
         range.SetActive(false);
         maxRange.SetActive(false);
+        shouldLerp = false;
     }
 
     public void ShowSpike()
@@ -56,6 +60,8 @@ public class GolemRange : MonoBehaviour
 
     public void HideSpike()
     {
+        range.transform.localScale = new Vector3(0, 0, 0);
+        timeStartedLerping = Time.time;
         spike.SetActive(false);
     }
 }

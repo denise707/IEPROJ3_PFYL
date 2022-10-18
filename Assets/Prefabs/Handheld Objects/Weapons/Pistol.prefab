@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5451361214326411164}
   m_Layer: 0
   m_Name: FirePoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 251516777828743057}
   m_Layer: 0
   m_Name: Player Hands
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 187249177853271224}
   m_Layer: 0
   m_Name: left hand
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 2046455469989030156}
   m_Layer: 0
   m_Name: right hand
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 4960626124652578617}
   m_Layer: 0
   m_Name: Origin
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 5327101979580698632}
   m_Layer: 0
   m_Name: Axis
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -627,6 +627,10 @@ PrefabInstance:
     - target: {fileID: 2291452860470303318, guid: b0d3afe1b1b12fc48859def7034b7899, type: 3}
       propertyPath: m_Name
       value: Barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291452860470303318, guid: b0d3afe1b1b12fc48859def7034b7899, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2291452860470303319, guid: b0d3afe1b1b12fc48859def7034b7899, type: 3}
       propertyPath: m_Mesh

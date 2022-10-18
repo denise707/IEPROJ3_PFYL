@@ -95,7 +95,7 @@ public class EnemySpawningManager : MonoBehaviour
 
         switch (TimeManager.instance.day)
         {
-            case 1: 
+            case 3: 
                 if(!IsEnemyTypeExisting("Zombie"))
                     enemyTypeList.Add("Zombie");
                 if(!IsEnemyTypeExisting("Weaker Boss Zombie"))
@@ -107,7 +107,7 @@ public class EnemySpawningManager : MonoBehaviour
                 if (!IsEnemyTypeExisting("Weaker Boss Golem"))
                     enemyTypeList.Add("Weaker Boss Golem");
                 break;
-            case 3:
+            case 1:
                 if (!IsEnemyTypeExisting("Slime"))
                     enemyTypeList.Add("Slime");
                 if (!IsEnemyTypeExisting("Weaker Boss Slime"))
