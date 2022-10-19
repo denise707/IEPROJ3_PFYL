@@ -10,7 +10,7 @@ public class SlimePassive : MonoBehaviour
     public List<GameObject> trapList = new List<GameObject>();
 
     private float ticks = 0f;
-    const float ATTACK_INTERVAL = 1.0f;
+    const float ATTACK_INTERVAL = 20.0f;
 
     void Update()
     {

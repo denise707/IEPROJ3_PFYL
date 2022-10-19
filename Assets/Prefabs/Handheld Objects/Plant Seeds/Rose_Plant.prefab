@@ -149,6 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 11400000, guid: dda96c5c44459804591b1c2502d94d9c, type: 2}
   soil: {fileID: 0}
+  hover: {fileID: 0}
+  usetoolSFX: {fileID: 8300000, guid: 85bb1f70856af174ba2a3854d236bcea, type: 3}
 --- !u!1 &6720303349145233417
 GameObject:
   m_ObjectHideFlags: 0

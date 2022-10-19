@@ -389,7 +389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3615366472763522667
 Transform:
   m_ObjectHideFlags: 0
@@ -473,6 +473,7 @@ MonoBehaviour:
   maxHealth: 70
   atkDamage: 70
   gold: 50
+  dropCopy: {fileID: 7923153364323608396, guid: 21352fe1e1b5cf04ca51d38f721356f0, type: 3}
   currState: 0
   spawnVFX: {fileID: 6218200324367903362, guid: 6d411af8f532fa041a7e24639d7d2ad3, type: 3}
   attackVFX: {fileID: 2573766368864417822, guid: 3c02283098997af40a9405503dc0080b, type: 3}
@@ -535,6 +536,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed672c79ec3fe544b80458e2620da27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSFX: {fileID: 8300000, guid: dc3f3114b9e075248b17e0493e891956, type: 3}
+  spawnSFX: {fileID: 8300000, guid: 61887e405d86b3e4a8157f0c67caf01a, type: 3}
 --- !u!136 &1909239759383933981
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -545,10 +548,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.8324332
-  m_Height: 1.8314334
+  m_Radius: 1.1914852
+  m_Height: 2.3829708
   m_Direction: 1
-  m_Center: {x: 0.043042183, y: 0.056975424, z: 0.020448446}
+  m_Center: {x: 0.020601273, y: 0.16917896, z: 0.020448446}
 --- !u!54 &8000911578357433980
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -557,7 +560,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3615366472763522677}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 200
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1

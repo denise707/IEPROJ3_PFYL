@@ -37,6 +37,10 @@ public class PlayerController : MonoBehaviour
     private float rotationY;
     bool[] inputs;
 
+    [Header("Sound Files")]
+    [SerializeField] private AudioClip receiveDamageSFX;
+    [SerializeField] private AudioSource walkSFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -163,6 +167,15 @@ public class PlayerController : MonoBehaviour
             inputs[3] = false;
         }
 
+        if (!inputs[0] && !inputs[1] && !inputs[2] && !inputs[3])
+        {
+            walkSFX.Stop();
+        }
+
+        if (!inputs[0] && !inputs[1] && !inputs[2] && !inputs[3])
+        {
+            walkSFX.Play();
+        }
 
         animator.SetBool("isMoving", isPlayingMoving()); // w - back
 
@@ -252,6 +265,7 @@ public class PlayerController : MonoBehaviour
         PlayerData.instance.currHP -= damage;
         //this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         Debug.Log("Hit");
+        AudioManager.instance.PlaySFX(receiveDamageSFX);
         InGameUIManager.instance.UpdateHP();
     }
 

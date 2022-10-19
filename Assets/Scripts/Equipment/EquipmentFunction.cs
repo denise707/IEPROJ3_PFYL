@@ -21,8 +21,8 @@ public class EquipmentFunction: MonoBehaviour
     public Soil soil;
     public HoverBehavior hover;
 
-
-
+    [Header("Sound Files")] 
+    [SerializeField] private AudioClip usetoolSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -107,6 +107,7 @@ public class EquipmentFunction: MonoBehaviour
         if (PlayerData.instance.bulletCount > 0)
         {
             gameObject.GetComponent<GunBehavior>().Shoot();
+            AudioManager.instance.PlaySFX(usetoolSFX);
         }
         else
         {
@@ -128,8 +129,8 @@ public class EquipmentFunction: MonoBehaviour
             {
                 soil.TillSoil();
             }
-            
-            
+
+            AudioManager.instance.PlaySFX(usetoolSFX);
         }
         else
         {
@@ -150,7 +151,7 @@ public class EquipmentFunction: MonoBehaviour
             {
                 soil.WaterSoil();
             }
-
+            AudioManager.instance.PlaySFX(usetoolSFX);
         }
         else
         {
@@ -177,7 +178,7 @@ public class EquipmentFunction: MonoBehaviour
                 //HotbarSelectorManager.instance.currInvSlot.ClearSlot();
                 HotbarSelectorManager.instance.currInvSlot.RemoveFromStack(1);
             }
-            
+            AudioManager.instance.PlaySFX(usetoolSFX);
 
         }
         else

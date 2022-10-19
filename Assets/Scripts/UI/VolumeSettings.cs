@@ -21,6 +21,7 @@ public class VolumeSettings : MonoBehaviour
             text.text = (Mathf.Round(slider.value * 100.0f)).ToString();
         }
 
+        slider.value = 1;
         Unmute();
     }
 
@@ -28,16 +29,19 @@ public class VolumeSettings : MonoBehaviour
     void Update()
     {
         text.text = (Mathf.Round(slider.value * 100.0f)).ToString();
+        AudioManager.instance.ChangeVolume(slider.value);
     }
 
     public void Mute()
     {
+        AudioManager.instance.Mute();
         mute.gameObject.GetComponent<Button>().interactable = false;
         unmute.gameObject.GetComponent<Button>().interactable = true;
     }
 
     public void Unmute()
     {
+        AudioManager.instance.Unmute();
         mute.gameObject.GetComponent<Button>().interactable = true;
         unmute.gameObject.GetComponent<Button>().interactable = false;
     }

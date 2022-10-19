@@ -12,7 +12,7 @@ public class TimeManager : MonoBehaviour
     public int day = 1;
     private bool isLastDay = false;
 
-    public float dayHour = 0; // set to 5 for debugging
+    public float dayHour = 2.0f; // set to 5 for debugging
     private float dayMinute = 0.0f;
 
     public float nightHour = 0; // set to 5 for debugging
@@ -29,6 +29,11 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private Color morningColor;
     [SerializeField] private Color nightColor;
 
+    [Header("Sound Files")] 
+    [SerializeField] private AudioClip dayBGM;
+    [SerializeField] private AudioClip nightBGM;
+    [SerializeField] private AudioClip dayTransition;
+    [SerializeField] private AudioClip nightTransition;
 
     private void Awake()
     {
@@ -47,6 +52,8 @@ public class TimeManager : MonoBehaviour
         currTime = TimeState.DayTime;
         morningColor = new Color(0.8588f, 0.8392f, 1);
         nightColor = new Color(0.101f, 0.0682f, 0.24528f);
+        AudioManager.instance.ChangeBGMClip(dayBGM);
+        AudioManager.instance.PlayBGM();
     }
 
     void Update()
@@ -75,6 +82,7 @@ public class TimeManager : MonoBehaviour
     private void UpdateTimeState()
     {
         InGameUIManager.instance.UpdateDayLabel("Day " + day);
+
         if (day >= 5) { InGameUIManager.instance.UpdateDayLabel("Day " + 5); }
 
         if (dayHour == maxHours && currTime == TimeState.DayTime) // set to night when the hours needed is met
@@ -82,6 +90,9 @@ public class TimeManager : MonoBehaviour
             currTime = TimeState.NightTime;
             nightHour = 0;
             nightMinute = 0;
+            AudioManager.instance.ChangeBGMClip(nightBGM);
+            AudioManager.instance.PlaySFX(nightTransition);
+            StartCoroutine("StartBGM");
         }
 
         if (nightHour == maxHours && currTime == TimeState.NightTime) // if total enemy killed == total enemy for a day
@@ -91,7 +102,16 @@ public class TimeManager : MonoBehaviour
             dayHour = 0;
             dayMinute = 0;
             day++;
+            AudioManager.instance.ChangeBGMClip(dayBGM);
+            AudioManager.instance.PlaySFX(dayTransition);
+            StartCoroutine("StartBGM");
         }
+    }
+
+    IEnumerator StartBGM()
+    {
+        yield return new WaitForSeconds(10.0f);
+        AudioManager.instance.PlayBGM();
     }
 
     private void PlayDayTicks()
