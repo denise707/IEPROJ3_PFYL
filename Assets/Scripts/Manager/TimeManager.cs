@@ -35,6 +35,10 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private AudioClip dayTransition;
     [SerializeField] private AudioClip nightTransition;
 
+    [Header("Shop")]
+    [SerializeField] private GameObject shopEnv;
+    [SerializeField] private GameObject store;
+
     private void Awake()
     {
         if (instance == null)
@@ -54,6 +58,7 @@ public class TimeManager : MonoBehaviour
         nightColor = new Color(0.101f, 0.0682f, 0.24528f);
         AudioManager.instance.ChangeBGMClip(dayBGM);
         AudioManager.instance.PlayBGM();
+        shopEnv.SetActive(true);
     }
 
     void Update()
@@ -84,6 +89,12 @@ public class TimeManager : MonoBehaviour
         InGameUIManager.instance.UpdateDayLabel("Day " + day);
 
         if (day >= 5) { InGameUIManager.instance.UpdateDayLabel("Day " + 5); }
+
+        if(day == 3)
+        {
+            shopEnv.SetActive(false);
+            store.SetActive(true);
+        }
 
         if (dayHour == maxHours && currTime == TimeState.DayTime) // set to night when the hours needed is met
         {
