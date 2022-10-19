@@ -50819,6 +50819,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Directional Light
       objectReference: {fileID: 0}
+    - target: {fileID: 1713743509753112791, guid: d98b1e8fb33d91048809afda4adf09e5, type: 3}
+      propertyPath: m_Color.b
+      value: 0.05724456
+      objectReference: {fileID: 0}
+    - target: {fileID: 1713743509753112791, guid: d98b1e8fb33d91048809afda4adf09e5, type: 3}
+      propertyPath: m_Color.g
+      value: 0.08911423
+      objectReference: {fileID: 0}
+    - target: {fileID: 1713743509753112791, guid: d98b1e8fb33d91048809afda4adf09e5, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4528302
+      objectReference: {fileID: 0}
     - target: {fileID: 1713743509753112808, guid: d98b1e8fb33d91048809afda4adf09e5, type: 3}
       propertyPath: m_RootOrder
       value: 1
