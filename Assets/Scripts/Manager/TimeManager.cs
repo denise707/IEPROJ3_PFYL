@@ -13,10 +13,10 @@ public class TimeManager : MonoBehaviour
     private bool isLastDay = false;
 
     public float dayHour = 2.0f; // set to 5 for debugging
-    private float dayMinute = 0.0f;
+    [SerializeField] float dayMinute = 0.0f; // changed
 
     public float nightHour = 0; // set to 5 for debugging
-    private float nightMinute = 0.0f;
+    [SerializeField] float nightMinute = 0.0f;
 
     private const int maxDay = 6; // one full week cycle
     public float maxHours = 2.0f; // hours it takes to be considered as a Day (2 hours = 1 minute irl)
@@ -117,6 +117,8 @@ public class TimeManager : MonoBehaviour
     private void PlayDayTicks()
     {
         dayMinute += Time.deltaTime * TIME_MULTIPLIER; //2f; Note: Use 30f for debugging 
+        LightManager.instance.elapsedTime = dayMinute;
+        LightManager.instance.lerpDuration = maxMins;
     }
 
     private void UpdateDayTime()
@@ -138,6 +140,8 @@ public class TimeManager : MonoBehaviour
     private void PlayNightTicks()
     {
         nightMinute += Time.deltaTime * TIME_MULTIPLIER; //2f; Note: Use 30f for debugging 
+        LightManager.instance.elapsedTime = nightMinute;
+        LightManager.instance.lerpDuration = maxMins;
     }
 
     private void UpdateNightTime()

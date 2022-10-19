@@ -18,6 +18,7 @@ TagManager:
   - PlayerRange
   - InventoryController
   - Clock
+  - Nuke Plant
   layers:
   - Default
   - TransparentFX

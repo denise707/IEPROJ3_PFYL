@@ -12,22 +12,12 @@ public class LightManager : MonoBehaviour
     [SerializeField] private Color[] lightColor;
 
 
-    [SerializeField] private float elapsedTime=0.0f;
-    [SerializeField] private float lerpDuration;
+    [SerializeField]  public float elapsedTime=0.0f;
+    [SerializeField] public float lerpDuration =0;
     [SerializeField] private float interpolation;
-    [SerializeField] private float angle;
 
-    public int colorIndexA = 0;
-    public int colorIndexB = 1;
-
-    public bool DoneSequence= false;
-    public bool SequencePass = false;
-
-
-
-    [SerializeField] [Range(0f, 1f)] float lerptime;
-
-    [SerializeField] private Transform clock_rotation;
+    [SerializeField] int colorIndexA = 0;
+    [SerializeField]  int colorIndexB = 1;
 
     public static LightManager instance;
 
@@ -45,87 +35,29 @@ public class LightManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        clock_rotation = GameObject.FindGameObjectWithTag("Clock").GetComponent<Transform>();
-
-        // divide the lerp duration based on the number of transition in the light array
-        lerpDuration = 360/lightColor.Length;
 
         // set the start and next color to transition to
-        startColor = lightColor[colorIndexA];
-        targetColor = lightColor[colorIndexB];
+        startColor = lightColor[0];
+        targetColor = lightColor[1];
     }
 
     // Update is called once per frame
     void Update()
     {
-        // clock rotation starts from 360 to zero
-
-        angle = (360 - clock_rotation.eulerAngles.z);
-        elapsedTime =angle %lerpDuration;
-
-        // change colors when the elapsed time is reached
-        if (elapsedTime <= lerpDuration)
+       
+        if (elapsedTime > lerpDuration)
         {
-            //sunrise to morning
-            interpolation = elapsedTime / lerpDuration;
-            directionalLight.color = Color.Lerp(lightColor[colorIndexA], lightColor[colorIndexB], interpolation);
-
+            Debug.Log("skip: " + interpolation);
+            NextLightSequence();
+            elapsedTime = 0;
+            interpolation = 0;
         }
 
-        if (angle <= 72 && angle >= 0)
-        {
-            colorIndexA = 0;
-            colorIndexB = 1;
-
-            startColor = lightColor[colorIndexA];
-            targetColor = lightColor[colorIndexB];
-        }
-        else if (angle > 72 && angle <= 144)
-        {
-            colorIndexA = 1;
-            colorIndexB = 2;
-            startColor = lightColor[colorIndexA];
-            targetColor = lightColor[colorIndexB];
-
-        }
-        else if (angle > 144 && angle <= 216)
-        {
-            colorIndexA = 2;
-            colorIndexB = 3;
-
-            startColor = lightColor[colorIndexA];
-            targetColor = lightColor[colorIndexB];
-        }
-        else if (angle > 216 && angle <= 277)
-        {
-            colorIndexA = 3;
-            colorIndexB = 4;
-
-            startColor = lightColor[colorIndexA];
-            targetColor = lightColor[colorIndexB];
-        }
-        else if (angle > 277 && angle <= 360)
-        {
-            colorIndexA = 4;
-            colorIndexB = 0;
-
-            startColor = lightColor[colorIndexA];
-            targetColor = lightColor[colorIndexB];
-        }
-
-
-        //if (DoneSequence == true && SequencePass == true)
-        //{
-        //    NextLightSequence();
-        //    Debug.Log($"{elapsedTime}> {lerpDuration-1.1}");
-        //    elapsedTime = 0;
-        //    //interpolation = 0;
-        //    DoneSequence = false;
-        //    SequencePass = false;
-        //}
-
+        interpolation = elapsedTime / lerpDuration;
+        directionalLight.color = Color.Lerp(lightColor[colorIndexA], lightColor[colorIndexB], interpolation);
 
     }
+
     public void NextLightSequence()
     {
         colorIndexA++;
@@ -140,5 +72,7 @@ public class LightManager : MonoBehaviour
         {
             colorIndexB = 0;
         }
+        startColor = lightColor[colorIndexA];
+        targetColor = lightColor[colorIndexB];
     }
 }
