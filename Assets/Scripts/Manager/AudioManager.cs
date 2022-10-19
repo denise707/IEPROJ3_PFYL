@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
     [SerializeField] private AudioSource source;
     private float sliderVolume = 0.0f;
+    private bool mute = false;
     private void Awake()
     {
         if (instance == null)
@@ -71,6 +72,22 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeVolume(float volume)
     {
-        source.volume = volume;
+        sliderVolume = volume;
+        source.volume = sliderVolume;
+    }
+
+    public float GetVolume()
+    {
+        return sliderVolume;
+    }
+
+    public bool GetMute()
+    {
+        return mute;
+    }
+
+    public void SetMute(bool mute)
+    {
+        this.mute = mute;
     }
 }
