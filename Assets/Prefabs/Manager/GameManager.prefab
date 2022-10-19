@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1103066198}
   - component: {fileID: 1103066199}
   - component: {fileID: 1103066203}
-  - component: {fileID: 1343200020}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -49,7 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   day: 1
   dayHour: 2
+  dayMinute: 0
   nightHour: 0
+  nightMinute: 0
   maxHours: 2
   maxMins: 60
   directionalLight: {fileID: 0}
@@ -110,19 +111,3 @@ MonoBehaviour:
   invController: {fileID: 0}
   invSlots: []
   currInvSlot: {fileID: 0}
---- !u!114 &1343200020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4518738597449896975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbc357eb1fc60eb41a113d5a5fca09bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eulerAngX: -0
-  eulerAngY: 0
-  eulerAngZ: 0
-  clock: {fileID: 0}

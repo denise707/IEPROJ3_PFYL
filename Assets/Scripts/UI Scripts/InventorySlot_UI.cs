@@ -68,6 +68,8 @@ public class InventorySlot_UI : MonoBehaviour
         if(assignedInventorySlot.StackSize <= 0)
         {
             ClearSlot();
+            HotbarSelectorManager.instance.UpdatePlayerEquip();
+
         }
         else
         {
