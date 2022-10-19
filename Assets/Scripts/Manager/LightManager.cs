@@ -46,8 +46,11 @@ public class LightManager : MonoBehaviour
     void Start()
     {
         clock_rotation = GameObject.FindGameObjectWithTag("Clock").GetComponent<Transform>();
+
+        // divide the lerp duration based on the number of transition in the light array
         lerpDuration = 360/lightColor.Length;
 
+        // set the start and next color to transition to
         startColor = lightColor[colorIndexA];
         targetColor = lightColor[colorIndexB];
     }
@@ -55,9 +58,12 @@ public class LightManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // clock rotation starts from 360 to zero
+
         angle = (360 - clock_rotation.eulerAngles.z);
         elapsedTime =angle %lerpDuration;
 
+        // change colors when the elapsed time is reached
         if (elapsedTime <= lerpDuration)
         {
             //sunrise to morning
