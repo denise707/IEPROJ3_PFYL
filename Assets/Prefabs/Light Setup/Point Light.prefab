@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1713743509753112791}
   - component: {fileID: 1713743509753112809}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.027450982, g: 0.023529414, b: 0.13333334, a: 0}
+  m_Color: {r: 0.4990974, g: 0.18727303, b: 0.5943396, a: 0}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -107,13 +107,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directionalLight: {fileID: 1713743509753112791}
-  startColor: {r: 0.4528302, g: 0.08911423, b: 0.05724456, a: 0}
-  targetColor: {r: 0.08956281, g: 0.074012086, b: 0.3254902, a: 0}
+  directionalLight2: {fileID: 0}
+  startColor: {r: 0.4990974, g: 0.18727303, b: 0.5943396, a: 0}
+  targetColor: {r: 0.9716981, g: 0.9059406, b: 0.32451043, a: 0}
   lightColor:
+  - {r: 0.4990974, g: 0.18727303, b: 0.5943396, a: 0}
+  - {r: 0.9716981, g: 0.9059406, b: 0.32451043, a: 0}
   - {r: 0.4528302, g: 0.08911423, b: 0.05724456, a: 0}
   - {r: 0.08956281, g: 0.074012086, b: 0.3254902, a: 0}
-  - {r: 0.4990974, g: 0.18727303, b: 0.5943396, a: 0}
-  - {r: 0.9450981, g: 0.95294124, b: 0.6862745, a: 0}
+  useSecondaryLight: 0
   elapsedTime: 0
   lerpDuration: 51
   interpolation: 0
