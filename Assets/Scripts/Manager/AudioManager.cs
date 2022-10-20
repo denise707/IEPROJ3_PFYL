@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     [SerializeField] private AudioSource source;
-    private float sliderVolume = 0.0f;
+    private float sliderVolume = 0.5f;
     private bool mute = false;
     private void Awake()
     {
@@ -21,6 +21,7 @@ public class AudioManager : MonoBehaviour
             Destroy(this);
         }
     }
+
     /*
         Plays a oneshot audio clip 
     */

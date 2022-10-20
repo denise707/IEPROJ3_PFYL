@@ -209,7 +209,7 @@ public class InGameUIManager : MonoBehaviour
             BlockerfadeOut(blocker2);
         }
 
-        SceneManager.LoadScene("Level-Test");
+        SceneManager.LoadScene("Main Level");
 
         Time.timeScale = 1;
     }

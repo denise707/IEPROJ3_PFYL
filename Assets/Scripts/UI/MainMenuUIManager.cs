@@ -59,7 +59,7 @@ public class MainMenuUIManager : MonoBehaviour
 
     public void OpenMainLevel()
     {
-        SceneManager.LoadScene("Level-Test");
+        SceneManager.LoadScene("Main Level");
         AudioManager.instance.StopBGM();
     }
 
