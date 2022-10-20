@@ -60,6 +60,7 @@ public class HotbarSelectorManager : MonoBehaviour
     void Update()
     {
 
+        if (Time.timeScale != 0)
         UpdateScrollSlot(); // check scroll input
     }
 

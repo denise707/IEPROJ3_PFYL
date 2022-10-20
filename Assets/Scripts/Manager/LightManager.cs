@@ -7,9 +7,12 @@ public class LightManager : MonoBehaviour
 {
     [Header("Light")]
     [SerializeField] private Light directionalLight;
+    private Light pointLight;
+
     [SerializeField] private Color startColor;
     [SerializeField] private Color targetColor;
     [SerializeField] private Color[] lightColor;
+    [SerializeField] bool useSecondaryLight= true;
 
 
     [SerializeField]  public float elapsedTime=0.0f;
@@ -39,6 +42,13 @@ public class LightManager : MonoBehaviour
         // set the start and next color to transition to
         startColor = lightColor[0];
         targetColor = lightColor[1];
+        GameObject lightObj = GameObject.FindGameObjectWithTag("2D PointLight");
+        if (lightObj)
+        {
+            pointLight = lightObj.GetComponent<Light>();
+
+        }
+
     }
 
     // Update is called once per frame
@@ -55,6 +65,8 @@ public class LightManager : MonoBehaviour
 
         interpolation = elapsedTime / lerpDuration;
         directionalLight.color = Color.Lerp(lightColor[colorIndexA], lightColor[colorIndexB], interpolation);
+        if (useSecondaryLight)
+        pointLight.color = directionalLight.color;
 
     }
 

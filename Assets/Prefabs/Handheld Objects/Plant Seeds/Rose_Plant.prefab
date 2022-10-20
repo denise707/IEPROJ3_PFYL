@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3941261773103184086}
   - component: {fileID: 3659537154539731790}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 04ffec34e2afdd1489e4646e9ddfff46, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 7473423945241709297}
   - component: {fileID: 5343056474910978132}
   - component: {fileID: 3631951217881817755}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Rose_Plant
   m_TagString: Plant
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 5995361340570934288}
   - component: {fileID: 6272421402531418988}
   - component: {fileID: 2766672969457900840}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Origin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
