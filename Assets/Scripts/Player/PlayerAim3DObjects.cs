@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerWeaponAim : MonoBehaviour
+public class PlayerAim3DObjects : MonoBehaviour
 {
     [SerializeField] private GameObject Player;
     //[SerializeField] private Transform aimTransform;
@@ -19,8 +19,11 @@ public class PlayerWeaponAim : MonoBehaviour
     void FixedUpdate()
     {
         // get mouse pos
+        if (!GameManager.instance.isInventory && Time.timeScale != 0)
+        {
+             Aim();
 
-        Aim();
+        }
     }
 
     private void Aim()

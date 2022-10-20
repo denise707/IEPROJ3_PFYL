@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform toolSP;
     [SerializeField] private Transform twoDimObjSP;
 
-
     // temp can be accessed from inv?
     public bool hasWeapon = false;
 
@@ -30,6 +29,8 @@ public class PlayerController : MonoBehaviour
 
     private float rotationY;
     bool[] inputs;
+
+    bool hasStopped = false;
 
     [Header("Sound Files")]
     [SerializeField] private AudioClip receiveDamageSFX;
@@ -52,11 +53,18 @@ public class PlayerController : MonoBehaviour
                 rotationY = ThreeDimAimPivot.rotation.eulerAngles.y;
 
             }
+
             if (animator)
             {
+
                 UpdateAnimation2();
             }
         }
+        else if(isPlayingMoving())
+        {
+            StopMovement();
+        }
+       
     }
 
     private void FixedUpdate()
@@ -157,7 +165,8 @@ public class PlayerController : MonoBehaviour
         {
             inputs[1] = true;
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        
+        if (Input.GetKeyDown(KeyCode.A))
         {
             inputs[2] = true;
         }
@@ -175,7 +184,8 @@ public class PlayerController : MonoBehaviour
         {
             inputs[1] = false;
         }
-        else if (Input.GetKeyUp(KeyCode.A))
+        
+        if (Input.GetKeyUp(KeyCode.A))
         {
             inputs[2] = false;
         }
@@ -268,6 +278,15 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("faceFront", false); // S - front
         animator.SetBool("faceLeft", false); // A - left
         animator.SetBool("faceRight", false); // D - right
+    }
+    private void StopMovement()
+    {
+        for (int i = 0; i < inputs.Length; i++)
+        {
+            inputs[i] = false;
+        }
+        animator.SetBool("isMoving",false); // w - back
+
     }
 
     private bool isPlayingMoving()

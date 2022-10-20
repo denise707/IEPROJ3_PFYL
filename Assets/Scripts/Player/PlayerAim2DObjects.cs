@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TwoDimensionalObjectAim : MonoBehaviour
+public class PlayerAim2DObjects : MonoBehaviour
 {
     [SerializeField] private GameObject Player;
     [SerializeField] private Transform Object;
@@ -14,6 +14,15 @@ public class TwoDimensionalObjectAim : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
+    {
+        if (!GameManager.instance.isInventory && Time.timeScale != 0)
+        {
+            Aim();
+
+        }
+    }
+
+    private void Aim()
     {
         // Tool aim
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -41,7 +50,7 @@ public class TwoDimensionalObjectAim : MonoBehaviour
         }
         else if (Utils.InRange(rotationY, 226, 315) == true)
         {
-             // A - left
+            // A - left
             transform.rotation = Quaternion.Euler(new Vector3(0, 360, 0));
             Object.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
 
@@ -49,11 +58,10 @@ public class TwoDimensionalObjectAim : MonoBehaviour
         }
         else if (Utils.InRange(rotationY, 45, 134) == true)
         {
-             // D - right
+            // D - right
             transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
             Object.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
 
         }
-
     }
 }
