@@ -31,9 +31,10 @@ public class MainMenuUIManager : MonoBehaviour
         {
             Destroy(this);
         }
+        /*AudioManager.instance.PlayBGM();*/
     }
 
-    void onStart()
+    void Start()
     {
         AudioManager.instance.PlayBGM();
     }
