@@ -28,7 +28,7 @@ public class CameraMovement : MonoBehaviour
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit)&&(!GameManager.instance.isInventory && Time.timeScale != 0))
         {
             Vector3 targetPos = (hit.point + player.position)/ 2f;
 

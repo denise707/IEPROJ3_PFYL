@@ -40,6 +40,7 @@ public class InGameUIManager : MonoBehaviour
 
     [Header("Sound Files")]
     [SerializeField] private AudioClip buttonSFX;
+    [SerializeField] private AudioClip mainMenuBGM;
 
     private bool resetDay = false;
     private bool resetNight = false;
@@ -218,6 +219,7 @@ public class InGameUIManager : MonoBehaviour
     {
         Time.timeScale = 1;
         AudioManager.instance.StopBGM();
+        AudioManager.instance.ChangeBGMClip(mainMenuBGM);
         SceneManager.LoadScene("Main Menu");
     }
 

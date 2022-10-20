@@ -18,9 +18,11 @@ public class PlayerToolAim : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // get mouse pos
+        if (!GameManager.instance.isInventory && Time.timeScale != 0)
+        {
+            Aim();
 
-        Aim();
+        }
     }
 
     private void Aim()

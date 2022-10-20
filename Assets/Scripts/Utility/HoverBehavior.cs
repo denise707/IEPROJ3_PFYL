@@ -20,7 +20,7 @@ public class HoverBehavior : MonoBehaviour
     void OnMouseEnter()
     {
         //Debug.Log(gameObject.name);
-        if (inRange)
+        if (inRange )
         {
             Color currCol = renderer.material.color;
             renderer.material.color = new Color(currCol.r + intensity, currCol.g + intensity, currCol.b + intensity);
@@ -39,7 +39,6 @@ public class HoverBehavior : MonoBehaviour
             renderer.material.color = new Color(currCol.r - intensity, currCol.g - intensity, currCol.b - intensity);
             isHighlighted = false;
         }
-
     }
 
     private void OnCollisionEnter(Collision collision)

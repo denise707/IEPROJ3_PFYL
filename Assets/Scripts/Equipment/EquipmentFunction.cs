@@ -53,7 +53,7 @@ public class EquipmentFunction: MonoBehaviour
         //firePoint.localPosition = new Vector3(firePoint.localPosition.x, 0.0f, firePoint.localPosition.z);
 
         // execute tool function based on type and name
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && (!GameManager.instance.isInventory && Time.timeScale != 0))
         {
             RunEquipmentFunc();
         }
