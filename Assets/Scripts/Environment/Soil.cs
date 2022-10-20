@@ -81,7 +81,7 @@ public class Soil : MonoBehaviour
             soilStatus = SoilStatus.Planted;
             isOccupied = true;
             plant.SetActive(true); // show sprite
-
+            HotbarSelectorManager.instance.currInvSlot.RemoveFromStack(1);
 
         }
 
