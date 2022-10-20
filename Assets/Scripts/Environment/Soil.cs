@@ -21,6 +21,7 @@ public class Soil : MonoBehaviour
     [Header("Soil Materials")]
     [SerializeField] HoverBehavior hover;
     [SerializeField] Material defaultSoil_MT;
+    [SerializeField] Material rockySoil_MT;
     [SerializeField] Material tilledSoil_MT;
     [SerializeField] Material wateredSoil_MT;
 
@@ -72,7 +73,7 @@ public class Soil : MonoBehaviour
     {
         // plant seeds on empty and plowed soil and update status
 
-        if (isOccupied == false && (soilStatus == SoilStatus.Tilled || soilStatus == SoilStatus.Watered))
+        if ((isOccupied == false && soilStatus == SoilStatus.Tilled) || (isOccupied == false && soilStatus == SoilStatus.Watered))
         {
             plantBehavior.PlantSeed(plantObj); // update plant comp in plant sprite
 
@@ -133,7 +134,7 @@ public class Soil : MonoBehaviour
     private void ResetSoil()
     {
         this.soilStatus = SoilStatus.Default;
-        this.gameObject.GetComponent<MeshRenderer>().material = defaultSoil_MT;
+        this.gameObject.GetComponent<MeshRenderer>().material = rockySoil_MT;
         plantBehavior.HarvestPlant();
         plant.SetActive(false);
         isOccupied = false;

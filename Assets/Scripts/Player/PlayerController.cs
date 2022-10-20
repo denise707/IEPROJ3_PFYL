@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
     [Header("Sound Files")]
     [SerializeField] private AudioClip receiveDamageSFX;
     [SerializeField] private AudioSource walkSFX;
+    [SerializeField] private AudioClip handSFX;
+    private Soil soil;
+    private HoverBehavior hover;
 
     // Start is called before the first frame update
     void Start()
@@ -51,13 +54,12 @@ public class PlayerController : MonoBehaviour
             if (ThreeDimAimPivot)
             {
                 rotationY = ThreeDimAimPivot.rotation.eulerAngles.y;
-
             }
 
             if (animator)
             {
-
-                UpdateAnimation2();
+                UpdatePlayerInput();
+                UpdateAnimation();
             }
         }
         else if(isPlayingMoving())
@@ -154,8 +156,49 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void UpdateAnimation2()
+    private void UpdateAnimation()
     {
+        animator.SetBool("isMoving", isPlayingMoving()); // w - back
+
+
+        // direction facing
+        if ((Utils.InRange(rotationY, 0, 44) || Utils.InRange(rotationY, 316, 360)))
+        {
+            ResetInputState();
+            animator.SetBool("faceBack", true); // w - back
+            //twoDimObjAim.transform.rotation = Quaternion.EulerAngles(0, 0, 0);
+        }
+        else if (Utils.InRange(rotationY, 135, 225) == true)
+        {
+            ResetInputState();
+            animator.SetBool("faceFront", true); // S - front
+            //twoDimObjAim.transform.rotation = Quaternion.EulerAngles(0, 180, 0);
+
+        }
+        else if (Utils.InRange(rotationY, 226, 315) == true)
+        {
+            ResetInputState();
+            animator.SetBool("faceLeft", true); // A - left
+            //twoDimObjAim.transform.rotation = Quaternion.EulerAngles(0, -90, 0);
+
+        }
+        else if (Utils.InRange(rotationY, 45, 134) == true)
+        {
+            ResetInputState();
+            animator.SetBool("faceRight", true); // D - right
+            //twoDimObjAim.transform.rotation = Quaternion.EulerAngles(0, 90, 0);
+
+        }
+        // PlayerLookAt();
+
+    }
+
+    private void UpdatePlayerInput()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            CheckHarvest();
+        }
         // key for not not moving
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -165,7 +208,7 @@ public class PlayerController : MonoBehaviour
         {
             inputs[1] = true;
         }
-        
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             inputs[2] = true;
@@ -184,7 +227,7 @@ public class PlayerController : MonoBehaviour
         {
             inputs[1] = false;
         }
-        
+
         if (Input.GetKeyUp(KeyCode.A))
         {
             inputs[2] = false;
@@ -203,43 +246,8 @@ public class PlayerController : MonoBehaviour
         {
             walkSFX.Play();
         }
-
-        animator.SetBool("isMoving", isPlayingMoving()); // w - back
-
-
-        // direction facing
-        if ((Utils.InRange(rotationY, 0, 44) || Utils.InRange(rotationY, 316, 360)) )
-        {
-            ResetInputState();
-            animator.SetBool("faceBack", true); // w - back
-            //twoDimObjAim.transform.rotation = Quaternion.EulerAngles(0, 0, 0);
-        }
-        else if (Utils.InRange(rotationY, 135, 225) == true )
-        {
-            ResetInputState();
-            animator.SetBool("faceFront", true); // S - front
-            //twoDimObjAim.transform.rotation = Quaternion.EulerAngles(0, 180, 0);
-
-        }
-        else if (Utils.InRange(rotationY, 226, 315) ==  true )
-        {
-            ResetInputState();
-            animator.SetBool("faceLeft", true); // A - left
-            //twoDimObjAim.transform.rotation = Quaternion.EulerAngles(0, -90, 0);
-
-        }
-        else if (Utils.InRange(rotationY, 45, 134) == true )
-        {
-            ResetInputState();
-            animator.SetBool("faceRight", true); // D - right
-            //twoDimObjAim.transform.rotation = Quaternion.EulerAngles(0, 90, 0);
-
-        }
-
-
-        // PlayerLookAt();
-
     }
+
 
     private void OnTriggerEnter(Collider other)
     {/*
@@ -302,6 +310,42 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
+    void CheckHarvest()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Ground")))
+        {
+            Debug.Log("Hit: " + hit.transform.name);
+            //Select stage    
+            if (hit.transform.CompareTag("Soil"))
+            {
+                soil = hit.transform.GetComponent<Soil>();
+                hover = hit.transform.GetComponent<HoverBehavior>();
+
+                if (soil && hover.inRange)
+                {
+                    if (soil.soilStatus == Soil.SoilStatus.ForHarvesting)
+                    {
+                        soil.HarvestPlant();
+                    }
+                    AudioManager.instance.PlaySFX(handSFX);
+
+                }
+                else
+                {
+                    Debug.Log("Missing Soil Component");
+                }
+            }
+
+
+        }
+        else
+        {
+            Debug.Log("did not hit anything");
+        }
+
+    }
 
     public void TakeDamage(float damage)
     {

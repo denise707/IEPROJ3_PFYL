@@ -170,7 +170,7 @@ public class EquipmentFunction: MonoBehaviour
             {
                 soil.HarvestPlant();
             }
-            else if (soil.soilStatus == Soil.SoilStatus.Tilled)
+            else 
             {
                 soil.PlantSeed(this.obj);
 
@@ -205,7 +205,6 @@ public class EquipmentFunction: MonoBehaviour
             {
                 soil = hit.transform.GetComponent<Soil>();
                 hover = hit.transform.GetComponent<HoverBehavior>();
-
             }
             
            
