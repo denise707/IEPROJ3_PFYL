@@ -12,7 +12,7 @@ public class TimeManager : MonoBehaviour
     public int day = 1;
     private bool isLastDay = false;
 
-    public float dayHour = 2.0f; // set to 5 for debugging
+    private float dayHour = 0.0f; // set to 5 for debugging
     [SerializeField] float dayMinute = 0.0f; // changed
 
     public float nightHour = 0; // set to 5 for debugging
