@@ -86,7 +86,7 @@ Light:
   m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 5
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -107,7 +107,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directionalLight: {fileID: 1713743509753112791}
-  directionalLight2: {fileID: 0}
   startColor: {r: 0.4990974, g: 0.18727303, b: 0.5943396, a: 0}
   targetColor: {r: 0.9716981, g: 0.9059406, b: 0.32451043, a: 0}
   lightColor:
@@ -115,7 +114,7 @@ MonoBehaviour:
   - {r: 0.9716981, g: 0.9059406, b: 0.32451043, a: 0}
   - {r: 0.4528302, g: 0.08911423, b: 0.05724456, a: 0}
   - {r: 0.08956281, g: 0.074012086, b: 0.3254902, a: 0}
-  useSecondaryLight: 0
+  useSecondaryLight: 1
   elapsedTime: 0
   lerpDuration: 51
   interpolation: 0

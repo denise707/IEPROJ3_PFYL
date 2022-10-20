@@ -293,7 +293,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.4990974, g: 0.18727303, b: 0.5943396, a: 0}
-  m_Intensity: 0.2
+  m_Intensity: 4
   m_Range: 5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -574,6 +574,7 @@ MonoBehaviour:
   hasPlant: 0
   receiveDamageSFX: {fileID: 8300000, guid: 1dfb94f464682c54699c82f1ecac4ad8, type: 3}
   walkSFX: {fileID: 8607079055021055004}
+  handSFX: {fileID: 0}
 --- !u!54 &5079493008729250814
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -616,7 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c052617aa1596324ca933f7d08f86be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventorySize: 10
+  inventorySize: 8
   primaryInventorySystem:
     inventorySlots: []
   itemsToAdd:
@@ -627,6 +628,7 @@ MonoBehaviour:
   secondaryInventorySize: 30
   secondaryInventorySystem:
     inventorySlots: []
+  player: {fileID: 0}
 --- !u!114 &1989012374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,7 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a55e6f101a2194ea7ec34abae006de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionPoint: {fileID: 0}
+  InteractionPoint: {fileID: 5079493009540312855}
   InteractionLayer:
     serializedVersion: 2
     m_Bits: 2048
