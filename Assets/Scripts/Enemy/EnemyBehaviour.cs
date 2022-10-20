@@ -17,7 +17,7 @@ public class EnemyBehaviour : MonoBehaviour
     private string target = "Player";
     [SerializeField] private GameObject dropCopy;
 
-    public enum State { Chase, Damaged, ReachedPlayer, AttackPlayer };
+    public enum State { Chase, Damaged, ReachedTarget, AttackTarget };
     public State currState = State.Chase;
 
     [Header("VFX")]
@@ -193,6 +193,11 @@ public class EnemyBehaviour : MonoBehaviour
     public void AttackVFX()
     {
         PlayVFX(attackVFX, player.transform.position, Quaternion.LookRotation(player.transform.position - transform.position), 2.0f);
+    }
+
+    public string GetTarget()
+    {
+        return target;
     }
 }
 

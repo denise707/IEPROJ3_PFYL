@@ -9,6 +9,7 @@ public class SlimeTrap : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             Debug.Log("Player slow");
+            // +Add slow player
             Destroy(this.gameObject);
         }
     }
