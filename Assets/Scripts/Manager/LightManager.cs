@@ -54,19 +54,23 @@ public class LightManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+      if(directionalLight)
+      {
         if (elapsedTime > lerpDuration)
         {
-            Debug.Log("skip: " + interpolation);
+            //Debug.Log("skip: " + interpolation);
             NextLightSequence();
             elapsedTime = 0;
             interpolation = 0;
         }
 
         interpolation = elapsedTime / lerpDuration;
+
         directionalLight.color = Color.Lerp(lightColor[colorIndexA], lightColor[colorIndexB], interpolation);
         if (useSecondaryLight)
-        pointLight.color = directionalLight.color;
+            pointLight.color = directionalLight.color;
+      }
+       
 
     }
 

@@ -15,14 +15,14 @@ public class TimeManager : MonoBehaviour
     private float dayHour = 0.0f; // set to 5 for debugging
     [SerializeField] float dayMinute = 0.0f; // changed
 
-    public float nightHour = 0; // set to 5 for debugging
+    public float nightHour = 0.0f; // set to 5 for debugging
     [SerializeField] float nightMinute = 0.0f;
 
     private const int maxDay = 6; // one full week cycle
     public float maxHours = 2.0f; // hours it takes to be considered as a Day (2 hours = 1 minute irl)
     public float maxMins = 60.0f; // mins it takes to be considered as an hour
 
-    private float TIME_MULTIPLIER = 2.0f; // --- 60.0f for debugging --- 2.0f normal ---
+    private float TIME_MULTIPLIER = 10.0f; // --- 60.0f for debugging --- 2.0f normal ---
 
     [Header("Light")]
     [SerializeField] private Light directionalLight;
@@ -38,6 +38,8 @@ public class TimeManager : MonoBehaviour
     [Header("Shop")]
     [SerializeField] private GameObject shopEnv;
     [SerializeField] private GameObject store;
+
+
 
     private void Awake()
     {
@@ -89,7 +91,10 @@ public class TimeManager : MonoBehaviour
     {
         InGameUIManager.instance.UpdateDayLabel("Day " + day);
 
-        if (day >= 5) { InGameUIManager.instance.UpdateDayLabel("Day " + 5); }
+        if (day >= 5) 
+        { 
+            InGameUIManager.instance.UpdateDayLabel("Day " + 5);
+        }
 
         if(day == 3)
         {
@@ -117,6 +122,7 @@ public class TimeManager : MonoBehaviour
             AudioManager.instance.ChangeBGMClip(dayBGM);
             AudioManager.instance.PlaySFX(dayTransition);
             StartCoroutine("StartBGM");
+            GameManager.instance.currentDay = day;
         }
     }
 

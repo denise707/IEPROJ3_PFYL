@@ -33,6 +33,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip winSFX;
     [SerializeField] private AudioClip loseSFX;
 
+    [Header(" Nuke Plant")]
+    public NukePlantBehavior nukeplant;
+
+    [Header(" Time")]
+    public int currentDay = 1;
+
+    [SerializeField] private bool hasGrown = false;
+
+
+
 
     private void Awake()
     {
@@ -45,7 +55,6 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
     }
-
 
     void Update()
     {
@@ -62,6 +71,16 @@ public class GameManager : MonoBehaviour
                 AudioManager.instance.StopBGM();
                 gameState = GameState.Default;
                 break;
+        }
+
+        if ((currentDay == 3 || currentDay == 5) && !hasGrown)
+        {
+            nukeplant.NextPlantPhase();
+            hasGrown = true;
+        }
+        else if ((currentDay != 3 && currentDay != 5) && hasGrown)
+        {
+            hasGrown = false;
         }
     }
 }
