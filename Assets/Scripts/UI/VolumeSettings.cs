@@ -16,7 +16,7 @@ public class VolumeSettings : MonoBehaviour
     void Start()
     {
         scene = SceneManager.GetActiveScene();
-        if(scene.name == "Level 1 - Test")
+        if(scene.name == "Level 1 - Test" || scene.name == "Level")
         {
             text.text = (Mathf.Round(slider.value * 100.0f)).ToString();
         }
