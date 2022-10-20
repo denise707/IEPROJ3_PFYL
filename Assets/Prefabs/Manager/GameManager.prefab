@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4518738597449896969}
-  - component: {fileID: 4518738597449896974}
   - component: {fileID: 1103066198}
+  - component: {fileID: 4587229816085280587}
+  - component: {fileID: 4518738597449896974}
   - component: {fileID: 1103066199}
   - component: {fileID: 1103066203}
   m_Layer: 0
@@ -34,32 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4518738597449896974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4518738597449896975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d55f6a952f81bd64289c08601374fbdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  day: 1
-  dayHour: 2
-  dayMinute: 0
-  nightHour: 0
-  nightMinute: 0
-  maxHours: 2
-  maxMins: 60
-  directionalLight: {fileID: 0}
-  morningColor: {r: 0, g: 0, b: 0, a: 0}
-  nightColor: {r: 0, g: 0, b: 0, a: 0}
-  dayBGM: {fileID: 8300000, guid: 9bc02ecd345a71e40a650a9f628809cc, type: 3}
-  nightBGM: {fileID: 8300000, guid: df0630d703d535b4bb15c9d83f6fdf53, type: 3}
-  dayTransition: {fileID: 8300000, guid: 6b0a964e7d94cdb42877d0092f9f4d62, type: 3}
-  nightTransition: {fileID: 8300000, guid: bed5fc4013ac3f44db6de91be604c0a2, type: 3}
 --- !u!114 &1103066198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,6 +51,60 @@ MonoBehaviour:
   gameState: 0
   winSFX: {fileID: 8300000, guid: 8b8d6207a5469bb49aafffc690623e4c, type: 3}
   loseSFX: {fileID: 8300000, guid: cd3b20eb1a1b4f34f9720cddc0bbca90, type: 3}
+  nukeplant: {fileID: 0}
+--- !u!114 &4587229816085280587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518738597449896975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 152f743d2510eab4ca17270c46d4691a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directionalLight: {fileID: 0}
+  startColor: {r: 0.4990974, g: 0.18727303, b: 0.5943396, a: 0}
+  targetColor: {r: 0.9716981, g: 0.9059406, b: 0.32451043, a: 0}
+  lightColor:
+  - {r: 0.4990974, g: 0.18727303, b: 0.5943396, a: 0}
+  - {r: 0.9716981, g: 0.9059406, b: 0.32451043, a: 0}
+  - {r: 0.4528302, g: 0.08911423, b: 0.05724456, a: 0}
+  - {r: 0.08956281, g: 0.074012086, b: 0.3254902, a: 0}
+  useSecondaryLight: 1
+  elapsedTime: 0
+  lerpDuration: 51
+  interpolation: 0
+  colorIndexA: 0
+  colorIndexB: 1
+--- !u!114 &4518738597449896974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518738597449896975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55f6a952f81bd64289c08601374fbdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  day: 1
+  dayMinute: 0
+  nightHour: 0
+  nightMinute: 0
+  maxHours: 2
+  maxMins: 60
+  directionalLight: {fileID: 0}
+  morningColor: {r: 0, g: 0, b: 0, a: 0}
+  nightColor: {r: 0, g: 0, b: 0, a: 0}
+  dayBGM: {fileID: 8300000, guid: 9bc02ecd345a71e40a650a9f628809cc, type: 3}
+  nightBGM: {fileID: 8300000, guid: df0630d703d535b4bb15c9d83f6fdf53, type: 3}
+  dayTransition: {fileID: 8300000, guid: 6b0a964e7d94cdb42877d0092f9f4d62, type: 3}
+  nightTransition: {fileID: 8300000, guid: bed5fc4013ac3f44db6de91be604c0a2, type: 3}
+  shopEnv: {fileID: 0}
+  store: {fileID: 0}
 --- !u!114 &1103066199
 MonoBehaviour:
   m_ObjectHideFlags: 0
