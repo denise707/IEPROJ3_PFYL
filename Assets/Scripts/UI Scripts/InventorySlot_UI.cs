@@ -75,6 +75,7 @@ public class InventorySlot_UI : MonoBehaviour
         {
             itemCount.text = assignedInventorySlot.StackSize.ToString();
         }
+        UpdateUISlot();
     }
 
     // Class that should be called when you click a UI_Slot

@@ -170,13 +170,13 @@ public class EquipmentFunction: MonoBehaviour
             {
                 soil.HarvestPlant();
             }
-            else 
+            else
             {
                 soil.PlantSeed(this.obj);
 
                 // Remove stack from inventory
                 //HotbarSelectorManager.instance.currInvSlot.ClearSlot();
-                HotbarSelectorManager.instance.currInvSlot.RemoveFromStack(1);
+                
             }
             AudioManager.instance.PlaySFX(usetoolSFX);
 
