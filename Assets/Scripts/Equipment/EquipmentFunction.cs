@@ -170,7 +170,7 @@ public class EquipmentFunction: MonoBehaviour
             {
                 soil.HarvestPlant();
             }
-            else
+            else if (soil.soilStatus == Soil.SoilStatus.Tilled)
             {
                 soil.PlantSeed(this.obj);
 
