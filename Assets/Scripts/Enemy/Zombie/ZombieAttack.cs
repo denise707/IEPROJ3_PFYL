@@ -5,6 +5,7 @@ using UnityEngine;
 public class ZombieAttack : MonoBehaviour
 {
     private PlayerController playerController;
+    private NukePlantBehavior nukeController;
     private EnemyBehaviour enemyBehaviour;
 
     private float ticks = 0f;
@@ -18,6 +19,7 @@ public class ZombieAttack : MonoBehaviour
     {
         enemyBehaviour = this.GetComponent<EnemyBehaviour>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        nukeController = GameObject.FindGameObjectWithTag("Nuke Plant").GetComponentInChildren<NukePlantBehavior>();
     }
 
     void OnEnable()
@@ -56,7 +58,7 @@ public class ZombieAttack : MonoBehaviour
             // Nuke Plant receives damage
             if (enemyBehaviour.GetTarget() == "Nuke Plant")
             {
-                //Add code
+                nukeController.ReceiveDamage(enemyBehaviour.atkDamage);
             }
 
             AudioManager.instance.PlaySFX(attackSFX);
