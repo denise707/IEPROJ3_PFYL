@@ -61,6 +61,7 @@ public class TimeManager : MonoBehaviour
         AudioManager.instance.ChangeBGMClip(dayBGM);
         AudioManager.instance.PlayBGM();
         shopEnv.SetActive(true);
+        store.SetActive(false);
     }
 
     void Update()

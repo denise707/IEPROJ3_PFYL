@@ -6,6 +6,7 @@ public class InventoryUIController : MonoBehaviour
 {
     public DynamicInventoryDisplay chestPanel;
     public DynamicInventoryDisplay playerBackpackPanel;
+    [SerializeField] private PlayerController player;
 
     private void Awake()
     {
@@ -32,12 +33,14 @@ public class InventoryUIController : MonoBehaviour
         {
             chestPanel.gameObject.SetActive(false);
             HotbarSelectorManager.instance.ActiveInventoryChecker();
+            GameManager.instance.isInventory = false;
         }
 
         if (playerBackpackPanel.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
         {
             playerBackpackPanel.gameObject.SetActive(false);
             HotbarSelectorManager.instance.ActiveInventoryChecker();
+            GameManager.instance.isInventory = false;
         }
     }
 
