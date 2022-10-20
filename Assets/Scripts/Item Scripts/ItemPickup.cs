@@ -20,7 +20,7 @@ public class ItemPickup : MonoBehaviour
        myColliders[0].isTrigger = true;
        myColliders[0].radius = PickupRadius;
 
-       myColliders[1].radius = PickupRadius-0.01f;
+       myColliders[1].radius = PickupRadius-0.05f;
 
     }
 
