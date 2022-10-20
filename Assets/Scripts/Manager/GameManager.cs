@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
 
     public static GameManager instance;
+    public bool isInventory = false;
     GameObject player;
 
     [Header("Sound Files")]

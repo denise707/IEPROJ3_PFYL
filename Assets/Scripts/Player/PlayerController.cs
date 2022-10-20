@@ -45,20 +45,24 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Debug.Log(aim.rotation.eulerAngles);
-        if (ThreeDimAimPivot)
+        if (GameManager.instance.isInventory == false)
         {
-            rotationY = ThreeDimAimPivot.rotation.eulerAngles.y;
+            if (ThreeDimAimPivot)
+            {
+                rotationY = ThreeDimAimPivot.rotation.eulerAngles.y;
 
-        }
-        if (animator)
-        {
-            UpdateAnimation2();
+            }
+            if (animator)
+            {
+                UpdateAnimation2();
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        UpdatePlayerMovement();
+        if(GameManager.instance.isInventory == false)
+            UpdatePlayerMovement();
     }
 
     public void UpdatePlayerEquip(InventoryItemData itemData)

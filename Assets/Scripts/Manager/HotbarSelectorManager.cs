@@ -59,9 +59,10 @@ public class HotbarSelectorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         if (Time.timeScale != 0)
-        UpdateScrollSlot(); // check scroll input
+            if(GameManager.instance.isInventory == false)
+                UpdateScrollSlot(); // check scroll input
     }
 
     public void ActiveInventoryChecker()

@@ -8,6 +8,7 @@ public class PlayerInventoryHolder : InventoryHolder
     [SerializeField] private InventoryItemData[] itemsToAdd;
     [SerializeField] protected int secondaryInventorySize;
     [SerializeField] protected InventorySystem secondaryInventorySystem;
+    [SerializeField] private PlayerController player;
 
     public InventorySystem SecondaryInventorySystem => secondaryInventorySystem;
 
@@ -29,7 +30,7 @@ public class PlayerInventoryHolder : InventoryHolder
     private void Start()
     {
         HotbarSelectorManager.instance.UpdatePlayerEquip(itemsToAdd[0]);
-
+        player = gameObject.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -41,6 +42,7 @@ public class PlayerInventoryHolder : InventoryHolder
             OnPlayerBackpackDisplayRequested?.Invoke(secondaryInventorySystem);
             HotbarSelectorManager.instance.ActiveInventoryChecker();
 
+            GameManager.instance.isInventory = true;
         }
     }
 
