@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1870073058}
   - component: {fileID: 1870073059}
   m_Layer: 12
-  m_Name: Cube
+  m_Name: Player Tool Range
   m_TagString: PlayerRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

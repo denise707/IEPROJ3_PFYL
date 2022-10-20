@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soil (Default)
       objectReference: {fileID: 0}
+    - target: {fileID: 2153115758539442370, guid: 9ee20b7a3f938d241a58a497e41f3e9c, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 2153115758539442381, guid: 9ee20b7a3f938d241a58a497e41f3e9c, type: 3}
       propertyPath: m_RootOrder
       value: 0
