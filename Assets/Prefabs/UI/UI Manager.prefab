@@ -45,8 +45,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clock: {fileID: 0}
   dayLabel: {fileID: 0}
+  hpBar: {fileID: 0}
+  goldLabel: {fileID: 0}
+  bulletSlider: {fileID: 0}
+  bulletLabel: {fileID: 0}
   blocker1: {fileID: 0}
   blocker2: {fileID: 0}
   pauseMenu: {fileID: 0}
   optionsMenu: {fileID: 0}
   mainMenuConfirmation: {fileID: 0}
+  gameOverScreen: {fileID: 0}
+  gameWinScreen: {fileID: 0}
+  restartDayConfirmation: {fileID: 0}
+  buttonSFX: {fileID: 0}
+  mainMenuBGM: {fileID: 8300000, guid: f7423b3345c2a044b90781e83e7cdb49, type: 3}

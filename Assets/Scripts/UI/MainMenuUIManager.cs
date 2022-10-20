@@ -21,6 +21,9 @@ public class MainMenuUIManager : MonoBehaviour
     [Header("Sound Files")] [SerializeField]
     private AudioClip buttonSFX;
 
+    [Header("Loading Screen")]
+    [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private Slider loading;
     private void Awake()
     {
         if (instance == null)
@@ -31,12 +34,12 @@ public class MainMenuUIManager : MonoBehaviour
         {
             Destroy(this);
         }
-        /*AudioManager.instance.PlayBGM();*/
     }
 
     void Start()
     {
         AudioManager.instance.PlayBGM();
+        loadingScreen.SetActive(false);
     }
 
     public void PlayGameConfimation()
@@ -58,9 +61,10 @@ public class MainMenuUIManager : MonoBehaviour
         HandlePopUp(exitGameConfirmation, blocker1);
     }
 
-    public void OpenMainLevel()
+    public void OpenMainLevel(int levelIndex)
     {
-        SceneManager.LoadScene("Main Level");
+        loadingScreen.SetActive(true);
+        StartCoroutine(LoadSceneAsync(levelIndex));
         AudioManager.instance.StopBGM();
     }
 
@@ -113,5 +117,16 @@ public class MainMenuUIManager : MonoBehaviour
     public void BlockerfadeOut(GameObject obj)
     {
         obj.GetComponent<FadeVFX>().panelState = FadeVFX.PanelState.FadeOut;
+    }
+
+    IEnumerator LoadSceneAsync(int index)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(index);
+        while (!operation.isDone)
+        {
+            loading.value = operation.progress;
+            Debug.Log(operation.progress);
+            yield return null;
+        }
     }
 }
