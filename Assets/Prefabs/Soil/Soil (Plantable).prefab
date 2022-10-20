@@ -5087,7 +5087,7 @@ MonoBehaviour:
   isOccupied: 0
   hover: {fileID: 2153115758539442371}
   defaultSoil_MT: {fileID: 0}
-  rockySoil_MT: {fileID: 2100000, guid: 5cf2a84051be0e445a0ae09794087692, type: 2}
+  rockySoil_MT: {fileID: 2100000, guid: 4641295981c379a4ca5ff9694bdf14ba, type: 2}
   tilledSoil_MT: {fileID: 2100000, guid: 0c81cd6a81bd52541ae07521bc35d72f, type: 2}
   wateredSoil_MT: {fileID: 2100000, guid: 5db97e36aaa5ca640855ab7a4d919a02, type: 2}
   plant: {fileID: 2153115758128657613}

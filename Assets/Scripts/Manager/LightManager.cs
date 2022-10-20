@@ -12,7 +12,7 @@ public class LightManager : MonoBehaviour
     [SerializeField] private Color startColor;
     [SerializeField] private Color targetColor;
     [SerializeField] private Color[] lightColor;
-    [SerializeField] bool useSecondaryLight= true;
+    public bool useSecondaryLight= true;
 
 
     [SerializeField]  public float elapsedTime=0.0f;
@@ -45,6 +45,7 @@ public class LightManager : MonoBehaviour
         GameObject lightObj = GameObject.FindGameObjectWithTag("2D PointLight");
         if (lightObj)
         {
+            useSecondaryLight = true;
             pointLight = lightObj.GetComponent<Light>();
 
         }
