@@ -20,7 +20,6 @@ public class NukePlantBehavior : MonoBehaviour
     public bool simulateGrowth = false;
     [SerializeField] bool isGrowing = false;
 
-
     public float ticks = 0f;
 
     [Header("Plant Growth Sprite")]
@@ -31,6 +30,10 @@ public class NukePlantBehavior : MonoBehaviour
 
     Animator animator;
     Soil soil;
+
+    [Header("Plant Stats")]
+    private float currHealth = 0f;
+    private float maxHealth = 500f;
 
 
     // Start is called before the first frame update
@@ -49,6 +52,8 @@ public class NukePlantBehavior : MonoBehaviour
             Debug.Log("Cannot Find animator");
         }
 
+        currHealth = maxHealth;
+        GetComponentInChildren<NukeHPBar>().UpdateHPBar(currHealth, maxHealth);
     }
 
     // Update is called once per frame
@@ -151,5 +156,21 @@ public class NukePlantBehavior : MonoBehaviour
     public void InitizalizeDrops()
     {
        
+    }
+
+    public void ReceiveDamage(float damage)
+    {
+        // Subtract HP
+        this.currHealth -= damage;
+        Debug.Log("Nuke plant receive damage: " + currHealth + "   " + maxHealth);
+
+        if (this.currHealth <= 0)
+        {
+            currHealth = 0;
+            GameManager.instance.gameState = GameManager.GameState.Lose;
+        }
+
+        // Update HP Bar
+        GetComponentInChildren<NukeHPBar>().UpdateHPBar(currHealth, maxHealth);
     }
 }
