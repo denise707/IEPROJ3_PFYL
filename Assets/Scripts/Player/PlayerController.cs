@@ -11,27 +11,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator animator;
 
     [Header("Pivots")]
-    [SerializeField] private Transform weaponAim;
-    [SerializeField] private Transform toolAim;
+    [SerializeField] private Transform ThreeDimAimPivot;
+
 
     [Header("Spawn Points")]
     [SerializeField] private Transform weaponSP;
     [SerializeField] private Transform toolSP;
+    [SerializeField] private Transform twoDimObjSP;
+
 
     // temp can be accessed from inv?
-    [Header("Weapon Temp")]
-    [SerializeField] private InventoryItemData weapon;
     public bool hasWeapon = false;
 
     // temp can be accessed from inv?
-    [Header("Tool Temp")]
-    [SerializeField] private InventoryItemData hoeTool;
     public bool hasTool = false;
 
-    [SerializeField] private InventoryItemData wateringCanTool;
-
-    [Header("Item Temp")]
-    [SerializeField] private InventoryItemData plant;
     public bool hasPlant = false;
 
     private float rotationY;
@@ -51,9 +45,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Debug.Log(aim.rotation.eulerAngles);
-        if (weaponAim)
+        if (ThreeDimAimPivot)
         {
-            rotationY = weaponAim.rotation.eulerAngles.y;
+            rotationY = ThreeDimAimPivot.rotation.eulerAngles.y;
 
         }
         if (animator)
@@ -85,6 +79,14 @@ public class PlayerController : MonoBehaviour
             hasTool = false;
         }
 
+        if (hasPlant && twoDimObjSP.childCount > 0)
+        {
+            Transform obj = twoDimObjSP.GetChild(0);
+            Destroy(obj.gameObject);
+            //Debug.Log("destroyed Weapon");
+            hasPlant = false;
+        }
+
         if (itemData == null)
         {
             return;
@@ -95,7 +97,7 @@ public class PlayerController : MonoBehaviour
         {
             // get scriptable from inventory and acces the prefab
             GameObject obj = (GameObject)Instantiate(itemData.prefab ,weaponSP);
-            obj.name = weapon.name;
+            obj.name = itemData.name;
 
             //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
             //Debug.Log($"Spawn {obj.name}");
@@ -103,14 +105,25 @@ public class PlayerController : MonoBehaviour
         }
 
         //ADD
-        if (itemData.itemType == InventoryItemData.ItemType.Tool || itemData.itemType == InventoryItemData.ItemType.Plant)
+        if (itemData.itemType == InventoryItemData.ItemType.Tool)
         {
             // get scriptable from inventory and acces the prefab
             GameObject obj = (GameObject)Instantiate(itemData.prefab, toolSP);
-            obj.name = hoeTool.name;
+            obj.name = itemData.name;
             //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
            // Debug.Log($"Spawn {obj.name}");
             hasTool = true;
+        }
+
+        //ADD
+        if ( itemData.itemType == InventoryItemData.ItemType.Plant)
+        {
+            // get scriptable from inventory and acces the prefab
+            GameObject obj = (GameObject)Instantiate(itemData.prefab, twoDimObjSP);
+            obj.name = itemData.name;
+            //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));
+            // Debug.Log($"Spawn {obj.name}");
+            hasPlant = true;
         }
 
     }
@@ -185,26 +198,33 @@ public class PlayerController : MonoBehaviour
         {
             ResetInputState();
             animator.SetBool("faceBack", true); // w - back
+            //twoDimObjAim.transform.rotation = Quaternion.EulerAngles(0, 0, 0);
         }
         else if (Utils.InRange(rotationY, 135, 225) == true )
         {
             ResetInputState();
             animator.SetBool("faceFront", true); // S - front
+            //twoDimObjAim.transform.rotation = Quaternion.EulerAngles(0, 180, 0);
+
         }
         else if (Utils.InRange(rotationY, 226, 315) ==  true )
         {
             ResetInputState();
             animator.SetBool("faceLeft", true); // A - left
+            //twoDimObjAim.transform.rotation = Quaternion.EulerAngles(0, -90, 0);
+
         }
         else if (Utils.InRange(rotationY, 45, 134) == true )
         {
             ResetInputState();
             animator.SetBool("faceRight", true); // D - right
+            //twoDimObjAim.transform.rotation = Quaternion.EulerAngles(0, 90, 0);
+
         }
 
-     
-           // PlayerLookAt();
-       
+
+        // PlayerLookAt();
+
     }
 
     private void OnTriggerEnter(Collider other)
