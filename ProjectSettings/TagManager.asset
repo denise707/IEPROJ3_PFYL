@@ -31,11 +31,11 @@ TagManager:
   - Projectiles
   - Enemy
   - Player
-  - Drops
+  - Pickup
   - Interactables
   - PlayerRange
   - 2D Objects
-  - 
+  - Drops
   - 
   - 
   - 
