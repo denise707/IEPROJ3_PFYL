@@ -21,14 +21,21 @@ public class VolumeSettings : MonoBehaviour
             text.text = (Mathf.Round(slider.value * 100.0f)).ToString();
         }
 
-        slider.value = 1;
-        Unmute();
+        slider.value = AudioManager.instance.GetVolume();
+        if (AudioManager.instance.GetMute())
+        {
+            Mute();
+        }
+        else
+        {
+            Unmute();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = (Mathf.Round(slider.value * 100.0f)).ToString();
+        text.text = (Mathf.Round(AudioManager.instance.GetVolume() * 100.0f)).ToString();
         AudioManager.instance.ChangeVolume(slider.value);
     }
 
@@ -37,6 +44,7 @@ public class VolumeSettings : MonoBehaviour
         AudioManager.instance.Mute();
         mute.gameObject.GetComponent<Button>().interactable = false;
         unmute.gameObject.GetComponent<Button>().interactable = true;
+        AudioManager.instance.SetMute(true);
     }
 
     public void Unmute()
@@ -44,5 +52,6 @@ public class VolumeSettings : MonoBehaviour
         AudioManager.instance.Unmute();
         mute.gameObject.GetComponent<Button>().interactable = true;
         unmute.gameObject.GetComponent<Button>().interactable = false;
+        AudioManager.instance.SetMute(false);
     }
 }
