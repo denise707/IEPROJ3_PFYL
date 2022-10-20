@@ -19,6 +19,7 @@ TagManager:
   - InventoryController
   - Clock
   - Nuke Plant
+  - 2D PointLight
   layers:
   - Default
   - TransparentFX
@@ -33,7 +34,7 @@ TagManager:
   - Drops
   - Interactables
   - PlayerRange
-  - 
+  - 2D Objects
   - 
   - 
   - 

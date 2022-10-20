@@ -12,7 +12,7 @@ public class LightManager : MonoBehaviour
     [SerializeField] private Color startColor;
     [SerializeField] private Color targetColor;
     [SerializeField] private Color[] lightColor;
-    [SerializeField] bool useSecondaryLight= false;
+    [SerializeField] bool useSecondaryLight= true;
 
 
     [SerializeField]  public float elapsedTime=0.0f;
