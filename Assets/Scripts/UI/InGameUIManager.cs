@@ -176,6 +176,10 @@ public class InGameUIManager : MonoBehaviour
 
     public void MainMenuConfirmation()
     {
+        if (restartDayConfirmation.activeSelf)
+        {
+            restartDayConfirmation.SetActive(false);
+        }
         HandlePopUp(mainMenuConfirmation, blocker2);
     }
 
