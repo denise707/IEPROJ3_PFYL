@@ -42,6 +42,10 @@ public class InGameUIManager : MonoBehaviour
     [SerializeField] private AudioClip buttonSFX;
     [SerializeField] private AudioClip mainMenuBGM;
 
+    [Header("Loading Screen")]
+    [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private Slider loading;
+
     private bool resetDay = false;
     private bool resetNight = false;
 
@@ -209,12 +213,33 @@ public class InGameUIManager : MonoBehaviour
             BlockerfadeOut(blocker1);
             BlockerfadeOut(blocker2);
         }
-
-        SceneManager.LoadScene("Main Level");
+        loadingScreen.SetActive(true);
+        StartCoroutine(LoadSceneAsync(1));
+        AudioManager.instance.StopBGM();
+        /*SceneManager.LoadScene("Main Level");*/
 
         Time.timeScale = 1;
     }
-
+    IEnumerator LoadSceneAsync(int index)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(index);
+        while (!operation.isDone)
+        {
+            loading.value = operation.progress;
+            Debug.Log(operation.progress);
+            yield return null;
+        }
+    }
+    public void ReturnToPause()
+    {
+        BlockerfadeOut(blocker2);
+        if(mainMenuConfirmation.activeSelf)
+            mainMenuConfirmation.SetActive(false);
+        else
+        {
+            restartDayConfirmation.SetActive(false);
+        }
+    }
     public void ReturnToMainMenu()
     {
         Time.timeScale = 1;
