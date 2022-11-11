@@ -6,6 +6,7 @@ using TMPro;
 public class Dialogue : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox;
+    [SerializeField] private GameObject hotBar;
     public TextMeshProUGUI textComponent;
     public string[] lines;
     private int index;
@@ -31,6 +32,7 @@ public class Dialogue : MonoBehaviour
     {
         textComponent.text = string.Empty;
         dialogueBox.SetActive(false);
+        hotBar.SetActive(true);
         StartDialogue(0);
     }
 
@@ -56,6 +58,7 @@ public class Dialogue : MonoBehaviour
             if (ticks > INTERVAL)
             {
                 dialogueBox.SetActive(true);
+                hotBar.SetActive(false);
                 textComponent.text = string.Empty;
                 StartCoroutine(TypeLine());
                 ticks = 0;
@@ -80,6 +83,7 @@ public class Dialogue : MonoBehaviour
             Tutorial.isDone = false;
             ticks = 0f;
             dialogueBox.SetActive(false);
+            hotBar.SetActive(true);
         }
 
         else if (index < lines.Length)
@@ -90,6 +94,7 @@ public class Dialogue : MonoBehaviour
         else
         {
             dialogueBox.SetActive(false);
+            hotBar.SetActive(true);
         }
     }
 
