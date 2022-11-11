@@ -67,7 +67,10 @@ public class InGameUIManager : MonoBehaviour
     }
     void Update()
     {
-        UpdateClock();
+        if (TimeManager.instance.start)
+        {
+            UpdateClock();            
+        }
         UpdateBulletSlider();
     }
 

@@ -39,7 +39,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private GameObject shopEnv;
     [SerializeField] private GameObject store;
 
-    public bool start = false;
+    public bool start = true;
 
     private void Awake()
     {
