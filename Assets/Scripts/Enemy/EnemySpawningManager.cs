@@ -23,6 +23,11 @@ public class EnemySpawningManager : MonoBehaviour
 
     private int difficulty = 1; //+Move to Game Manager 1 = -, 2 = easy...
 
+    //For Tutorial
+    public bool spawn = false;
+    public int enemyKilled = 0;
+    public bool tutorialMode = false;
+
     private void Awake()
     {
         if (instance == null)
@@ -60,7 +65,9 @@ public class EnemySpawningManager : MonoBehaviour
 
     void Update()
     {
-        if (TimeManager.instance.IsNightTime())
+        if(!tutorialMode) { spawn = TimeManager.instance.IsNightTime(); }
+
+        if (spawn)
         {
             if (currSpawnerState != SpawnerState.Release)
             {
@@ -185,6 +192,7 @@ public class EnemySpawningManager : MonoBehaviour
 
     public void RemoveEnemy(GameObject enemy)
     {
+        enemyKilled++;
         spawnedEnemyList.Remove(enemy);
     }
 

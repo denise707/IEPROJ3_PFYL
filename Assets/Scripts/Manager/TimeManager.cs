@@ -39,7 +39,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private GameObject shopEnv;
     [SerializeField] private GameObject store;
 
-
+    public bool start = false;
 
     private void Awake()
     {
@@ -66,25 +66,28 @@ public class TimeManager : MonoBehaviour
 
     void Update()
     {
-        UpdateTimeState();
-
-        if (currTime == TimeState.DayTime)
+        if (start)
         {
-            PlayDayTicks();
-            UpdateDayTime();
-        }
+            UpdateTimeState();
 
-        if (currTime == TimeState.NightTime)
-        {
-            PlayNightTicks();
-            UpdateNightTime();
-        }
+            if (currTime == TimeState.DayTime)
+            {
+                PlayDayTicks();
+                UpdateDayTime();
+            }
 
-        if (day >= 6 && !isLastDay)
-        {
-            GameManager.instance.gameState = GameManager.GameState.Win;
-            isLastDay = true;
-        }
+            if (currTime == TimeState.NightTime)
+            {
+                PlayNightTicks();
+                UpdateNightTime();
+            }
+
+            if (day >= 6 && !isLastDay)
+            {
+                GameManager.instance.gameState = GameManager.GameState.Win;
+                isLastDay = true;
+            }
+        }        
     }
 
     private void UpdateTimeState()
