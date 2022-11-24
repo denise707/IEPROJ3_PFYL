@@ -27,7 +27,8 @@ public class AudioManager : MonoBehaviour
     */
     public void PlaySFX(AudioClip clip)
     {
-        source.PlayOneShot(clip);
+        if(Time.timeScale == 1)
+            source.PlayOneShot(clip);
     }
     /*
         Plays a bgm

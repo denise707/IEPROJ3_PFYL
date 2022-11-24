@@ -244,7 +244,8 @@ public class PlayerController : MonoBehaviour
 
         if (!inputs[0] && !inputs[1] && !inputs[2] && !inputs[3])
         {
-            walkSFX.Play();
+            if (Time.timeScale == 1)
+                walkSFX.Play();
         }
     }
 

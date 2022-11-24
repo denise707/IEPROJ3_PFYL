@@ -15499,7 +15499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9fe16c8f7c77b429f2c7ca915153d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInRange: 0
+  targetInRange: 0
   attackSFX: {fileID: 8300000, guid: 492a6da582e552e43bde08c52e9377e1, type: 3}
   spawnSFX: {fileID: 8300000, guid: b49996e7761361c428f198ef01155c96, type: 3}
 --- !u!114 &5472782301712225005

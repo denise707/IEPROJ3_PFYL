@@ -35,7 +35,7 @@ public class Tutorial : MonoBehaviour
                     }
                     if (isDone)
                     {
-                        Dialogue.instance.StartDialogue(3);
+                        Dialogue.instance.StartDialogue(10);
                     }
                 }                                                                 
                 break;
@@ -52,7 +52,7 @@ public class Tutorial : MonoBehaviour
                     }
                     if (isDone)
                     {
-                        Dialogue.instance.StartDialogue(5);
+                        Dialogue.instance.StartDialogue(13);
                     }
                 }
                 break;
@@ -70,7 +70,7 @@ public class Tutorial : MonoBehaviour
                     }
                     if (isDone)
                     {
-                        Dialogue.instance.StartDialogue(7);
+                        Dialogue.instance.StartDialogue(16);
                     }
                 }
                 break;
@@ -81,7 +81,7 @@ public class Tutorial : MonoBehaviour
                     int total = 0;
                     for (int i = 0; i < soilList.Count; i++)
                     {
-                        if (soilList[i].GetComponent<Soil>().soilStatus == Soil.SoilStatus.Default)
+                        if (soilList[i].GetComponent<Soil>().soilStatus != Soil.SoilStatus.ForHarvesting)
                         {
                             total++;
                         }
@@ -89,9 +89,11 @@ public class Tutorial : MonoBehaviour
                     if (total >= 8)
                     {
                         isDone = true;
-                        Dialogue.instance.StartDialogue(9);
+                        Dialogue.instance.StartDialogue(19);
                     }
+                    Debug.Log(total);
                 }
+                
                 break;
             //5. Wait for Night Time 
             case 5:               
@@ -102,7 +104,7 @@ public class Tutorial : MonoBehaviour
                     {
                         isDone = true;
                         TimeManager.instance.start = false;
-                        Dialogue.instance.StartDialogue(11);
+                        Dialogue.instance.StartDialogue(22);
                     }
                 }
                 break;
@@ -113,7 +115,7 @@ public class Tutorial : MonoBehaviour
                     if (isColliding)
                     {
                         isDone = true;
-                        Dialogue.instance.StartDialogue(13);
+                        Dialogue.instance.StartDialogue(27);
                     }
                 }
                 break;
@@ -125,7 +127,7 @@ public class Tutorial : MonoBehaviour
                     if (EnemySpawningManager.instance.enemyKilled >= 1)
                     {
                         isDone = true;
-                        Dialogue.instance.StartDialogue(15);
+                        Dialogue.instance.StartDialogue(31);
                     }
                 }
                 break;
@@ -139,7 +141,7 @@ public class Tutorial : MonoBehaviour
                     {
                         isDone = true;
                         EnemySpawningManager.instance.spawn = false;
-                        Dialogue.instance.StartDialogue(17);
+                        Dialogue.instance.StartDialogue(34);
                     }
                 }
                 break;
