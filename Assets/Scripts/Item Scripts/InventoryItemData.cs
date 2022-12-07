@@ -39,8 +39,11 @@ public class InventoryItemData : ScriptableObject
 
     [Header("Weapon Properties")]
     public float attackDamage = 5;
+
+    [Header("Gun Properties")]
     public float reloadTime = 5;
     public float range = 5;
+    public float currentAmmo = 10;
     public int maxAmmo = 10;
 
     //public List<Sprite> PlantGrowthSpriteList;

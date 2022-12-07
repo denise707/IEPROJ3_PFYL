@@ -7,20 +7,11 @@ public class GunBehavior : MonoBehaviour
     [SerializeField] Transform firePoint;
     [SerializeField] GameObject bulletPrefab;
 
-    //private float ticks = 0.0f;
-    //private const float INTERVAL = 5f;
-
-    //Animator animator;
-
-
     // Start is called before the first frame update
     void Start()
     {
-
         firePoint = this.gameObject.transform.Find("FirePoint");
-        //animator = this.gameObject.GetComponent<Animator>();
         UpdateBullet();
-
     }
 
     // Update is called once per frame
@@ -42,13 +33,9 @@ public class GunBehavior : MonoBehaviour
                 //bulletSphere.transform.LookAt(new Vector3(hit.point.x, 2.0f, hit.point.z));
                 bulletSphere.transform.rotation = firePoint.transform.rotation;
 
-                PlayerData.instance.bulletCount -= 1;
+                WeaponManager.instance.bulletCount -= 1;
                 UpdateBullet();
-
-                //Debug.Log("Spawn Bullet");
-
             }
-            //Debug.Log("Shoot");
         }
         else
         {
@@ -60,9 +47,9 @@ public class GunBehavior : MonoBehaviour
 
     void UpdateBullet()
     {
-        PlayerData.instance.bulletCount =  Mathf.Clamp(PlayerData.instance.bulletCount, 0, PlayerData.instance.maxBulletCount);
+        WeaponManager.instance.bulletCount =  Mathf.Clamp(WeaponManager.instance.bulletCount, 0, WeaponManager.instance.maxBulletCount);
         InGameUIManager.instance.UpdateBulletUI();
 
-        Debug.Log(PlayerData.instance.bulletCount);
+        Debug.Log(WeaponManager.instance.bulletCount);
     }
 }

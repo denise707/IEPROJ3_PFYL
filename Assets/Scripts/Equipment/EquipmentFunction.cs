@@ -104,7 +104,7 @@ public class EquipmentFunction: MonoBehaviour
     void TriggerPistol()
     {
         animator.SetTrigger("isTriggered");
-        if (PlayerData.instance.bulletCount > 0)
+        if (WeaponManager.instance.bulletCount > 0)
         {
             gameObject.GetComponent<GunBehavior>().Shoot();
             AudioManager.instance.PlaySFX(usetoolSFX);

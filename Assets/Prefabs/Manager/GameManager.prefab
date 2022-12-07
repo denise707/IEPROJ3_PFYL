@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4518738597449896974}
   - component: {fileID: 1103066199}
   - component: {fileID: 1103066203}
+  - component: {fileID: 4138692813919303196}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -81,6 +82,7 @@ MonoBehaviour:
   nightTransition: {fileID: 8300000, guid: bed5fc4013ac3f44db6de91be604c0a2, type: 3}
   shopEnv: {fileID: 0}
   store: {fileID: 0}
+  start: 1
 --- !u!114 &1103066199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,3 +118,15 @@ MonoBehaviour:
   invController: {fileID: 0}
   invSlots: []
   currInvSlot: {fileID: 0}
+--- !u!114 &4138692813919303196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518738597449896975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f83b685d957b7841a40af94f4229305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
         {
             // get scriptable from inventory and acces the prefab
             GameObject obj = (GameObject)Instantiate(itemData.prefab ,weaponSP);
+            WeaponManager.instance.SetWeaponData(itemData);
             obj.name = itemData.name;
 
             //bulletSphere.transform.LookAt(new Vector3(hit.point.x, hit.point.y, hit.point.z));

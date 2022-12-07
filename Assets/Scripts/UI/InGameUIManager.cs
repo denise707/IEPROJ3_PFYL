@@ -62,8 +62,8 @@ public class InGameUIManager : MonoBehaviour
     }
     void Start()
     {
-        bulletSlider.maxValue = PlayerData.instance.reload_time;
-        bulletSlider.value = PlayerData.instance.reload_ticks;
+        bulletSlider.maxValue = WeaponManager.instance.reload_time;
+        bulletSlider.value = WeaponManager.instance.reload_ticks;
     }
     void Update()
     {
@@ -76,14 +76,14 @@ public class InGameUIManager : MonoBehaviour
 
     private void UpdateBulletSlider()
     {
-        if (PlayerData.instance.IsAtMaxAmmo())
+        if (WeaponManager.instance.IsAtMaxAmmo())
         {
             // display filled slider when ammo at max
-            bulletSlider.value = PlayerData.instance.reload_time;
+            bulletSlider.value = WeaponManager.instance.reload_time;
         }
         else
         {
-            bulletSlider.value = PlayerData.instance.reload_ticks;
+            bulletSlider.value = WeaponManager.instance.reload_ticks;
         }
     }
 
@@ -119,7 +119,7 @@ public class InGameUIManager : MonoBehaviour
 
     public void UpdateBulletUI ()
     {
-        bulletLabel.text = PlayerData.instance.bulletCount.ToString();
+        bulletLabel.text = WeaponManager.instance.bulletCount.ToString();
     }
 
     public void UpdateClock()
