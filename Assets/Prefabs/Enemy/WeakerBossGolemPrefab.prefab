@@ -2279,7 +2279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8685105644047149471
 Transform:
   m_ObjectHideFlags: 0
@@ -15500,7 +15500,6 @@ MonoBehaviour:
   spawnVFX: {fileID: 6218200324367903362, guid: 6d411af8f532fa041a7e24639d7d2ad3, type: 3}
   attackVFX: {fileID: 2573766368864417822, guid: 3c02283098997af40a9405503dc0080b, type: 3}
   deathVFX: {fileID: 7936732115390944027, guid: c8af9642b753eae4a95cf7171e8560f5, type: 3}
-  takeDamageAnim: {fileID: 6601912735411613448, guid: 7bb145b677843ea48887b91dcf3095bb, type: 3}
 --- !u!114 &7351023795395169315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15545,6 +15544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetInRange: 0
+  targetTracked: ' '
   attackSFX: {fileID: 8300000, guid: 492a6da582e552e43bde08c52e9377e1, type: 3}
   spawnSFX: {fileID: 8300000, guid: b49996e7761361c428f198ef01155c96, type: 3}
 --- !u!114 &5472782301712225005

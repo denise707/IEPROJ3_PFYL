@@ -394,5 +394,13 @@ public class PlayerController : MonoBehaviour
     public void SetSpeed(float _speed)
     {
         this.speed = _speed;
+        if(this.speed < 5f)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(199f / 255f, 217f / 255f, 85f / 255f, 1f);
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        }
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8042202107669808869}
   - component: {fileID: 4390347422062884243}
   - component: {fileID: 1627074048519733920}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SlimeTrapPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,8 +95,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.925057
-  m_Center: {x: 0, y: -0.17935543, z: 3.396564e-16}
+  m_Radius: 3.5151374
+  m_Center: {x: 0, y: -0.17935543, z: 0.520352}
 --- !u!114 &1627074048519733920
 MonoBehaviour:
   m_ObjectHideFlags: 0
