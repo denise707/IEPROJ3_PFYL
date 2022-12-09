@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GolemAttack : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class GolemAttack : MonoBehaviour
     const float ATTACK_INTERVAL = 3.5f;
 
     public bool targetInRange = false;
+    public string targetTracked = " ";
 
     [Header("Sound Files")]
     [SerializeField] private AudioClip attackSFX;
@@ -44,14 +46,13 @@ public class GolemAttack : MonoBehaviour
         if (ticks > ATTACK_INTERVAL)
         {
             ticks = 0.0f;
-
             if (targetInRange)
             {
                 // Player receives damage
-                if (enemyBehaviour.GetTarget() == "Player")
+                if (enemyBehaviour.GetTarget() == "Player" && targetTracked == "Player")
                 {
+                    playerController.SetActiveTakeDamageEffect(true);
                     playerController.TakeDamage(enemyBehaviour.atkDamage);
-                    enemyBehaviour.AttackVFX();//Temporary
                 }
                 // Nuke Plant receives damage
                 if (enemyBehaviour.GetTarget() == "Nuke Plant")

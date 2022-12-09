@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1867792434552036334}
   - component: {fileID: 932155086676503291}
   - component: {fileID: 1447954145772109401}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139549588344009885}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -1.36, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalPosition: {x: 0, y: -1.36, z: -0}
+  m_LocalScale: {x: 5.58, y: 5.58, z: 5.58}
   m_Children: []
   m_Father: {fileID: 7706898509311815276}
   m_RootOrder: 3
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 4534283040584717675}
   - component: {fileID: 2562567882471627213}
   - component: {fileID: 3252472943895812138}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +505,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577753294092772267}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -516,7 +516,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e1909322d2034e4987e92f659ee35d4, type: 2}
+  - {fileID: 2100000, guid: 68ecbc275b86f894d86cff1713e6b155, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 2278748588196619157}
   - component: {fileID: 6039220800067324869}
   - component: {fileID: 7942702785433935104}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -941,7 +941,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606513064866105229}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -952,7 +952,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e1909322d2034e4987e92f659ee35d4, type: 2}
+  - {fileID: 2100000, guid: 68ecbc275b86f894d86cff1713e6b155, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -994,7 +994,7 @@ GameObject:
   - component: {fileID: 5416946910424920684}
   - component: {fileID: 1905687798035483051}
   - component: {fileID: 3735338120288114622}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1377,7 +1377,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2050246869208442263}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1388,7 +1388,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e1909322d2034e4987e92f659ee35d4, type: 2}
+  - {fileID: 2100000, guid: 68ecbc275b86f894d86cff1713e6b155, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1427,7 +1427,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2710914586957963041}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1474,7 +1474,7 @@ GameObject:
   - component: {fileID: 6197808009911028712}
   - component: {fileID: 1211328232407370991}
   - component: {fileID: 5263066307422496297}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1857,7 +1857,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2699454152502033496}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1868,7 +1868,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e1909322d2034e4987e92f659ee35d4, type: 2}
+  - {fileID: 2100000, guid: 68ecbc275b86f894d86cff1713e6b155, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1910,7 +1910,7 @@ GameObject:
   - component: {fileID: 6775768079582726453}
   - component: {fileID: 5968295287937653104}
   - component: {fileID: 8382518713201669061}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2293,7 +2293,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3517807753756998404}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -2304,7 +2304,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e1909322d2034e4987e92f659ee35d4, type: 2}
+  - {fileID: 2100000, guid: 68ecbc275b86f894d86cff1713e6b155, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2344,7 +2344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6845989363505892357}
   - component: {fileID: 4525369183677167377}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MaxRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2428,7 +2428,7 @@ GameObject:
   - component: {fileID: 2393351408396852387}
   - component: {fileID: 4537625965607414789}
   - component: {fileID: 3287058862311141962}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2811,7 +2811,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4526995526338465686}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -2822,7 +2822,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e1909322d2034e4987e92f659ee35d4, type: 2}
+  - {fileID: 2100000, guid: 68ecbc275b86f894d86cff1713e6b155, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2864,7 +2864,7 @@ GameObject:
   - component: {fileID: 6371911653799135023}
   - component: {fileID: 2399832970238427295}
   - component: {fileID: 3103958837316057007}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3247,7 +3247,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5718155383397393421}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -3258,7 +3258,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e1909322d2034e4987e92f659ee35d4, type: 2}
+  - {fileID: 2100000, guid: 68ecbc275b86f894d86cff1713e6b155, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3300,7 +3300,7 @@ GameObject:
   - component: {fileID: 646747176095445748}
   - component: {fileID: 9220096793021359583}
   - component: {fileID: 2005319663274238535}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3683,7 +3683,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5832226348446042624}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -3694,7 +3694,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e1909322d2034e4987e92f659ee35d4, type: 2}
+  - {fileID: 2100000, guid: 68ecbc275b86f894d86cff1713e6b155, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3736,7 +3736,7 @@ GameObject:
   - component: {fileID: 3320406667922598495}
   - component: {fileID: 920468613963523201}
   - component: {fileID: 6308089380024177378}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4119,7 +4119,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6021144702631582619}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -4130,7 +4130,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e1909322d2034e4987e92f659ee35d4, type: 2}
+  - {fileID: 2100000, guid: 68ecbc275b86f894d86cff1713e6b155, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4172,7 +4172,7 @@ GameObject:
   - component: {fileID: 6961072965940108016}
   - component: {fileID: 415025369472876510}
   - component: {fileID: 6740979659747405010}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4555,7 +4555,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6047013916108744519}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -4566,7 +4566,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e1909322d2034e4987e92f659ee35d4, type: 2}
+  - {fileID: 2100000, guid: 68ecbc275b86f894d86cff1713e6b155, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4608,7 +4608,7 @@ GameObject:
   - component: {fileID: 3625622441912507455}
   - component: {fileID: 4460339976309373018}
   - component: {fileID: 3270498352288028059}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4991,7 +4991,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6421117548292007453}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -5002,7 +5002,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e1909322d2034e4987e92f659ee35d4, type: 2}
+  - {fileID: 2100000, guid: 68ecbc275b86f894d86cff1713e6b155, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5043,7 +5043,7 @@ GameObject:
   - component: {fileID: 7706898507267024827}
   - component: {fileID: 7706898507267024821}
   - component: {fileID: 7706898507267024820}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5116,7 +5116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7706898507555026693}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5155,7 +5155,7 @@ GameObject:
   - component: {fileID: 7706898507984781275}
   - component: {fileID: 7706898507984781273}
   - component: {fileID: 7706898507984781268}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5245,7 +5245,7 @@ GameObject:
   - component: {fileID: 7706898508738191027}
   - component: {fileID: 7706898508738191021}
   - component: {fileID: 7706898508738191020}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5319,7 +5319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7706898509308878165}
   - component: {fileID: 7706898509308878166}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5415,7 +5415,7 @@ GameObject:
   - component: {fileID: 6282005633587374470}
   - component: {fileID: 1317985840711668437}
   - component: {fileID: 4993232147031837448}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GolemPrefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -5513,6 +5513,7 @@ MonoBehaviour:
   spawnVFX: {fileID: 6218200324367903362, guid: 6d411af8f532fa041a7e24639d7d2ad3, type: 3}
   attackVFX: {fileID: 2573766368864417822, guid: 3c02283098997af40a9405503dc0080b, type: 3}
   deathVFX: {fileID: 7936732115390944027, guid: c8af9642b753eae4a95cf7171e8560f5, type: 3}
+  takeDamageAnim: {fileID: 6601912735411613448, guid: 7bb145b677843ea48887b91dcf3095bb, type: 3}
 --- !u!114 &7706898509311815278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5556,7 +5557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9fe16c8f7c77b429f2c7ca915153d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInRange: 0
+  targetInRange: 0
   attackSFX: {fileID: 8300000, guid: 492a6da582e552e43bde08c52e9377e1, type: 3}
   spawnSFX: {fileID: 8300000, guid: b49996e7761361c428f198ef01155c96, type: 3}
 --- !u!114 &6282005633587374470
@@ -5618,7 +5619,7 @@ GameObject:
   - component: {fileID: 7853553638765299483}
   - component: {fileID: 1673255817234281105}
   - component: {fileID: 7749415554194181078}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6001,7 +6002,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8449073609112972452}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -6012,7 +6013,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e1909322d2034e4987e92f659ee35d4, type: 2}
+  - {fileID: 2100000, guid: 68ecbc275b86f894d86cff1713e6b155, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6054,7 +6055,7 @@ GameObject:
   - component: {fileID: 8459670268081824153}
   - component: {fileID: 1701620975987016643}
   - component: {fileID: 6620552083149529158}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6437,7 +6438,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8509436864571437879}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -6448,7 +6449,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e1909322d2034e4987e92f659ee35d4, type: 2}
+  - {fileID: 2100000, guid: 68ecbc275b86f894d86cff1713e6b155, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6488,7 +6489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4342269242031514708}
   - component: {fileID: 6789898091946809566}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackRangeWarning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6572,7 +6573,7 @@ GameObject:
   - component: {fileID: 6995434165544731117}
   - component: {fileID: 9074165648781672788}
   - component: {fileID: 7444043022883212061}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6955,7 +6956,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8976605648193868916}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -6966,7 +6967,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e1909322d2034e4987e92f659ee35d4, type: 2}
+  - {fileID: 2100000, guid: 68ecbc275b86f894d86cff1713e6b155, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

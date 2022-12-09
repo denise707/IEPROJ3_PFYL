@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
@@ -372,5 +373,26 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
+    }
+
+    public void SetActiveTakeDamageEffect(bool isActive)
+    {
+        if (isActive)
+        {
+            StopCoroutine(RemoveTakeDamageEffect());
+            GameObject.FindGameObjectWithTag("Player").transform.GetChild(5).GetComponent<Volume>().weight = 0.47f;
+            StartCoroutine(RemoveTakeDamageEffect());
+        }
+    }
+
+    IEnumerator RemoveTakeDamageEffect()
+    {
+        yield return new WaitForSeconds(0.15f);
+        GameObject.FindGameObjectWithTag("Player").transform.GetChild(5).GetComponent<Volume>().weight = 0;
+    }
+
+    public void SetSpeed(float _speed)
+    {
+        this.speed = _speed;
     }
 }

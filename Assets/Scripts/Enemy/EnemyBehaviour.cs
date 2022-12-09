@@ -38,7 +38,7 @@ public class EnemyBehaviour : MonoBehaviour
         InitializeEnemy();
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
-        PlayVFX(spawnVFX, transform.position, transform.rotation, 2.0f); 
+        //PlayVFX(spawnVFX, transform.position, transform.rotation, 2.0f); 
     }
 
     private void Update()
