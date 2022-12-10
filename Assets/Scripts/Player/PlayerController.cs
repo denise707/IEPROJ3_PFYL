@@ -379,8 +379,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isActive)
         {
-            StopCoroutine(RemoveTakeDamageEffect());
-            GameObject.FindGameObjectWithTag("Player").transform.GetChild(5).GetComponent<Volume>().weight = 0.47f;
+            GetComponent<SpriteRenderer>().color = Color.red;
             StartCoroutine(RemoveTakeDamageEffect());
         }
     }
@@ -388,9 +387,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator RemoveTakeDamageEffect()
     {
         yield return new WaitForSeconds(0.15f);
-        GameObject.FindGameObjectWithTag("Player").transform.GetChild(5).GetComponent<Volume>().weight = 0.2f;
-        yield return new WaitForSeconds(0.15f);
-        GameObject.FindGameObjectWithTag("Player").transform.GetChild(5).GetComponent<Volume>().weight = 0f;
+        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
     }
 
     public void SetSpeed(float _speed)
