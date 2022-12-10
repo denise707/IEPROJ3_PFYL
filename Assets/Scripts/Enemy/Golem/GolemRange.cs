@@ -16,6 +16,12 @@ public class GolemRange : MonoBehaviour
     [SerializeField] private GameObject spike;
     [SerializeField] private GameObject maxRange;
 
+    private void OnDisable()
+    {
+        HideRange();
+        HideSpike();
+    }
+
     public void showRange()
     {
         range.SetActive(true);

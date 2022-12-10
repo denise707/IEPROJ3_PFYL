@@ -25,6 +25,7 @@ public class ZombieAttack : MonoBehaviour
     void OnEnable()
     {
         AudioManager.instance.PlaySFX(spawnSFX);
+        ticks = 0.0f;
     }
 
     void Update()

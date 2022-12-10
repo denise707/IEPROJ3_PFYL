@@ -32,6 +32,7 @@ public class GolemAttack : MonoBehaviour
     void OnEnable()
     {
         AudioManager.instance.PlaySFX(spawnSFX);
+        ticks = 0.0f;
     }
 
     void Update()
