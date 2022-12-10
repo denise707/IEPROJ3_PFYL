@@ -6,9 +6,10 @@ public class SlimeAttack : MonoBehaviour
 {
     private EnemyBehaviour enemyBehaviour;
     private PlayerController playerController;
+    private NukePlantBehavior nukeController;
 
     private float ticks = 0f;
-    const float ATTACK_INTERVAL = 3.0f;
+    const float ATTACK_INTERVAL = 0.5f;
 
     [Header("Sound Files")]
     [SerializeField] private AudioClip attackSFX;
@@ -18,6 +19,7 @@ public class SlimeAttack : MonoBehaviour
     {
         enemyBehaviour = this.GetComponent<EnemyBehaviour>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        nukeController = GameObject.FindGameObjectWithTag("Nuke Plant").GetComponentInChildren<NukePlantBehavior>();
     }
 
     void OnEnable()
@@ -51,12 +53,12 @@ public class SlimeAttack : MonoBehaviour
             if (enemyBehaviour.GetTarget() == "Player")
             {
                 playerController.TakeDamage(enemyBehaviour.atkDamage);
-                enemyBehaviour.AttackVFX();//Temporary
+                playerController.SetActiveTakeDamageEffect(true);
             }
             // Nuke Plant receives damage
             if (enemyBehaviour.GetTarget() == "Nuke Plant")
             {
-                //Add code
+                nukeController.ReceiveDamage(enemyBehaviour.atkDamage);
             }
 
             AudioManager.instance.PlaySFX(attackSFX);

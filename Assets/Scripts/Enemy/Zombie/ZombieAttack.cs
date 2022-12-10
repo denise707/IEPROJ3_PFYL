@@ -9,7 +9,7 @@ public class ZombieAttack : MonoBehaviour
     private EnemyBehaviour enemyBehaviour;
 
     private float ticks = 0f;
-    const float ATTACK_INTERVAL = 3.0f;
+    const float ATTACK_INTERVAL = 0.5f;
 
     [Header("Sound Files")] 
     [SerializeField] private AudioClip attackSFX;
@@ -53,7 +53,7 @@ public class ZombieAttack : MonoBehaviour
             if (enemyBehaviour.GetTarget() == "Player")
             {
                 playerController.TakeDamage(enemyBehaviour.atkDamage);
-                enemyBehaviour.AttackVFX();//Temporary
+                playerController.SetActiveTakeDamageEffect(true);
             }
             // Nuke Plant receives damage
             if (enemyBehaviour.GetTarget() == "Nuke Plant")

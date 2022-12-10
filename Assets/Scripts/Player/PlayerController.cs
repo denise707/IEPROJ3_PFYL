@@ -388,7 +388,9 @@ public class PlayerController : MonoBehaviour
     IEnumerator RemoveTakeDamageEffect()
     {
         yield return new WaitForSeconds(0.15f);
-        GameObject.FindGameObjectWithTag("Player").transform.GetChild(5).GetComponent<Volume>().weight = 0;
+        GameObject.FindGameObjectWithTag("Player").transform.GetChild(5).GetComponent<Volume>().weight = 0.2f;
+        yield return new WaitForSeconds(0.15f);
+        GameObject.FindGameObjectWithTag("Player").transform.GetChild(5).GetComponent<Volume>().weight = 0f;
     }
 
     public void SetSpeed(float _speed)

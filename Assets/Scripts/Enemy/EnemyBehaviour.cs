@@ -73,6 +73,9 @@ public class EnemyBehaviour : MonoBehaviour
         {
             target = "Nuke Plant";
         }
+        else {
+            target = "Player";
+        }
     }
 
     private void Move()

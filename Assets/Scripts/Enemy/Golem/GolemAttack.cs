@@ -7,14 +7,15 @@ using UnityEngine.Rendering;
 public class GolemAttack : MonoBehaviour
 {
     private PlayerController playerController;
+    private NukePlantBehavior nukeController;
     private EnemyBehaviour enemyBehaviour;
     private GolemRange golemRange;
 
     private float ticks = 0f;
-    const float ATTACK_INTERVAL = 3.5f;
+    const float ATTACK_INTERVAL = 2f; //3.5
 
-    public bool targetInRange = false;
-    public string targetTracked = " ";
+    public bool playerInRange = false;
+    public bool nukeInRange = false;
 
     [Header("Sound Files")]
     [SerializeField] private AudioClip attackSFX;
@@ -24,6 +25,7 @@ public class GolemAttack : MonoBehaviour
     {
         enemyBehaviour = this.GetComponent<EnemyBehaviour>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        nukeController = GameObject.FindGameObjectWithTag("Nuke Plant").GetComponentInChildren<NukePlantBehavior>();
         golemRange = this.GetComponent<GolemRange>();
     }
 
@@ -46,21 +48,19 @@ public class GolemAttack : MonoBehaviour
         if (ticks > ATTACK_INTERVAL)
         {
             ticks = 0.0f;
-            if (targetInRange)
-            {
-                // Player receives damage
-                if (enemyBehaviour.GetTarget() == "Player" && targetTracked == "Player")
-                {
-                    playerController.SetActiveTakeDamageEffect(true);
-                    playerController.TakeDamage(enemyBehaviour.atkDamage);
-                }
-                // Nuke Plant receives damage
-                if (enemyBehaviour.GetTarget() == "Nuke Plant")
-                {
-                    //Add code
-                }
-            }
 
+            // Player receives damage
+            if (playerInRange)
+            {
+                playerController.SetActiveTakeDamageEffect(true);
+                playerController.TakeDamage(enemyBehaviour.atkDamage);
+            }
+            // Nuke Plant receives damage
+            if (nukeInRange)
+            {
+                nukeController.ReceiveDamage(enemyBehaviour.atkDamage);
+            }
+            
             AudioManager.instance.PlaySFX(attackSFX);
 
             enemyBehaviour.currState = EnemyBehaviour.State.AttackTarget;
@@ -72,7 +72,7 @@ public class GolemAttack : MonoBehaviour
 
     IEnumerator RemoveSpike()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.5f); //0.5
         enemyBehaviour.currState = EnemyBehaviour.State.Chase;
         golemRange.HideSpike();
     }

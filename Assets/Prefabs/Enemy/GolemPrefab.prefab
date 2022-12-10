@@ -5513,7 +5513,6 @@ MonoBehaviour:
   spawnVFX: {fileID: 6218200324367903362, guid: 6d411af8f532fa041a7e24639d7d2ad3, type: 3}
   attackVFX: {fileID: 2573766368864417822, guid: 3c02283098997af40a9405503dc0080b, type: 3}
   deathVFX: {fileID: 7936732115390944027, guid: c8af9642b753eae4a95cf7171e8560f5, type: 3}
-  takeDamageAnim: {fileID: 6601912735411613448, guid: 7bb145b677843ea48887b91dcf3095bb, type: 3}
 --- !u!114 &7706898509311815278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5557,7 +5556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9fe16c8f7c77b429f2c7ca915153d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetInRange: 0
+  playerInRange: 0
+  nukeInRange: 0
   attackSFX: {fileID: 8300000, guid: 492a6da582e552e43bde08c52e9377e1, type: 3}
   spawnSFX: {fileID: 8300000, guid: b49996e7761361c428f198ef01155c96, type: 3}
 --- !u!114 &6282005633587374470
@@ -5573,7 +5573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeStartedLerping: 0
-  lerpTime: 3
+  lerpTime: 1.5
   range: {fileID: 8788123626715590569}
   spike: {fileID: 2248197861219594606}
   maxRange: {fileID: 4489633833886681434}
