@@ -21,12 +21,15 @@ MonoBehaviour:
   MaxStackSize: 10
   growthDuration: 10
   PlantGrowthSpriteList:
-  - {fileID: 21300000, guid: b14628394703c1046b66d3baedf319c9, type: 3}
-  - {fileID: 21300000, guid: 008559fd55d786040bf9d5a57305024c, type: 3}
-  - {fileID: 21300000, guid: 6785e0e5cbbf5ab4891a6dfb0cb0a897, type: 3}
+  - {fileID: 21300000, guid: 7fdd27febfc239349b7c24f191f71e30, type: 3}
+  - {fileID: 21300000, guid: fe25b46d230a5344488909fd347ae8b6, type: 3}
+  - {fileID: 21300000, guid: 7aad4d0b578253c4184b72e79199c534, type: 3}
+  - {fileID: 21300000, guid: 8cbc256081cea194a96ffcb9113ff8f7, type: 3}
+  - {fileID: 21300000, guid: 517b45910f9b79546ab2fe65d16d13c4, type: 3}
   DropA: {fileID: 0}
   DropB: {fileID: 0}
   attackDamage: 5
   reloadTime: 5
   range: 5
+  currentAmmo: 10
   maxAmmo: 10
