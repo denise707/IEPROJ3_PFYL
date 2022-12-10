@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2547163084704002136}
   - component: {fileID: 2547163084704002118}
   - component: {fileID: 2547163084704002119}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 2547163084771956416}
   - component: {fileID: 2547163084771956430}
   - component: {fileID: 2547163084771956431}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 2547163084822425201}
   - component: {fileID: 2547163084822425202}
   - component: {fileID: 2547163084822425203}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 1990852330826304318}
   - component: {fileID: 1289393411114711065}
   - component: {fileID: 5910212092806996767}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WeakerBossSlimePrefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -456,7 +456,7 @@ GameObject:
   - component: {fileID: 2547163085958521987}
   - component: {fileID: 2547163085958521985}
   - component: {fileID: 2547163085958521986}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5258,7 +5258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2547163085968553044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5295,7 +5295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2547163086588009028}
   - component: {fileID: 2547163086588009027}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5385,7 +5385,7 @@ GameObject:
   - component: {fileID: 4013440841495360495}
   - component: {fileID: 6977497262659091870}
   - component: {fileID: 7009471403365502358}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10245,7 +10245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2447122728394669058}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TrapSpawnLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
