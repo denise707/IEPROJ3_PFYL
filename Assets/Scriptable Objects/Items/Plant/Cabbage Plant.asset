@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad30aaa24cec532419b790b24b8d8c88, type: 3}
+  m_Name: Cabbage Plant
+  m_EditorClassIdentifier: 
+  itemType: 4
+  prefab: {fileID: 5968358697786280994, guid: 670b6c3352887a047b0d3d27b4f9aa9b, type: 3}
+  ID: 1
+  DisplayName: Cabbage Bomb Seed
+  Description: 
+  Icon: {fileID: 21300000, guid: 28e143c1958c4e94298e6353e263b196, type: 3}
+  MaxStackSize: 5
+  growthDuration: 5
+  PlantGrowthSpriteList:
+  - {fileID: 21300000, guid: 28e143c1958c4e94298e6353e263b196, type: 3}
+  - {fileID: 21300000, guid: 80c8253197c269a48998fb46ba7992f5, type: 3}
+  - {fileID: 21300000, guid: 904c86a0972f1b5478d9a29716b167df, type: 3}
+  DropA: {fileID: 3614919355514719221, guid: 231540f3c16b5184facc529d94de4638, type: 3}
+  DropB: {fileID: 8970895722960966661, guid: 00c0deb75dd08bd4983e847b426d01af, type: 3}
+  attackDamage: 5
+  reloadTime: 5
+  range: 5
+  currentAmmo: 10
+  maxAmmo: 10
