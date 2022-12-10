@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 0.9431921366912618
+    m_Start: 0.7666666666666667
     m_ClipIn: 0
     m_Asset: {fileID: -7774306109242418579}
     m_Duration: 1.0499999999999998
@@ -179,7 +179,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Intro_02
   - m_Version: 1
-    m_Start: 0.17652547002459507
+    m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: -6894050263958524802}
     m_Duration: 1.0666666666666667
@@ -227,10 +227,10 @@ MonoBehaviour:
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 0.17652547002459507
+    m_PreExtrapolationTime: 0
     m_DisplayName: Intro_01
   - m_Version: 1
-    m_Start: 1.8098588033579301
+    m_Start: 1.633333333333335
     m_ClipIn: 0
     m_Asset: {fileID: 9189153767954796589}
     m_Duration: 0.8666666666666636
@@ -299,7 +299,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Intro_03
   - m_Version: 1
-    m_Start: 2.476525470024595
+    m_Start: 2.3
     m_ClipIn: 0
     m_Asset: {fileID: 8490409743006051784}
     m_Duration: 0.8999999999999968
@@ -368,7 +368,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Intro_04
   - m_Version: 1
-    m_Start: 5.393192136691262
+    m_Start: 5.216666666666667
     m_ClipIn: 0
     m_Asset: {fileID: 8717581376921378778}
     m_Duration: 0.7499999999999973
@@ -437,7 +437,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Intro_07
   - m_Version: 1
-    m_Start: 6.026525470024595
+    m_Start: 5.85
     m_ClipIn: 0
     m_Asset: {fileID: -7640738827301519231}
     m_Duration: 0.7833333333333306
@@ -506,7 +506,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Intro_07b
   - m_Version: 1
-    m_Start: 6.693192136691262
+    m_Start: 6.516666666666667
     m_ClipIn: 0
     m_Asset: {fileID: 5383995140991923136}
     m_Duration: 0.7666666666666639
@@ -557,7 +557,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Intro_08
   - m_Version: 1
-    m_Start: 3.2098588033579283
+    m_Start: 3.033333333333333
     m_ClipIn: 0
     m_Asset: {fileID: -6430006097851562047}
     m_Duration: 0.8999999999999968
@@ -626,7 +626,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Intro_04b
   - m_Version: 1
-    m_Start: 3.859858803357928
+    m_Start: 3.683333333333333
     m_ClipIn: 0
     m_Asset: {fileID: 2320366055056259694}
     m_Duration: 1.016666666666667
@@ -695,7 +695,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Intro_05
   - m_Version: 1
-    m_Start: 4.709858803357928
+    m_Start: 4.533333333333333
     m_ClipIn: 0
     m_Asset: {fileID: -1850087337285810341}
     m_Duration: 0.8333333333333304
@@ -1170,7 +1170,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 357068465877266860}
-    m_Duration: 7.633333333333334
+    m_Duration: 7.459858803357926
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7460036045034503561}
     m_EaseInDuration: 0

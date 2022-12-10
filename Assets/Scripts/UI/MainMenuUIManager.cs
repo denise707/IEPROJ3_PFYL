@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 
 public class MainMenuUIManager : MonoBehaviour
@@ -24,6 +25,9 @@ public class MainMenuUIManager : MonoBehaviour
     [Header("Loading Screen")]
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private Slider loading;
+
+    private PlayableDirector narrative;
+    [SerializeField] private GameObject narrativeImage;
     private void Awake()
     {
         if (instance == null)
@@ -40,8 +44,15 @@ public class MainMenuUIManager : MonoBehaviour
     {
         AudioManager.instance.PlayBGM();
         loadingScreen.SetActive(false);
+        narrative = GameObject.FindObjectOfType<PlayableDirector>();
     }
-
+    public void PlayDirector()
+    {
+        if(narrative!= null)
+        {
+            narrative.Play();
+        }
+    }
     public void PlayGameConfimation()
     {
         HandlePopUp(playGameConfirmation, blocker1);
@@ -63,8 +74,9 @@ public class MainMenuUIManager : MonoBehaviour
 
     public void OpenMainLevel(int levelIndex)
     {
-        loadingScreen.SetActive(true);
-        StartCoroutine(LoadSceneAsync(levelIndex));
+        PlayDirector();
+        StartCoroutine(WaitForNarrative(levelIndex));
+
         AudioManager.instance.StopBGM();
     }
 
@@ -128,5 +140,13 @@ public class MainMenuUIManager : MonoBehaviour
             Debug.Log(operation.progress);
             yield return null;
         }
+    }
+    IEnumerator WaitForNarrative(int levelIndex)
+    {
+        yield return new WaitForSeconds(7.5f);
+        narrativeImage.SetActive(false);
+        loadingScreen.SetActive(true);
+        StartCoroutine(LoadSceneAsync(levelIndex));
+        
     }
 }

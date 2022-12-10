@@ -4170,7 +4170,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: a7392bfdb6da15d43bfb8571aebc4ff9, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -6696,6 +6696,7 @@ MonoBehaviour:
   buttonSFX: {fileID: 8300000, guid: f6b6a0892941635468226a90e85a6aeb, type: 3}
   loadingScreen: {fileID: 1480535086}
   loading: {fileID: 535908414}
+  narrativeImage: {fileID: 1337283121}
 --- !u!4 &1853067024
 Transform:
   m_ObjectHideFlags: 0
