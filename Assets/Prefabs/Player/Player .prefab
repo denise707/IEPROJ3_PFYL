@@ -625,6 +625,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 122df2e1c7d3ee84c9c566f858819eb8, type: 2}
   - {fileID: 11400000, guid: 09c4b68578af5c24ab7a8540843dd855, type: 2}
   - {fileID: 11400000, guid: dda96c5c44459804591b1c2502d94d9c, type: 2}
+  - {fileID: 11400000, guid: b6d528c12370c7b42a630c7d62eb7ed0, type: 2}
   secondaryInventorySize: 30
   secondaryInventorySystem:
     inventorySlots: []
