@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 5183875303186988101}
   m_Layer: 13
   m_Name: Cabbage Bomb Held
-  m_TagString: Plant
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
