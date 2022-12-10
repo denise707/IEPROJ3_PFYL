@@ -14,6 +14,7 @@ public class PlantBehavior : MonoBehaviour
 
     [Header("Plant Properties")]
     [SerializeField] InventoryItemData plantToGrow;
+    public string plantName;
 
     public PlantPhase plantStatus = PlantPhase.Phase0_Default;
     [SerializeField] int phase = 0;
@@ -76,6 +77,7 @@ public class PlantBehavior : MonoBehaviour
         this.GrowthSpriteList = plantObj.PlantGrowthSpriteList;
         this.DropA_sprt = plantObj.DropA;
         this.DropB_sprt = plantObj.DropB;
+        this.plantName = plantObj.DisplayName;
 
         this.growthDuration = plantObj.growthDuration;
 
@@ -83,6 +85,11 @@ public class PlantBehavior : MonoBehaviour
 
         this.gameObject.GetComponent<SpriteRenderer>().sprite = GrowthSpriteList[phase]; // seed
         plantStatus = PlantPhase.Phase1_Seedling;
+    }
+
+    public void WiltPlant(Sprite wilt)
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = wilt; // seed
     }
 
     public void EnablePlantGrowth()
