@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad30aaa24cec532419b790b24b8d8c88, type: 3}
+  m_Name: Thorn Plant
+  m_EditorClassIdentifier: 
+  itemType: 4
+  prefab: {fileID: 2226622564852972321, guid: 109a4f9ffec57de4397e37d3c1ed60bd, type: 3}
+  ID: 0
+  DisplayName: Thorn Bush
+  Description: 
+  Icon: {fileID: 21300000, guid: 18fda32886fab3846acca0e28068d1a6, type: 3}
+  MaxStackSize: 0
+  growthDuration: 5
+  PlantGrowthSpriteList:
+  - {fileID: 21300000, guid: 18fda32886fab3846acca0e28068d1a6, type: 3}
+  - {fileID: 21300000, guid: 0a5d955ac31fe70419b8e2640d172bce, type: 3}
+  - {fileID: 21300000, guid: 06751f5423b4679488ed2a166630f412, type: 3}
+  DropA: {fileID: 7882369244327641178, guid: 110a3b0d19957084ea42a138ee0cdaa2, type: 3}
+  DropB: {fileID: 0}
+  attackDamage: 5
+  reloadTime: 5
+  range: 5
+  currentAmmo: 10
+  maxAmmo: 10

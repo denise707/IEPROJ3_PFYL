@@ -73,6 +73,14 @@ public class EquipmentFunction: MonoBehaviour
             {
                 // func
             }
+            else if (CompareName("Rose Weapon"))
+            {
+                CombatManager.instance.UseRoseDagger(obj.attackDamage);
+            }
+            else if (CompareName("Cabbage Weapon"))
+            {
+                CombatManager.instance.UseCabbageBomb(obj.attackDamage);
+            }
             else
             {
                 Debug.Log($"Weapon name not found: {this.gameObject.name}");
@@ -117,8 +125,6 @@ public class EquipmentFunction: MonoBehaviour
 
     public void TriggerHoe()
     {
-
-
         if (soil && hover.inRange)
         {
             if (soil.soilStatus == Soil.SoilStatus.ForHarvesting)

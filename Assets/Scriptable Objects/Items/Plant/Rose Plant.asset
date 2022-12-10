@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad30aaa24cec532419b790b24b8d8c88, type: 3}
+  m_Name: Rose Plant
+  m_EditorClassIdentifier: 
+  itemType: 4
+  prefab: {fileID: 1661777123652080288, guid: f177fb8dc42dc114697ed96a1a5961ac, type: 3}
+  ID: 0
+  DisplayName: Rose Dagger Seed
+  Description: 
+  Icon: {fileID: 21300000, guid: 121d3b17b31e6b045bf055e14a9595a6, type: 3}
+  MaxStackSize: 10
+  growthDuration: 10
+  PlantGrowthSpriteList:
+  - {fileID: 21300000, guid: 6edf004e1c7a6e945ace06c16100eb2b, type: 3}
+  - {fileID: 21300000, guid: e2b840f86e310b342bd32ab1d05ee224, type: 3}
+  - {fileID: 21300000, guid: 4316d7745aa1e5142a6c4f71a86a7845, type: 3}
+  DropA: {fileID: 7923153364323608396, guid: 21352fe1e1b5cf04ca51d38f721356f0, type: 3}
+  DropB: {fileID: 6438821750549568413, guid: c5012d7ab0853254aa7503c038f11d3c, type: 3}
+  attackDamage: 5
+  reloadTime: 5
+  range: 5
+  currentAmmo: 10
+  maxAmmo: 10
