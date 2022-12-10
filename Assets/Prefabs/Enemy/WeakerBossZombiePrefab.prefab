@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3119095598906566754}
   - component: {fileID: 6662305731484596483}
   - component: {fileID: 5737438826347956191}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4813,7 +4813,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6781011972270164284}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4852,7 +4852,7 @@ GameObject:
   - component: {fileID: 5962133392743378728}
   - component: {fileID: 7710221993298749594}
   - component: {fileID: 6196184554431463294}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4942,7 +4942,7 @@ GameObject:
   - component: {fileID: 7152345283081566378}
   - component: {fileID: 8889916181571280267}
   - component: {fileID: 7483865741584493892}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5017,7 +5017,7 @@ GameObject:
   - component: {fileID: 1518807810467628127}
   - component: {fileID: 729914762865721457}
   - component: {fileID: 497767498348278169}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5092,7 +5092,7 @@ GameObject:
   - component: {fileID: 2195588097779278953}
   - component: {fileID: 1131459724414485397}
   - component: {fileID: 4294887566762605706}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9959,7 +9959,7 @@ GameObject:
   - component: {fileID: 2136524218383154687}
   - component: {fileID: 5410278898099298865}
   - component: {fileID: -6588153881330645867}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WeakerBossZombiePrefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -10140,7 +10140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8218471233983905019}
   - component: {fileID: 5699615078136402169}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5814419460895619723}
   - component: {fileID: 5748813128322625308}
   - component: {fileID: 4512537464419822800}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4871,7 +4871,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1421984128921310839}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4909,7 +4909,7 @@ GameObject:
   - component: {fileID: 1421984129246070473}
   - component: {fileID: 1421984129246070471}
   - component: {fileID: 1421984129246070470}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4985,7 +4985,7 @@ GameObject:
   - component: {fileID: 1421984129552785065}
   - component: {fileID: 1421984129552785067}
   - component: {fileID: 1421984129552785062}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5075,7 +5075,7 @@ GameObject:
   - component: {fileID: 1421984130169896897}
   - component: {fileID: 1421984130169896927}
   - component: {fileID: 1421984130169896926}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5149,7 +5149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1421984130672950311}
   - component: {fileID: 1421984130672950308}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5244,7 +5244,7 @@ GameObject:
   - component: {fileID: 5897616534616090557}
   - component: {fileID: 712952351649271748}
   - component: {fileID: 3776236459057472255}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BossZombiePrefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -5426,7 +5426,7 @@ GameObject:
   - component: {fileID: 2634872703255875592}
   - component: {fileID: 3076120103032844483}
   - component: {fileID: 2922851123391215702}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6736885595940073817}
   - component: {fileID: 3813765609817127480}
   - component: {fileID: 134173885611747819}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4871,7 +4871,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6255961609683679274}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TrapSpawnLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4903,7 +4903,7 @@ GameObject:
   - component: {fileID: 5023683868119978192}
   - component: {fileID: 5023683868119978190}
   - component: {fileID: 5023683868119978191}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9705,7 +9705,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5643699991238243726}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9743,7 +9743,7 @@ GameObject:
   - component: {fileID: 5643699991559857456}
   - component: {fileID: 5643699991559857470}
   - component: {fileID: 5643699991559857471}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9819,7 +9819,7 @@ GameObject:
   - component: {fileID: 5643699991731305808}
   - component: {fileID: 5643699991731305810}
   - component: {fileID: 5643699991731305823}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9909,7 +9909,7 @@ GameObject:
   - component: {fileID: 5643699992221490232}
   - component: {fileID: 5643699992221490214}
   - component: {fileID: 5643699992221490215}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9983,7 +9983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5643699992724545502}
   - component: {fileID: 5643699992724545501}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10079,7 +10079,7 @@ GameObject:
   - component: {fileID: 7507236854825059074}
   - component: {fileID: 3459343978087681570}
   - component: {fileID: 6033390364810337835}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BossSlimePrefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}

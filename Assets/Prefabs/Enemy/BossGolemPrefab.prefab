@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2738791397522384533}
   - component: {fileID: 6253339542256556935}
   - component: {fileID: 3137905560995306641}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 4553207330608552371}
   - component: {fileID: 7251836610647539957}
   - component: {fileID: 301949996228461023}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -884,7 +884,7 @@ GameObject:
   - component: {fileID: 1122501970506096361}
   - component: {fileID: 8080617608080846883}
   - component: {fileID: 6882410055489433652}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1320,7 +1320,7 @@ GameObject:
   - component: {fileID: 2889501953465840856}
   - component: {fileID: 1522398100660053825}
   - component: {fileID: 5258748950236721085}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1756,7 +1756,7 @@ GameObject:
   - component: {fileID: 6260232699251078894}
   - component: {fileID: 3202233860299472189}
   - component: {fileID: 203739544919609595}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2189,7 +2189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5203372111958481541}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2234,7 +2234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7452290899806494881}
   - component: {fileID: 6508258240037952245}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MaxRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2317,7 +2317,7 @@ GameObject:
   - component: {fileID: 4464772528713188484}
   - component: {fileID: 5552887130229760066}
   - component: {fileID: 2747990120396441936}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7180,7 +7180,7 @@ GameObject:
   - component: {fileID: 4173486418359935389}
   - component: {fileID: 4173486418359935391}
   - component: {fileID: 4173486418359935378}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7270,7 +7270,7 @@ GameObject:
   - component: {fileID: 4173486418683427325}
   - component: {fileID: 4173486418683427315}
   - component: {fileID: 4173486418683427314}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7343,7 +7343,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4173486419008252227}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7380,7 +7380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4173486419655688979}
   - component: {fileID: 4173486419655688976}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7476,7 +7476,7 @@ GameObject:
   - component: {fileID: 5267222600606212209}
   - component: {fileID: 5369274323863496917}
   - component: {fileID: 3101838859271896603}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BossGolemPrefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -7636,7 +7636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeStartedLerping: 0
-  lerpTime: 3
+  lerpTime: 1.5
   range: {fileID: 8892358878363348198}
   spike: {fileID: 3199860956785218831}
   maxRange: {fileID: 3819412057554294611}
@@ -7650,10 +7650,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.5051593
+  m_Radius: 0.9160969
   m_Height: 3.7970119
   m_Direction: 1
-  m_Center: {x: 0.020065904, y: -0.122449875, z: 0}
+  m_Center: {x: -0.1397155, y: -0.122449875, z: -0.24221066}
 --- !u!54 &3101838859271896603
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7668,7 +7668,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &4173486420158742772
 GameObject:
@@ -7681,7 +7681,7 @@ GameObject:
   - component: {fileID: 4173486420158742773}
   - component: {fileID: 4173486420158742763}
   - component: {fileID: 4173486420158742762}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7757,7 +7757,7 @@ GameObject:
   - component: {fileID: 4708214346044528587}
   - component: {fileID: 3607768091126727699}
   - component: {fileID: 4123391874030271603}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8192,7 +8192,7 @@ GameObject:
   - component: {fileID: 4753753867836473131}
   - component: {fileID: 4753753867836473141}
   - component: {fileID: 4753753867836473130}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12997,7 +12997,7 @@ GameObject:
   - component: {fileID: 7917380251717704069}
   - component: {fileID: 6842430276557856181}
   - component: {fileID: 2192205791910455924}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13433,7 +13433,7 @@ GameObject:
   - component: {fileID: 6661032327151701629}
   - component: {fileID: 7255575637861863389}
   - component: {fileID: 1043098896731231743}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13448,8 +13448,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6919231233491359823}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.71000004, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalPosition: {x: 0, y: -1.41, z: 0}
+  m_LocalScale: {x: 5.6751604, y: 5.6751604, z: 5.6751604}
   m_Children: []
   m_Father: {fileID: 4173486419658797098}
   m_RootOrder: 4
@@ -13513,7 +13513,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6919231233491359823}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5000001
@@ -13543,7 +13543,7 @@ GameObject:
   - component: {fileID: 8852559548215162893}
   - component: {fileID: 46069500263841157}
   - component: {fileID: 5233217773327912415}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13979,7 +13979,7 @@ GameObject:
   - component: {fileID: 5517132740173011945}
   - component: {fileID: 7763371800853414139}
   - component: {fileID: 1993686240444366941}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14415,7 +14415,7 @@ GameObject:
   - component: {fileID: 8143667884895549077}
   - component: {fileID: 4074685218482975167}
   - component: {fileID: 5374419797505708429}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14851,7 +14851,7 @@ GameObject:
   - component: {fileID: 760480258549997893}
   - component: {fileID: 4556823514091725668}
   - component: {fileID: 3015993340406243905}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15287,7 +15287,7 @@ GameObject:
   - component: {fileID: 6479586324451378411}
   - component: {fileID: 3878748326668075106}
   - component: {fileID: 4688077234265469361}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15723,7 +15723,7 @@ GameObject:
   - component: {fileID: 80429663117178410}
   - component: {fileID: 2945283535305458177}
   - component: {fileID: 2896882886609099049}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16159,7 +16159,7 @@ GameObject:
   - component: {fileID: 5370518007090732789}
   - component: {fileID: 6169827900150286763}
   - component: {fileID: 5548379448835943978}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16593,7 +16593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7448119561692906337}
   - component: {fileID: 3747339633828968368}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackRangeWarning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
