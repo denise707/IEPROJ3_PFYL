@@ -1139,7 +1139,7 @@ MonoBehaviour:
   - "Now, let\u2019s try planting."
   - Use the mouse scroll wheel to change your current equipped item and click the
     left mouse button to use the item.
-  - Try using the hoe to till the soil.
+  - Equip hoe and press left mouse button to till the soil.
   - '-'
   - 'Good job! Now, I gave you a rose seed earlier, right?  '
   - Try using the seed.
@@ -1148,7 +1148,7 @@ MonoBehaviour:
   - Use your watering can to water the plant and wait for it to grow.
   - '-'
   - "Great! You\u2019re a fast learner!"
-  - 'Now, use the hoe to harvest the plant. '
+  - 'Now, press the left mouse button to harvest the plant. '
   - '-'
   - "Wonderful! Now\u2026why don\u2019t you rest for a bit?"
   - Wait until the clock reaches night time. See ya later, boy!
@@ -1163,7 +1163,8 @@ MonoBehaviour:
   - "Why don\u2019t you try shooting some monster with that pistol I gave you?"
   - '-'
   - 'Nice shot! '
-  - "Now\u2026You must kill the monsters before they kill you! Survive until daytime! "
+  - "Now\u2026You must kill the monsters before they kill you! Survive until daytime!
+    Don't worry, you won't die for now!"
   - '-'
   - You are now ready to fight! Take care young lad!
   - "\u2026"
@@ -31847,6 +31848,50 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1377527423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1377527424}
+  - component: {fileID: 1377527425}
+  m_Layer: 0
+  m_Name: Tutorial Debug
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1377527424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377527423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.705406, y: -71.56806, z: 78.235146}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1377527425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377527423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 445565d8b3a44e34a8de87b9124fd7f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nukePlant: {fileID: 1561703828}
 --- !u!1001 &1377733404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35658,6 +35703,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1561703828 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7887015364203892758, guid: cb76d86129464d643a12564bd0c56165, type: 3}
+  m_PrefabInstance: {fileID: 1498507024}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d58d28d28071a54a90a2da8adf367bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1566324649 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 973125805903863521, guid: c0ef8e9ef6a401e468e795cf2c6b609c, type: 3}

@@ -173,4 +173,9 @@ public class NukePlantBehavior : MonoBehaviour
         // Update HP Bar
         GetComponentInChildren<NukeHPBar>().UpdateHPBar(currHealth, maxHealth);
     }
+
+    public void ResetHP()
+    {
+        this.currHealth = this.maxHealth;
+    }
 }

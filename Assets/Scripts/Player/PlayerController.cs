@@ -402,4 +402,10 @@ public class PlayerController : MonoBehaviour
             GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         }
     }
+
+    public void ResetHP()
+    {
+        if(PlayerData.instance.currHP < 70f)
+            PlayerData.instance.currHP = PlayerData.instance.maxHP;
+    }
 }
