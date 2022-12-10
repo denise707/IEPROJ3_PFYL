@@ -71,7 +71,8 @@ public class EquipmentFunction: MonoBehaviour
             }
             else if (CompareName("Machete"))
             {
-                // func
+                animator.SetTrigger("isTriggered");
+
             }
             else if (CompareName("Rose Weapon"))
             {

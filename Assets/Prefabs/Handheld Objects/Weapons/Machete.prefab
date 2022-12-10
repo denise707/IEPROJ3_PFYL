@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1083731018519286614}
   m_Layer: 0
   m_Name: Machete
-  m_TagString: Tool
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ Animator:
   m_GameObject: {fileID: 329703709224659723}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0305717bc968272479741521647a4bf5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 03ea76854f3f8b348bdb6e3330875d32, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -92,8 +92,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6199729862109935939}
-  m_LocalRotation: {x: 0, y: 0, z: -0.3420201, w: 0.9396927}
-  m_LocalPosition: {x: -0.391, y: 0.158, z: 0.154}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: -0.391, y: 0.158, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 7619812897387638317}
@@ -102,7 +102,7 @@ Transform:
   - {fileID: 8262304013079652789}
   m_Father: {fileID: 329703709224659722}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -40}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!1 &8003292996937724092
 GameObject:
   m_ObjectHideFlags: 0
