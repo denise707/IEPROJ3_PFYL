@@ -66,6 +66,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
+  meleeCollider: {fileID: 4427655033589572270}
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 256
   soil: {fileID: 0}
   hover: {fileID: 0}
   usetoolSFX: {fileID: 8300000, guid: 8ec462faa8aa6784588482901ae926f2, type: 3}

@@ -18,6 +18,10 @@ public class EquipmentFunction: MonoBehaviour
     [Header("Data Reference")]
     [SerializeField] InventoryItemData obj;
 
+    [SerializeField] Transform meleeCollider;
+    [SerializeField] LayerMask targetLayer;
+
+
     public Soil soil;
     public HoverBehavior hover;
 
@@ -124,6 +128,15 @@ public class EquipmentFunction: MonoBehaviour
         }
     }
 
+    public void TriggerMachete()
+    {
+        Collider[] colliders = Physics.OverlapSphere(meleeCollider.position, 1f, targetLayer);
+        foreach(Collider  c in colliders)
+        {
+            c.GetComponent<EnemyBehaviour>().ReceiveDamage(WeaponManager.instance.weaponData.attackDamage);
+        }
+    }
+
     public void TriggerHoe()
     {
         if (soil && hover.inRange)
@@ -221,6 +234,13 @@ public class EquipmentFunction: MonoBehaviour
             Debug.Log("did not hit anything");
         }
 
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(.1f, .1f, 1, .1f);
+
+        Gizmos.DrawSphere(meleeCollider.position, 1f);
     }
 
     #region Utility Functions
