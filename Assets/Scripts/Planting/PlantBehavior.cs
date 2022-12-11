@@ -191,7 +191,11 @@ public class PlantBehavior : MonoBehaviour
         for (int i = 0; i < 2; i++)
         {
             GameObject DropObject = (GameObject)Instantiate(DropA_sprt, new Vector3(DropLoc.position.x, DropLoc.position.y, DropLoc.position.z), Quaternion.identity);
-           // DropObject.gameObject.transform.LookAt(Camera.main.transform);
+            if(DropB_sprt != null)
+            {
+                GameObject DropPlant = (GameObject)Instantiate(DropB_sprt, new Vector3(DropLoc.position.x, DropLoc.position.y, DropLoc.position.z), Quaternion.identity);
+            } 
+            // DropObject.gameObject.transform.LookAt(Camera.main.transform);
 
             Debug.Log("Drop items");
         }

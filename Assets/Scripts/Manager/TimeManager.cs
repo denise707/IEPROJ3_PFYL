@@ -101,12 +101,6 @@ public class TimeManager : MonoBehaviour
             InGameUIManager.instance.UpdateDayLabel("Day " + 5);
         }
 
-        //if(day == 3)
-        //{
-        //    shopEnv.SetActive(false);
-        //    store.SetActive(true);
-        //}
-
         if (dayHour == maxHours && currTime == TimeState.DayTime) // set to night when the hours needed is met
         {
             currTime = TimeState.NightTime;
@@ -121,6 +115,7 @@ public class TimeManager : MonoBehaviour
         if (nightHour == maxHours && currTime == TimeState.NightTime) // if total enemy killed == total enemy for a day
         {
             Debug.Log("DAY");
+            PlayerData.instance.Heal();
             currTime = TimeState.DayTime;
             dayHour = 0;
             dayMinute = 0;

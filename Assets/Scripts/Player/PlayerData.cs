@@ -54,4 +54,8 @@ public class PlayerData : MonoBehaviour
         this.GOLD += gold;
         InGameUIManager.instance.UpdateGold();
     }
+    public void Heal()
+    {
+        currHP = maxHP;
+    }
 }
