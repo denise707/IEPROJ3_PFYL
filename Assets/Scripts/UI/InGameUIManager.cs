@@ -9,6 +9,8 @@ using UnityEngine.UI;
 public class InGameUIManager : MonoBehaviour
 {
     public static InGameUIManager instance;
+    public GameObject saveLoadManager;
+
 
     private float accumMins = 0.0f;
 
@@ -40,6 +42,8 @@ public class InGameUIManager : MonoBehaviour
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private GameObject gameWinScreen;
     [SerializeField] private GameObject restartDayConfirmation;
+    [SerializeField] private GameObject saveDataConfirmation;
+
 
     [Header("Sound Files")]
     [SerializeField] private AudioClip buttonSFX;
@@ -67,6 +71,8 @@ public class InGameUIManager : MonoBehaviour
     {
         bulletSlider.maxValue = WeaponManager.instance.reload_time;
         bulletSlider.value = WeaponManager.instance.reload_ticks;
+
+        saveLoadManager = GameObject.Find("SaveLoadManager");
     }
     void Update()
     {
@@ -189,6 +195,11 @@ public class InGameUIManager : MonoBehaviour
         HandlePopUp(mainMenuConfirmation, blocker2);
     }
 
+    public void SaveDataConfirmation()
+    {
+        HandlePopUp(saveDataConfirmation, blocker2);
+    }
+
     public void GameOverScreen()
     {
         HandlePopUp(gameOverScreen, blocker1);
@@ -256,16 +267,23 @@ public class InGameUIManager : MonoBehaviour
         BlockerfadeOut(blocker2);
         if(mainMenuConfirmation.activeSelf)
             mainMenuConfirmation.SetActive(false);
-        else
+        else if(restartDayConfirmation.activeSelf)
         {
             restartDayConfirmation.SetActive(false);
+        }
+        else if(saveDataConfirmation.activeSelf)
+        {
+            HandlePopUp(saveDataConfirmation, blocker2);
         }
     }
     public void ReturnToMainMenu()
     {
+        Destroy(saveLoadManager);
+
         Time.timeScale = 1;
         AudioManager.instance.StopBGM();
         AudioManager.instance.ChangeBGMClip(mainMenuBGM);
+
         SceneManager.LoadScene("Main Menu");
     }
 

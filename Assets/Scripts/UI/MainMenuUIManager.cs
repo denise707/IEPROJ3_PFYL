@@ -18,6 +18,7 @@ public class MainMenuUIManager : MonoBehaviour
     [SerializeField] private GameObject playTutorialConfirmation;
     [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject exitGameConfirmation;
+    [SerializeField] private GameObject deleteSaveConfirmation;
 
     [Header("Sound Files")] [SerializeField]
     private AudioClip buttonSFX;
@@ -70,6 +71,11 @@ public class MainMenuUIManager : MonoBehaviour
     public void ExitGameConfirmation()
     {
         HandlePopUp(exitGameConfirmation, blocker1);
+    }
+
+    public void DeleteSaveConfirmation()
+    {
+        HandlePopUp(deleteSaveConfirmation, blocker1);
     }
 
     public void OpenMainLevel(int levelIndex)
