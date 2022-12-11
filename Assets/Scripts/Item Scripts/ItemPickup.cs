@@ -5,36 +5,36 @@ using UnityEngine;
 /*[RequireComponent(typeof(SphereCollider))]
 [RequireComponent(typeof(SphereCollider))]*/
 
-[RequireComponent(typeof(UniqueID))]
+//[RequireComponent(typeof(UniqueID))]
 public class ItemPickup : MonoBehaviour
 {
     public float PickupRadius = 1f;
     public InventoryItemData ItemData;
 
-    [SerializeField] private ItemPickUpSaveData itemSaveData;
-    private string id;
+    //[SerializeField] private ItemPickUpSaveData itemSaveData;
+    //private string id;
 
     private void Awake()
     {
-        id = GetComponent<UniqueID>().ID;
-        SaveLoad.OnLoadGame += LoadGame;
-        itemSaveData = new ItemPickUpSaveData(ItemData, transform.position, transform.rotation);
+        //id = GetComponent<UniqueID>().ID;
+        //SaveLoad.OnLoadGame += LoadGame;
+        //itemSaveData = new ItemPickUpSaveData(ItemData, transform.position, transform.rotation);
     }
 
     private void Start()
     {
-        SaveGameManager.data.activeItems.Add(id, itemSaveData);
+        //SaveGameManager.data.activeItems.Add(id, itemSaveData);
     }
 
-    private void LoadGame(SaveData data)
+    /*private void LoadGame(SaveData data)
     {
         if (data.collectedItems.Contains(id)) Destroy(this.gameObject);
-    }
+    }*/
 
     private void OnDestroy()
     {
-        if (SaveGameManager.data.activeItems.ContainsKey(id)) SaveGameManager.data.activeItems.Remove(id);
-        SaveLoad.OnLoadGame -= LoadGame;
+        //if (SaveGameManager.data.activeItems.ContainsKey(id)) SaveGameManager.data.activeItems.Remove(id);
+        //SaveLoad.OnLoadGame -= LoadGame;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -50,7 +50,7 @@ public class ItemPickup : MonoBehaviour
     }
 }
 
-[System.Serializable]
+/*[System.Serializable]
 public struct ItemPickUpSaveData
 {
     public InventoryItemData ItemData;
@@ -63,4 +63,4 @@ public struct ItemPickUpSaveData
         Position = _position;
         Rotation = _rotation;
     }
-}
+}*/
