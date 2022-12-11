@@ -10,6 +10,7 @@ public class SaveData
     public SerializableDictionary<string, InventorySaveData> chestDictionary;
 
     public InventorySaveData playerInventory;
+    public TimeSaveData time;
 
     public SaveData()
     {
@@ -17,5 +18,6 @@ public class SaveData
         //activeItems = new SerializableDictionary<string, ItemPickUpSaveData>();
         chestDictionary = new SerializableDictionary<string, InventorySaveData>();
         playerInventory = new InventorySaveData();
+        time = new TimeSaveData();
     }
 }
