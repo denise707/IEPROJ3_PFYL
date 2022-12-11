@@ -141,8 +141,8 @@ public class TimeManager : MonoBehaviour
     private void PlayDayTicks()
     {
         dayMinute += Time.deltaTime * TIME_MULTIPLIER; //2f; Note: Use 30f for debugging 
-        LightManager.instance.elapsedTime = dayMinute;
-        LightManager.instance.lerpDuration = maxMins;
+        LightManager.instance.elapsedTime += Time.deltaTime* TIME_MULTIPLIER;
+        LightManager.instance.lerpDuration = maxMins * (maxHours/2);
     }
 
     private void UpdateDayTime()
@@ -164,8 +164,8 @@ public class TimeManager : MonoBehaviour
     private void PlayNightTicks()
     {
         nightMinute += Time.deltaTime * TIME_MULTIPLIER; //2f; Note: Use 30f for debugging 
-        LightManager.instance.elapsedTime = nightMinute;
-        LightManager.instance.lerpDuration = maxMins;
+        LightManager.instance.elapsedTime += Time.deltaTime * TIME_MULTIPLIER;
+        LightManager.instance.lerpDuration = (maxMins * maxHours);
     }
 
     private void UpdateNightTime()

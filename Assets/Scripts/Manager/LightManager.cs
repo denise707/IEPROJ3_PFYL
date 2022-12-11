@@ -59,7 +59,7 @@ public class LightManager : MonoBehaviour
       {
         if (elapsedTime > lerpDuration)
         {
-            //Debug.Log("skip: " + interpolation);
+            Debug.Log("skip: " + lerpDuration);
             NextLightSequence();
             elapsedTime = 0;
             interpolation = 0;
