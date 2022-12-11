@@ -22,6 +22,9 @@ public class InGameUIManager : MonoBehaviour
     [SerializeField] Slider hpBar;
     [SerializeField] Text goldLabel;
 
+    [Header("Credits")]
+    [SerializeField] private GameObject creditsScene;
+
     [SerializeField] Slider bulletSlider;
     [SerializeField] Text bulletLabel;
 
@@ -203,6 +206,17 @@ public class InGameUIManager : MonoBehaviour
         HandlePopUp(restartDayConfirmation, blocker2);
     }
 
+    public void Credits()
+    {
+        Time.timeScale = 1;
+        creditsScene.SetActive(true);
+        StartCoroutine(WaitForMenu());
+    }
+    IEnumerator WaitForMenu()
+    {
+        yield return new WaitForSeconds(4.0f);
+        ReturnToMainMenu();
+    }
     public void RestartDay()
     {
         HandlePopUp(restartDayConfirmation, blocker2);

@@ -15494,7 +15494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: Weaker Boss Golem
   maxHealth: 130
-  atkDamage: 70
+  atkDamage: 15
   gold: 100
   DROP_RATE: 60
   dropCopy: {fileID: 3614919355514719221, guid: 231540f3c16b5184facc529d94de4638, type: 3}

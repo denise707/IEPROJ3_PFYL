@@ -472,7 +472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: Slime
   maxHealth: 70
-  atkDamage: 70
+  atkDamage: 8
   gold: 50
   DROP_RATE: 30
   dropCopy: {fileID: 7882369244327641178, guid: 110a3b0d19957084ea42a138ee0cdaa2, type: 3}
