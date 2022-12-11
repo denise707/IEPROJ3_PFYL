@@ -94,10 +94,14 @@ public class EquipmentFunction: MonoBehaviour
         else if (type == EquipmentType.Tool) // tools
         {
             GetSoilandHover();
-            if(hover.inRange)
+            if (hover)
             {
-                animator.SetTrigger("isTriggered");
+                if (hover.inRange)
+                {
+                    animator.SetTrigger("isTriggered");
+                }
             }
+            
         }
         else if (type == EquipmentType.Plant) // tools
         {
