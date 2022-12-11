@@ -12,8 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad30aaa24cec532419b790b24b8d8c88, type: 3}
   m_Name: Potato
   m_EditorClassIdentifier: 
-  ID: 0
+  itemType: 0
+  prefab: {fileID: 0}
+  ID: 2
   DisplayName: Potato
   Description: This is a potato
   Icon: {fileID: -6160415447981303602, guid: 4202621dfadeb95459582c3a9d6b511e, type: 3}
   MaxStackSize: 1
+  growthDuration: 5
+  PlantGrowthSpriteList: []
+  DropA: {fileID: 0}
+  DropB: {fileID: 0}
+  attackDamage: 5
+  reloadTime: 5
+  range: 5
+  currentAmmo: 10
+  maxAmmo: 10

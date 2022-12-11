@@ -5586,6 +5586,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 759364882}
     m_Modifications:
+    - target: {fileID: -6250023283257032630, guid: c80fb7aa8db2ca24fa8fa36eea1cd575, type: 3}
+      propertyPath: _id
+      value: 55c456a0-9fdf-42c7-95bc-aae8a7b9625e
+      objectReference: {fileID: 0}
     - target: {fileID: 703351452540971277, guid: c80fb7aa8db2ca24fa8fa36eea1cd575, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -5976,6 +5980,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 759364882}
     m_Modifications:
+    - target: {fileID: -6250023283257032630, guid: 362e5c02840b0d640ae6e93f3846d57a, type: 3}
+      propertyPath: _id
+      value: e7cf4ac3-a75c-4fec-98d2-065ad222b8b9
+      objectReference: {fileID: 0}
     - target: {fileID: 2164454373428192872, guid: 362e5c02840b0d640ae6e93f3846d57a, type: 3}
       propertyPath: m_Name
       value: Watering Can_Drop
@@ -11037,6 +11045,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 759364882}
     m_Modifications:
+    - target: {fileID: -6250023283257032630, guid: a3c44f0a12cd86b40b71c421b7d6a1a0, type: 3}
+      propertyPath: _id
+      value: 247311a7-8e12-47a6-b96e-64559bc8342b
+      objectReference: {fileID: 0}
     - target: {fileID: 2164454373428192872, guid: a3c44f0a12cd86b40b71c421b7d6a1a0, type: 3}
       propertyPath: m_Name
       value: Pistol_Drop
@@ -16571,6 +16583,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7758365306569717431, guid: 60cfcbf581e07b94aa7d40655705be75, type: 3}
+      propertyPath: _id
+      value: 544a1e85-6205-4542-b747-790f26d55fb6
+      objectReference: {fileID: 0}
     - target: {fileID: 8298494414922609504, guid: 60cfcbf581e07b94aa7d40655705be75, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -32338,6 +32354,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1989012373, guid: e505243def12dc54f93a7ace306a961c, type: 3}
+      propertyPath: inventorySize
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5079493008729250810, guid: e505243def12dc54f93a7ace306a961c, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -35226,6 +35246,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6070634706157864233, guid: 21352fe1e1b5cf04ca51d38f721356f0, type: 3}
+      propertyPath: _id
+      value: a0a3b6c1-04e4-4c7e-9b4f-0e0e87a446f0
+      objectReference: {fileID: 0}
     - target: {fileID: 7923153364323608396, guid: 21352fe1e1b5cf04ca51d38f721356f0, type: 3}
       propertyPath: m_Name
       value: RoseSeed_Drop (1)
@@ -35900,6 +35924,10 @@ PrefabInstance:
     - target: {fileID: 2069932421340380753, guid: 21352fe1e1b5cf04ca51d38f721356f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070634706157864233, guid: 21352fe1e1b5cf04ca51d38f721356f0, type: 3}
+      propertyPath: _id
+      value: f8b506df-601c-49bc-9733-7c099898d5cb
       objectReference: {fileID: 0}
     - target: {fileID: 7923153364323608396, guid: 21352fe1e1b5cf04ca51d38f721356f0, type: 3}
       propertyPath: m_Name
@@ -45990,6 +46018,18 @@ MonoBehaviour:
   eulerAngY: 0
   eulerAngZ: 0
   clock: {fileID: 2064302229}
+--- !u!114 &1522052267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522052259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf7a317f4de77e48bea4af6c9efca57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1522091829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54948,6 +54988,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6702208999154928456, guid: d2d913789eebf624b83b141cf47886ae, type: 3}
+      propertyPath: _id
+      value: 1597a217-cfec-4fd2-a604-a67f62c70d58
+      objectReference: {fileID: 0}
     - target: {fileID: 1836646002633368110, guid: d2d913789eebf624b83b141cf47886ae, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -64493,6 +64537,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2653570614913050905, guid: e9f25702b2066f24895b3544284e944a, type: 3}
+      propertyPath: _id
+      value: 225470bb-63bf-448c-9724-79508e41b6b5
+      objectReference: {fileID: 0}
     - target: {fileID: 7969158283838667199, guid: e9f25702b2066f24895b3544284e944a, type: 3}
       propertyPath: m_IsActive
       value: 0
