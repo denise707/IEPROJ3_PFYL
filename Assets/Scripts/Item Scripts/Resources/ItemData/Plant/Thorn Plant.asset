@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   prefab: {fileID: 2226622564852972321, guid: 109a4f9ffec57de4397e37d3c1ed60bd, type: 3}
-  ID: 0
+  ID: 4
   DisplayName: Thorn Bush
   Description: 
   Icon: {fileID: 21300000, guid: 18fda32886fab3846acca0e28068d1a6, type: 3}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   prefab: {fileID: 5968358697786280994, guid: 670b6c3352887a047b0d3d27b4f9aa9b, type: 3}
-  ID: 1
+  ID: 0
   DisplayName: Cabbage Bomb Seed
   Description: 
   Icon: {fileID: 21300000, guid: 28e143c1958c4e94298e6353e263b196, type: 3}
