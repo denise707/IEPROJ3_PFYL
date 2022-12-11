@@ -12,7 +12,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private float maxHealth = 50f;
     [SerializeField] public float atkDamage = 0f;
     [SerializeField] private int gold = 0;
-    private const int ATTACK_PLANT_CHANCE = 10;
+    private int ATTACK_PLANT_CHANCE = 20;
     public int DROP_RATE = 30;
     private string target = "Player";
     [SerializeField] private GameObject dropCopy;
@@ -68,6 +68,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void SelectTarget()
     {
+        IncreasePlantAttackChance();
         int chance = Random.Range(1, 100);
         if (chance <= ATTACK_PLANT_CHANCE)
         {
@@ -75,6 +76,18 @@ public class EnemyBehaviour : MonoBehaviour
         }
         else {
             target = "Player";
+        }
+    }
+
+    private void IncreasePlantAttackChance()
+    {
+        switch (TimeManager.instance.day)
+        {
+            case 1: ATTACK_PLANT_CHANCE = 20; break;
+            case 2: ATTACK_PLANT_CHANCE = 30; break;
+            case 3: ATTACK_PLANT_CHANCE = 40; break;
+            case 4: ATTACK_PLANT_CHANCE = 50; break;
+            case 5: ATTACK_PLANT_CHANCE = 60; break;
         }
     }
 
