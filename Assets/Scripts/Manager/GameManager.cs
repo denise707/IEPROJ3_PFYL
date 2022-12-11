@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
 
 
 
-
     private void Awake()
     {
         if (instance == null)
@@ -54,6 +53,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
+    }
+
+    private void Start()
+    {
+        if(SaveGameManager.isLoad)
+            SaveGameManager.TryLoadData();
     }
 
     void Update()
