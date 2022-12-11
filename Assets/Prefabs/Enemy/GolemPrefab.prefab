@@ -5415,6 +5415,7 @@ GameObject:
   - component: {fileID: 6282005633587374470}
   - component: {fileID: 1317985840711668437}
   - component: {fileID: 4993232147031837448}
+  - component: {fileID: 6834512353419477547}
   m_Layer: 8
   m_Name: GolemPrefab
   m_TagString: Enemy
@@ -5608,6 +5609,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &6834512353419477547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7706898509311815282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6500f1735d7a3bf4a8753725300da8ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8449073609112972452
 GameObject:
   m_ObjectHideFlags: 0

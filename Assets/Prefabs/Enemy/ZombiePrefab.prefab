@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 8632419095051335147}
   - component: {fileID: 6089489317430812411}
   - component: {fileID: 6889303476803767817}
+  - component: {fileID: 4718243288018586965}
   m_Layer: 8
   m_Name: ZombiePrefab
   m_TagString: Enemy
@@ -307,6 +308,7 @@ MonoBehaviour:
   maxHealth: 50
   atkDamage: 10
   gold: 50
+  DROP_RATE: 30
   dropCopy: {fileID: 7923153364323608396, guid: 21352fe1e1b5cf04ca51d38f721356f0, type: 3}
   currState: 0
   spawnVFX: {fileID: 6218200324367903362, guid: 6d411af8f532fa041a7e24639d7d2ad3, type: 3}
@@ -387,6 +389,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &4718243288018586965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5579977063640292523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6500f1735d7a3bf4a8753725300da8ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5579977063651618701
 GameObject:
   m_ObjectHideFlags: 0

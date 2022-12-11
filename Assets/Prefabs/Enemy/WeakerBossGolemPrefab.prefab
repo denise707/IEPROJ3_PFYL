@@ -15400,6 +15400,7 @@ GameObject:
   - component: {fileID: 5472782301712225005}
   - component: {fileID: 8257090573520962750}
   - component: {fileID: 5916375308637457476}
+  - component: {fileID: 4313134732528388555}
   m_Layer: 8
   m_Name: WeakerBossGolemPrefab
   m_TagString: Enemy
@@ -15595,6 +15596,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &4313134732528388555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7351023795395169326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6500f1735d7a3bf4a8753725300da8ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7351023795818006368
 GameObject:
   m_ObjectHideFlags: 0

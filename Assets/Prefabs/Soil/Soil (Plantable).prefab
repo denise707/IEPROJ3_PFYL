@@ -5136,6 +5136,7 @@ GameObject:
   - component: {fileID: 3537900791971114555}
   - component: {fileID: 2931149664230067190}
   - component: {fileID: 1126298033337745121}
+  - component: {fileID: 704927414374756834}
   m_Layer: 0
   m_Name: PlantSprite
   m_TagString: Plant
@@ -5253,6 +5254,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &704927414374756834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6849378973067579646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6500f1735d7a3bf4a8753725300da8ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7163257390012832332
 GameObject:
   m_ObjectHideFlags: 0
