@@ -9,7 +9,7 @@ public class ZombieAttack : MonoBehaviour
     private EnemyBehaviour enemyBehaviour;
 
     private float ticks = 0f;
-    const float ATTACK_INTERVAL = 0.5f;
+    const float ATTACK_INTERVAL = 1.5f;
 
     [Header("Sound Files")] 
     [SerializeField] private AudioClip attackSFX;

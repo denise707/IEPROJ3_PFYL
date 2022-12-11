@@ -8,6 +8,7 @@ public class CabbageBomb : MonoBehaviour
     [SerializeField] GameObject mark;
     List<EnemyBehaviour> trackedEnemies = new List<EnemyBehaviour>();
     [SerializeField] GameObject vfx;
+    [SerializeField] AudioClip bombSfx;
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -35,6 +36,7 @@ public class CabbageBomb : MonoBehaviour
         {
             trackedEnemies[i].ReceiveDamage(CombatManager.instance.damage);
         }
+        AudioManager.instance.PlaySFX(bombSfx);
         Destroy(parent, 0.2f);
     }
 }

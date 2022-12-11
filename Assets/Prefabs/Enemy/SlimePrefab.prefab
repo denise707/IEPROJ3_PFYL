@@ -473,7 +473,8 @@ MonoBehaviour:
   maxHealth: 70
   atkDamage: 70
   gold: 50
-  dropCopy: {fileID: 7923153364323608396, guid: 21352fe1e1b5cf04ca51d38f721356f0, type: 3}
+  DROP_RATE: 30
+  dropCopy: {fileID: 7882369244327641178, guid: 110a3b0d19957084ea42a138ee0cdaa2, type: 3}
   currState: 0
   spawnVFX: {fileID: 6218200324367903362, guid: 6d411af8f532fa041a7e24639d7d2ad3, type: 3}
   attackVFX: {fileID: 2573766368864417822, guid: 3c02283098997af40a9405503dc0080b, type: 3}

@@ -73,14 +73,14 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
-        if ((currentDay == 3 || currentDay == 5) && !hasGrown)
-        {
-            nukeplant.NextPlantPhase();
-            hasGrown = true;
-        }
-        else if ((currentDay != 3 && currentDay != 5) && hasGrown)
-        {
-            hasGrown = false;
-        }
+        //if ((currentDay == 3 || currentDay == 5) && !hasGrown)
+        //{
+        //    nukeplant.NextPlantPhase();
+        //    hasGrown = true;
+        //}
+        //else if ((currentDay != 3 && currentDay != 5) && hasGrown)
+        //{
+        //    hasGrown = false;
+        //}
     }
 }

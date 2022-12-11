@@ -7,6 +7,11 @@ public class EnemyIntroduction : MonoBehaviour
     [SerializeField] GameObject zombieIntro;
     [SerializeField] GameObject golemIntro;
     [SerializeField] GameObject slimeIntro;
+
+    [SerializeField] GameObject roseIntro;
+    [SerializeField] GameObject bombIntro;
+    [SerializeField] GameObject thornIntro;
+
     bool displayed = false;
 
     private void Update()
@@ -18,17 +23,17 @@ public class EnemyIntroduction : MonoBehaviour
                 case 1:
                     zombieIntro.SetActive(true);
                     displayed = true;
-                    StartCoroutine(RemoveInfo(zombieIntro));
+                    StartCoroutine(RemoveInfo(zombieIntro, roseIntro));
                     break;
                 case 2:
                     golemIntro.SetActive(true);
                     displayed = true;
-                    StartCoroutine(RemoveInfo(golemIntro));
+                    StartCoroutine(RemoveInfo(golemIntro, bombIntro));
                     break;
                 case 3:
                     slimeIntro.SetActive(true);
                     displayed = true;
-                    StartCoroutine(RemoveInfo(slimeIntro));
+                    StartCoroutine(RemoveInfo(slimeIntro, thornIntro));
                     break;
             }
         }
@@ -39,9 +44,17 @@ public class EnemyIntroduction : MonoBehaviour
         }
     }
 
-    IEnumerator RemoveInfo(GameObject info)
+    IEnumerator RemoveInfo(GameObject info, GameObject plant)
     {
         yield return new WaitForSeconds(3f);
         info.SetActive(false);
+        plant.SetActive(true);
+        StartCoroutine(RemovePlantInfo(plant));
+    }
+
+    IEnumerator RemovePlantInfo(GameObject plant)
+    {
+        yield return new WaitForSeconds(3f);
+        plant.SetActive(false);
     }
 }

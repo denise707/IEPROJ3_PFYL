@@ -39,19 +39,19 @@ public class NukePlantBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (plantToGrow)
-        {
-            PlantSeed(plantToGrow);
-        }
+        //if (plantToGrow)
+        //{
+        //    PlantSeed(plantToGrow);
+        //}
 
-        soil = gameObject.GetComponentInParent<Soil>();
-        animator = gameObject.GetComponent<Animator>();
+        //soil = gameObject.GetComponentInParent<Soil>();
+        //animator = gameObject.GetComponent<Animator>();
 
-        if (!animator)
-        {
-            Debug.Log("Cannot Find animator");
-        }
-
+        //if (!animator)
+        //{
+        //    Debug.Log("Cannot Find animator");
+        //}
+        this.GrowthSpriteList = plantToGrow.PlantGrowthSpriteList;
         currHealth = maxHealth;
         GetComponentInChildren<NukeHPBar>().UpdateHPBar(currHealth, maxHealth);
     }
@@ -59,10 +59,18 @@ public class NukePlantBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (simulateGrowth && !isGrowing)
+        //if (simulateGrowth && !isGrowing)
+        //{
+        //    EnablePlantGrowth();
+        //    isGrowing = true;
+        //}
+        switch (TimeManager.instance.day)
         {
-            EnablePlantGrowth();
-            isGrowing = true;
+            case 1: this.gameObject.GetComponent<SpriteRenderer>().sprite = GrowthSpriteList[0]; break;
+            case 2: this.gameObject.GetComponent<SpriteRenderer>().sprite = GrowthSpriteList[1]; break;
+            case 3: this.gameObject.GetComponent<SpriteRenderer>().sprite = GrowthSpriteList[2]; break;
+            case 4: this.gameObject.GetComponent<SpriteRenderer>().sprite = GrowthSpriteList[3]; break;
+            case 5: this.gameObject.GetComponent<SpriteRenderer>().sprite = GrowthSpriteList[4]; break;
         }
     }
 
@@ -86,36 +94,36 @@ public class NukePlantBehavior : MonoBehaviour
 
         }
 
-    public void NextPlantPhase()
-    {
-        if (phase >= GrowthSpriteList.Count)
-        {
-            return;
-            Debug.Log("Fully Grown");
-        }
-        phase++;
-        Debug.Log(phase);
+    //public void NextPlantPhase()
+    //{
+    //    if (phase >= GrowthSpriteList.Count)
+    //    {
+    //        return;
+    //        Debug.Log("Fully Grown");
+    //    }
+    //    phase++;
+    //    Debug.Log(phase);
 
 
-        if (phase == 1)
-        {
-            this.gameObject.transform.localPosition = gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, 0.80f, gameObject.transform.localPosition.z);
-            plantStatus = PlantPhase.Phase2_MidGrown;
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = GrowthSpriteList[phase];
+    //    if (phase == 1)
+    //    {
+    //        this.gameObject.transform.localPosition = gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, 0.80f, gameObject.transform.localPosition.z);
+    //        plantStatus = PlantPhase.Phase2_MidGrown;
+    //        this.gameObject.GetComponent<SpriteRenderer>().sprite = GrowthSpriteList[phase];
 
-        }
-        else if (phase == 2)
-        {
-            plantStatus = PlantPhase.Phase3_FullyGrown;
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = GrowthSpriteList[phase];
+    //    }
+    //    else if (phase == 2)
+    //    {
+    //        plantStatus = PlantPhase.Phase3_FullyGrown;
+    //        this.gameObject.GetComponent<SpriteRenderer>().sprite = GrowthSpriteList[phase];
 
-            PrepareForHarvest();
+    //        PrepareForHarvest();
 
-            isGrowing = false;
-            simulateGrowth = false;
-        }
+    //        isGrowing = false;
+    //        simulateGrowth = false;
+    //    }
         
-    }
+    //}
 
     void PrepareForHarvest()
     {
