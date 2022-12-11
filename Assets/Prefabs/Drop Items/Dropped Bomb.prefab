@@ -112,6 +112,7 @@ MonoBehaviour:
   parent: {fileID: 6791716407569372714}
   mark: {fileID: 7555796759511973953}
   vfx: {fileID: 7906390092885007720}
+  bombSfx: {fileID: 8300000, guid: 11f679805cd763b438d885439bffb869, type: 3}
 --- !u!1 &6791716407569372714
 GameObject:
   m_ObjectHideFlags: 0
