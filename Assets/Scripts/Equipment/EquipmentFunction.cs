@@ -239,8 +239,8 @@ public class EquipmentFunction: MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = new Color(.1f, .1f, 1, .1f);
-
-        Gizmos.DrawSphere(meleeCollider.position, 1f);
+        if (meleeCollider)
+            Gizmos.DrawSphere(meleeCollider.position, 1f);
     }
 
     #region Utility Functions
