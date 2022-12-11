@@ -88,4 +88,9 @@ public class GameManager : MonoBehaviour
         //    hasGrown = false;
         //}
     }
+
+    public void TrySaveGame()
+    {
+        SaveGameManager.SaveData();
+    }
 }
