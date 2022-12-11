@@ -165,7 +165,7 @@ public class TimeManager : MonoBehaviour
     {
         nightMinute += Time.deltaTime * TIME_MULTIPLIER; //2f; Note: Use 30f for debugging 
         LightManager.instance.elapsedTime += Time.deltaTime * TIME_MULTIPLIER;
-        LightManager.instance.lerpDuration = (maxMins * maxHours);
+        LightManager.instance.lerpDuration = maxMins * (maxHours/2);
     }
 
     private void UpdateNightTime()
