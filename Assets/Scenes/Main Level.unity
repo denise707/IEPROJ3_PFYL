@@ -18607,7 +18607,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1522052267}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SaveGameManager, Assembly-CSharp
         m_MethodName: SaveData
         m_Mode: 1
@@ -46466,18 +46466,6 @@ MonoBehaviour:
   eulerAngY: 0
   eulerAngZ: 0
   clock: {fileID: 2064302229}
---- !u!114 &1522052267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522052259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf7a317f4de77e48bea4af6c9efca57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1522091829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55579,7 +55567,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1522052267}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SaveGameManager, Assembly-CSharp
         m_MethodName: DeleteData
         m_Mode: 1
@@ -60802,7 +60790,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1522052267}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SaveGameManager, Assembly-CSharp
         m_MethodName: TryLoadData
         m_Mode: 1
