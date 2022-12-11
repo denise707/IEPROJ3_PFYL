@@ -30802,7 +30802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445565d8b3a44e34a8de87b9124fd7f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nukePlant: {fileID: 0}
+  nukePlant: {fileID: 1537425039}
 --- !u!1001 &1378420768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33938,6 +33938,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1537425039 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7887015364203892758, guid: cb76d86129464d643a12564bd0c56165, type: 3}
+  m_PrefabInstance: {fileID: 892250066}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d58d28d28071a54a90a2da8adf367bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1537477596
 PrefabInstance:
   m_ObjectHideFlags: 0
