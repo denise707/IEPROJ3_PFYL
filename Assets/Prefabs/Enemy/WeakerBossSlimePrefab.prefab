@@ -349,7 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: Weaker Boss Slime
   maxHealth: 100
-  atkDamage: 80
+  atkDamage: 12
   gold: 100
   DROP_RATE: 60
   dropCopy: {fileID: 7882369244327641178, guid: 110a3b0d19957084ea42a138ee0cdaa2, type: 3}

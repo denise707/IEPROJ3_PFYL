@@ -10170,7 +10170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: Boss Slime
   maxHealth: 500
-  atkDamage: 150
+  atkDamage: 25
   gold: 200
   DROP_RATE: 100
   dropCopy: {fileID: 7882369244327641178, guid: 110a3b0d19957084ea42a138ee0cdaa2, type: 3}

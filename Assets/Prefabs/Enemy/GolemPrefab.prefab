@@ -5507,7 +5507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: Golem
   maxHealth: 100
-  atkDamage: 50
+  atkDamage: 10
   gold: 50
   DROP_RATE: 30
   dropCopy: {fileID: 3614919355514719221, guid: 231540f3c16b5184facc529d94de4638, type: 3}
