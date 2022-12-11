@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   prefab: {fileID: 1661777123652080288, guid: f177fb8dc42dc114697ed96a1a5961ac, type: 3}
-  ID: 0
+  ID: 3
   DisplayName: Rose Dagger Seed
   Description: 
   Icon: {fileID: 21300000, guid: 121d3b17b31e6b045bf055e14a9595a6, type: 3}

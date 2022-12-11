@@ -44,15 +44,15 @@ public class InventoryUIController : MonoBehaviour
         }
     }
 
-    void DisplayInventory(InventorySystem invToDisplay)
+    void DisplayInventory(InventorySystem invToDisplay, int offset)
     {
         chestPanel.gameObject.SetActive(true);
-        chestPanel.RefreshDynamicInventory(invToDisplay);
+        chestPanel.RefreshDynamicInventory(invToDisplay, offset);
     }
 
-    void DisplayPlayerBackpack(InventorySystem invToDisplay)
+    void DisplayPlayerBackpack(InventorySystem invToDisplay, int offset)
     {
         playerBackpackPanel.gameObject.SetActive(true);
-        playerBackpackPanel.RefreshDynamicInventory(invToDisplay);
+        playerBackpackPanel.RefreshDynamicInventory(invToDisplay, offset);
     }
 }

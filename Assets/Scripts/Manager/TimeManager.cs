@@ -46,6 +46,8 @@ public class TimeManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        SaveLoad.OnLoadGame += LoadTime;
     }
 
     void Start()
@@ -56,6 +58,16 @@ public class TimeManager : MonoBehaviour
         //shopEnv.SetActive(true);
         if(store!= null)
         store.SetActive(false);
+
+        var timeSaveData = new TimeSaveData(day);
+        SaveGameManager.data.time = timeSaveData;
+    }
+
+    private void LoadTime(SaveData data)
+    {
+        day = data.time.day;
+        UpdateTimeState();
+        //idk if theres anything else to put here
     }
 
     void Update()
@@ -180,5 +192,16 @@ public class TimeManager : MonoBehaviour
     public float MaxHoursTimesMaxMins()
     {
         return maxHours * maxMins;
+    }
+}
+
+[System.Serializable]
+public struct TimeSaveData
+{
+    public int day;
+
+    public TimeSaveData(int _day)
+    {
+        day = _day;
     }
 }

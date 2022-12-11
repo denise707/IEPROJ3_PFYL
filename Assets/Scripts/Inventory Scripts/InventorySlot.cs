@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class InventorySlot
+public class InventorySlot : ISerializationCallbackReceiver
 {
     [SerializeField] private InventoryItemData itemData; //Reference to the data
+    [SerializeField] private int _itemID = -1;
     [SerializeField] private int stackSize; // Current stack size - how many of the data do we have?
 
     public InventoryItemData ItemData => itemData;
@@ -14,6 +15,7 @@ public class InventorySlot
     public InventorySlot(InventoryItemData source, int amount) // Constructor to make an occupied inventory slot.
     {
         itemData = source;
+        _itemID = itemData.ID;
         stackSize = amount;
     }
 
@@ -25,6 +27,7 @@ public class InventorySlot
     public void ClearSlot() // Clears the slot
     {
         itemData = null;
+        _itemID = -1;
         stackSize = -1;
     }
 
@@ -34,6 +37,7 @@ public class InventorySlot
         else // Overwrite slot with the inventory slot that we're passing in.
         {
             itemData = invSlot.itemData;
+            _itemID = itemData.ID;
             stackSize = 0;
             AddToStack(invSlot.stackSize);
         }
@@ -42,6 +46,7 @@ public class InventorySlot
     public void UpdateInventorySlot(InventoryItemData data, int amount) // Updates slot directly.
     {
         itemData = data;
+        _itemID = itemData.ID;
         stackSize = amount;
     }
 
@@ -80,5 +85,18 @@ public class InventorySlot
 
         splitStack = new InventorySlot(itemData, halfStack); // Creates a copy of this slot with half the stack size.
         return true;
+    }
+
+    public void OnBeforeSerialize()
+    {
+
+    }
+
+    public void OnAfterDeserialize()
+    {
+        if (_itemID == -1) return;
+
+        var db = Resources.Load<Database>("Database");
+        itemData = db.GetItem(_itemID);
     }
 }
