@@ -10,7 +10,10 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (cam == null)
+        {
+            cam = Camera.main;
+        }
     }
 
     // Update is called once per frame
