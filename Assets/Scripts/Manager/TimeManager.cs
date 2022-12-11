@@ -24,12 +24,6 @@ public class TimeManager : MonoBehaviour
 
     private float TIME_MULTIPLIER = 2.0f; // --- 60.0f for debugging --- 2.0f normal ---
 
-    [Header("Light")]
-    [SerializeField] private Light directionalLight;
-    [SerializeField] private Color morningColor;
-    [SerializeField] private Color nightColor;
-    [SerializeField] private GameObject nightPPE;
-
     [Header("Sound Files")] 
     [SerializeField] private AudioClip dayBGM;
     [SerializeField] private AudioClip nightBGM;
@@ -57,8 +51,6 @@ public class TimeManager : MonoBehaviour
     void Start()
     {
         currTime = TimeState.DayTime;
-        morningColor = new Color(0.8588f, 0.8392f, 1);
-        nightColor = new Color(0.101f, 0.0682f, 0.24528f);
         AudioManager.instance.ChangeBGMClip(dayBGM);
         AudioManager.instance.PlayBGM();
         //shopEnv.SetActive(true);
@@ -109,7 +101,7 @@ public class TimeManager : MonoBehaviour
             AudioManager.instance.ChangeBGMClip(nightBGM);
             AudioManager.instance.PlaySFX(nightTransition);
             StartCoroutine("StartBGM");
-            nightPPE.SetActive(true);
+            //nightPPE.SetActive(true);
         }
 
         if (nightHour == maxHours && currTime == TimeState.NightTime) // if total enemy killed == total enemy for a day
@@ -124,7 +116,7 @@ public class TimeManager : MonoBehaviour
             AudioManager.instance.PlaySFX(dayTransition);
             StartCoroutine("StartBGM");
             GameManager.instance.currentDay = day;
-            nightPPE.SetActive(false);
+            //nightPPE.SetActive(false);
         }
     }
 
