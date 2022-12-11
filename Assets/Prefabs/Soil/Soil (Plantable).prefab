@@ -5323,5 +5323,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6167efb47060fca4181d82eed1c269f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantBehavior: {fileID: 0}
+  plantBehavior: {fileID: 2931149664230067190}
   wilt: {fileID: 21300000, guid: da1b80cc6ab5caa41ae7d4490a502561, type: 3}

@@ -687,9 +687,9 @@ MonoBehaviour:
   zombieIntro: {fileID: 979470165}
   golemIntro: {fileID: 1454560319}
   slimeIntro: {fileID: 1043560629}
-  roseIntro: {fileID: 0}
-  bombIntro: {fileID: 0}
-  thornIntro: {fileID: 0}
+  roseIntro: {fileID: 6010026414858234615}
+  bombIntro: {fileID: 7519940919360635598}
+  thornIntro: {fileID: 4994610589494593496}
 --- !u!1 &860824166
 GameObject:
   m_ObjectHideFlags: 0
